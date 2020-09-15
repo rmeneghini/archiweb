@@ -1,0 +1,383 @@
+<?php
+class DescargasController extends Controller
+{
+	/**
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+	 * using two-column layout. See 'protected/views/layouts/column2.php'.
+	 */
+	public $layout = '//layouts/column2';
+	/**
+	 * Parametros - Data4
+	 */
+	public $parametros = array();
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array(
+				'allow',  // allow all users to perform 'index' and 'view' actions
+				'actions' => array('index', 'view'),
+				'users' => array('@'),
+			),
+			array(
+				'allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions' => array('create', 'update'),
+				'roles' => array('cliente'),
+			),
+			array(
+				'allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions' => array('admin', 'delete'),
+				'roles' => array('cliente'),
+			),
+			array(
+				'allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions' => array('importar'),
+				'roles' => array('admin'),
+			),
+			array(
+				'deny',  // deny all users
+				'users' => array('*'),
+			),
+		);
+	}
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	public function actionView($id)
+	{
+		$this->render('view', array(
+			'model' => $this->loadModel($id),
+		));
+	}
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionCreate()
+	{
+		$model = new Descargas;
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		if (isset($_POST['Descargas'])) {
+			$model->attributes = $_POST['Descargas'];
+			if ($model->save())
+				$this->redirect(array('view', 'id' => $model->id));
+		}
+		$modelProducto = new Producto('search');
+		$this->render('create', array(
+			'model' => $model,
+			'modelProducto' => $modelProducto,
+		));
+	}
+	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	public function actionUpdate($id)
+	{
+		$model = $this->loadModel($id);
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		if (isset($_POST['Descargas'])) {
+			$model->attributes = $_POST['Descargas'];
+			if ($model->save())
+				$this->redirect(array('view', 'id' => $model->id));
+		}
+		$modelProducto = new Producto('search');
+		$this->render('update', array(
+			'model' => $model,
+			'modelProducto' => $modelProducto,
+		));
+	}
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
+	 */
+	public function actionDelete($id)
+	{
+		if (Yii::app()->request->isPostRequest) {
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if (!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		} else
+			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
+	}
+	/**
+	 * Lists all models.
+	 */
+	public function actionIndex()
+	{
+		// segun el rol del usuario le permito ver datos
+		$criteria = new CDbCriteria;
+		if (!Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id)) {
+			// si no tiene el rol de admin solo vera los que cargo
+			$criteria->compare('usuario', Yii::app()->user->id, true);
+		}
+		$dataProvider = new CActiveDataProvider('Descargas', array('criteria' => $criteria));
+		$this->render('index', array(
+			'dataProvider' => $dataProvider,
+		));
+	}
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$this->layout='//layouts/column1';
+
+		$model = new Descargas('search');
+		$model->unsetAttributes();  // clear any default values
+
+		// segun el rol del usuario le permito ver datos
+		if (!Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id)) {
+			// si no tiene el rol de admin solo vera los que cargo
+			$model->usuario = Yii::app()->user->id;
+		}
+
+		if (isset($_GET['Descargas']))
+			$model->attributes = $_GET['Descargas'];
+
+		if(isset($_GET['export']) && $_GET['export']=='grilla'){
+				// marco como exportado
+				$contenido= $this->renderPartial('excel',array('dataProvider'=>Yii::app()->user->getState('export'),),true);
+				Yii::app()->request->sendFile('exportExcel.xls',$contenido);
+    			Yii::app()->user->clearState('export');		
+		}else if(isset($_GET['export']) && $_GET['export']=='csv'){
+				// marco como exportado	
+			$conf =  Configuracion::singleton();
+			$configuracion = $conf->getAll();
+				$delimitador = $configuracion['delimitador-csv'];					
+				$contenido= $this->renderPartial('csv',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
+				Yii::app()->request->sendFile('exportCSV.csv',Yii::app()->user->getState('exportCSV'));
+    			Yii::app()->user->clearState('exportCSV');		
+			}
+
+
+		$this->render('admin', array(
+			'model' => $model,
+		));
+	}
+
+	/* Importacion de archivos */
+	public function actionImportar()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'		
+		$model = new ImportarForm();
+		$reg = 0;
+		$archivos = CUploadedFile::getInstancesByName('archivo');
+		if ((count($archivos) > 0) or (isset($_POST["ImportarForm"]["archivos_subidos"]) and $_POST["ImportarForm"]["archivos_subidos"] == 1)) {
+			$model->attributes = $_POST["archivo"];
+			if (count($archivos) > 0) {
+				$model->archivo = $archivos[0];
+			} else {
+				$model->archivo = null;
+			}
+			if ($model->validate()) {
+				// aqui entra CFileValidator
+				//$filename = sys_get_temp_dir().'/'.$model->archivo->getName();
+				if (isset($_POST["ImportarForm"]["archivos_subidos"]) and $_POST["ImportarForm"]["archivos_subidos"] == 1) {
+					//recupero los archivos que esten en la carpeta temporal y los importo
+					$archivos_generados = $this->showFiles();
+				} else {
+					$model->archivo->saveAs($model->archivo->getName());
+					// trunco el archivo en mas chicos para agilizar la carga
+					$archivos_generados = $this->truncarArchivo($model->archivo->getName());
+					unlink($model->archivo->getName());/* borro el archivo original */
+				}
+				$errores = array();
+				// recupero los porcentajes min de hum por producto
+				$porc_min = MermasHumedad::getPorcentajesMin();
+				$conf =  Configuracion::singleton();
+				$configuracion = $conf->getAll();
+				$delimitador = $configuracion['delimitador-importacion'];				
+				foreach ($archivos_generados as  $nom_arch) {
+					$arch = fopen($nom_arch, 'r');
+					if (!feof($arch)) {
+						fgets($arch, 4096);
+					}					
+					while (!feof($arch)) {
+						$linea = explode($delimitador, fgets($arch, 4096));						
+						if (count($linea) >= 2) {							
+							if ($_POST["formulario"] == 'descarga-form') {
+								/**********************/
+								/*   DESCARGAS    */
+								/**********************/
+								// compruebo que la carta de porte no exista en el sistema								
+								$descarga=Descargas::model()->find('carta_porte='.$linea[1]);
+								if($descarga==null){
+									$descarga                = new Descargas();
+									//$descarga->fecha_carga	= date("Ymd"); // Fecha del día
+									$descarga->carta_porte	= $linea[1];								
+									$descarga->fecha_carta_porte	= date("Ymd", strtotime($linea[4]));
+									$descarga->cuit_titular	= $linea[8];
+									$descarga->producto = intval($linea[14]);
+									$descarga->cod_postal = $linea[20];
+									$descarga->kg_brutos_procedencia = intval($linea[21]);
+									$descarga->kg_tara_procedencia = intval($linea[22]);
+									$descarga->kg_netos_procedencia = intval($linea[23]);
+									$descarga->calidad = $linea[25]; // CALIDAD
+									$descarga->porcentaje_humedad = floatval($linea[26]);
+									$descarga->cuit_corredor = $linea[27];
+									$descarga->cuit_destino = $linea[33];
+									$descarga->chasis = $linea[39];
+									$descarga->acoplado = $linea[40];
+									$descarga->fecha_arribo	= date("Ymd", strtotime($linea[45]));
+									$descarga->fecha_descarga	= date("Ymd", strtotime($linea[46]));
+									$descarga->kg_brutos_destino = intval($linea[49]);
+									$descarga->kg_tara_destino = intval($linea[50]);
+									$descarga->kg_netos_destino = intval($linea[51]);
+									$descarga->kg_merma_total = intval($linea[52]);
+									$descarga->neto_aplicable = intval($linea[53]);
+									$descarga->analisis = $linea[54];	
+									$descarga->usuario =  Yii::app()->user->id;							
+									// si Calidad es CO, G1, G2, G3 analisis finalizado lleva true
+									$descarga->analisis_finalizado = intval(Descargas::analisisFinalizado($descarga->calidad));
+									// calculo otras mermas
+									$descarga->otras_mermas = intval($linea[52]);
+									$descarga->merma_humedad = 0;
+									if($descarga->porcentaje_humedad == 0 || $descarga->porcentaje_humedad < $porc_min[$descarga->producto]){
+										$descarga->porcentaje_humedad=$porc_min[$descarga->producto];
+									}else{
+										$mer_hum = MermasHumedad::model()->find(array('producto'=>$descarga->producto,'porcentaje_humedad'=>$descarga->porcentaje_humedad));
+										if($mer_hum){
+											$descarga->merma_humedad = (($mer_hum->valor * $descarga->kg_netos_destino)/100);
+											if($descarga->otras_mermas > $descarga->merma_humedad){
+												$descarga->otras_mermas = $descarga->otras_mermas - $descarga->merma_humedad;
+											}else{
+												$descarga->otras_mermas = 0;
+											}
+										}else{
+											Yii::log("Error importar descarga - No se encontro MermasHumedad Prod:".$descarga->producto." %: ".$descarga->porcentaje_humedad , CLogger::LEVEL_WARNING, __METHOD__);
+										}
+									}
+
+									set_time_limit(2); // agrego 2 segundo al tiempo limite de ejecucion de query
+									if (!$descarga->save()) {
+										Yii::log("Error importar descarga: " . var_export($descarga->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
+									}else{
+										$reg++;									
+									}
+								}
+							}
+						}
+					}  /* end while */
+					fclose($arch);
+					unlink($nom_arch);/* borro el archivo temporal q ya fue importado */
+				}/* end foreach*/
+				Yii::app()->user->setFlash('success', "Se importaron " . $reg . " registros nuevos.");
+				// save in runtime folder
+				if (!empty($importoOk)) {
+					Yii::log("### Ctas importadas: " . var_export($importoOk, true), CLogger::LEVEL_WARNING, __METHOD__);
+				}
+				if (!empty($actualizoOk)) {
+					Yii::log("### Ctas actualizadas: " . var_export($actualizoOk, true), CLogger::LEVEL_WARNING, __METHOD__);
+				}
+			}
+		}
+		$this->render('importar', array('model' => $model));
+	}
+
+	public  static function truncarArchivo($to_read, $size = 70000, $directory_temp = 'archivosTemp/')
+	{
+		//70000 equivale a 70Kb 
+		/**
+		 * Split a CSV file
+		 *
+		 * Each row is its own line.
+		 * Each cell is comma-separated
+		 * This file splits it into piece of size $size, add the header row
+		 * and names the resulting file filename_X.csv where filename is the
+		 * name of the original file and X is an incrementing integer.
+		 */
+
+		// Do not edit
+		$done = false;
+		$part = -1;
+		$files_result = array();
+		//print_r($to_read);exit();
+		if (($handle = fopen($to_read, "r")) !== FALSE) {
+			$header = fgets($handle);
+			$part = 0;
+			while ($done == false) {
+				$locA = ftell($handle); // gets the current location. START
+				fseek($handle, $size, SEEK_CUR); // jump the length of $size from current position
+				$tmp = fgets($handle); // read to the end of line. We want full lines
+				$locB = ftell($handle); // gets the current location. END
+				$span = ($locB - $locA);
+				fseek($handle, $locA, SEEK_SET); // jump to the START of this chunk
+				$chunk = fread($handle, $span); // read the chunk between START and END
+				file_put_contents($directory_temp . $to_read . '_' . $part . '.txt', $header . $chunk);
+				$files_result[] = $directory_temp . $to_read . '_' . $part . '.txt';
+				$part++;
+				if (strlen($chunk) < $size) $done = true;
+			}
+			fclose($handle);
+		}
+		return $files_result;
+	}
+	public  static function formatearFecha($fechaString)
+	{
+		// Esta funcion espera DD/MM/YY y retorna YY/MM/DD
+		$fecha = date_create_from_format('j/n/Y', $fechaString);
+		$result = date_format($fecha, 'y/m/d');
+		return $result;
+	}
+	public  static function showFiles($path = 'archivosTemp/')
+	{
+		$dir = opendir($path);
+		$files = array();
+		while ($current = readdir($dir)) {
+			if ($current != "." && $current != "..") {
+				if (is_dir($path . $current)) {
+					showFiles($path . $current . '/');
+				} else {
+					$files[] = $path . $current;
+				}
+			}
+		}
+		return $files;
+	}
+
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 * @param integer the ID of the model to be loaded
+	 */
+	public function loadModel($id)
+	{
+		$model = Descargas::model()->findByPk($id);
+		if ($model === null)
+			throw new CHttpException(404, 'The requested page does not exist.');
+		return $model;
+	}
+	/**
+	 * Performs the AJAX validation.
+	 * @param CModel the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if (isset($_POST['ajax']) && $_POST['ajax'] === 'descargas-form') {
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
+}
