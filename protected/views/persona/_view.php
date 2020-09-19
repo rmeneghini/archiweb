@@ -17,7 +17,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('direccion')); ?>:</b>
-	<?php echo CHtml::encode($data->direccion.' - '.$data->localidad.' - '.$data->provincia); ?>
+	<?php echo CHtml::encode($data->direccion.' - '.$data->idLocalidad->nombre.' - '.$data->idLocalidad->provincia0->nombre); ?>
 	&nbsp;-&nbsp;
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>

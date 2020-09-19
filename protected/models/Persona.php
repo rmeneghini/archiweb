@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is the model class for table "persona".
  *
@@ -16,13 +17,8 @@
  * @property integer $id_localidad
  *
  * The followings are the available model relations:
- * @property Cuenta[] $cuentas
- * @property DetalleCuenta[] $detalleCuentas
  * @property Localidad $idLocalidad
- 
- * @property string $localidad
- * @property string $codigo_postal
- * @property string $provincia
+ * @property Usuario $idUsuario
  */
 class Persona extends CActiveRecord
 {
@@ -33,6 +29,7 @@ class Persona extends CActiveRecord
 	{
 		return 'persona';
 	}
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -41,21 +38,19 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre', 'required'),
-			//array('dni, id_usuario, id_localidad', 'numerical', 'integerOnly'=>true),
-			array('dni, id_usuario', 'numerical', 'integerOnly'=>true),
-			array('nombre,localidad', 'length', 'max'=>100),
-			array('apellido', 'length', 'max'=>80),
+			array('dni, nombre, apellido, direccion, email, telefono_1, id_localidad', 'required'),
+			array('dni, id_usuario, id_localidad', 'numerical', 'integerOnly'=>true),
+			array('nombre', 'length', 'max'=>100),
+			array('apellido, email', 'length', 'max'=>80),
 			array('direccion', 'length', 'max'=>120),
-			array('email', 'length', 'max'=>70),
 			array('telefono_1, telefono_2', 'length', 'max'=>25),
-			array('codigo_postal', 'length', 'max'=>10),
-			array('provincia', 'length', 'max'=>90),
+			array('fecha_nac','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, dni, nombre, apellido, direccion, email, telefono_1, telefono_2, fecha_nac, id_usuario, localidad, provincia', 'safe', 'on'=>'search'),
+			array('id, dni, nombre, apellido, direccion, email, telefono_1, telefono_2, fecha_nac, id_usuario, id_localidad', 'safe', 'on'=>'search'),
 		);
 	}
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -64,11 +59,11 @@ class Persona extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cuentas' => array(self::HAS_MANY, 'Cuenta', 'id_persona'),
-			'detalleCuentas' => array(self::HAS_MANY, 'DetalleCuenta', 'id_persona'),
-			/*'idLocalidad' => array(self::BELONGS_TO, 'Localidad', 'id_localidad'),*/
+			'idLocalidad' => array(self::BELONGS_TO, 'Localidad', 'id_localidad'),
+			'idUsuario' => array(self::BELONGS_TO, 'Usuario', 'id_usuario'),
 		);
 	}
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -79,17 +74,16 @@ class Persona extends CActiveRecord
 			'dni' => 'Dni',
 			'nombre' => 'Nombre',
 			'apellido' => 'Apellido',
-			'direccion' => 'Direccion',
+			'direccion' => 'Dirección',
 			'email' => 'Email',
 			'telefono_1' => 'Telefono 1',
 			'telefono_2' => 'Telefono 2',
 			'fecha_nac' => 'Fecha Nac',
-			'id_usuario' => 'Id Usuario',
-			'localidad' => 'Localidad',
-			'provincia' => 'Provincia',
-			'codigo_postal' => 'Cod Postal',
+			'id_usuario' => 'Usuario',
+			'id_localidad' => 'Localidad',
 		);
 	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -105,7 +99,9 @@ class Persona extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
+
 		$criteria=new CDbCriteria;
+
 		$criteria->compare('id',$this->id);
 		$criteria->compare('dni',$this->dni);
 		$criteria->compare('nombre',$this->nombre,true);
@@ -116,13 +112,13 @@ class Persona extends CActiveRecord
 		$criteria->compare('telefono_2',$this->telefono_2,true);
 		$criteria->compare('fecha_nac',$this->fecha_nac,true);
 		$criteria->compare('id_usuario',$this->id_usuario);
-		$criteria->compare('localidad',$this->localidad,true);
-		$criteria->compare('provincia',$this->provincia,true);
-		$criteria->compare('codigo_postal',$this->codigo_postal,true);
+		$criteria->compare('id_localidad',$this->id_localidad);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

@@ -1,14 +1,14 @@
 <?php
 $this->breadcrumbs=array(
-	'Entidades'=>array('index'),
+	'Empresas'=>array('index'),
 	'Administrar',
 );
 $this->parametros=array(
-	'titulo'=>'Administrar Entidades',
+	'titulo'=>'Administrar Empresas',
 );
 $this->menu=array(
-	array('label'=>'Listar Entidades', 'url'=>array('index')),
-	array('label'=>'Crear Entidad', 'url'=>array('create')),
+	array('label'=>'Listar Empresa', 'url'=>array('index')),
+	array('label'=>'Crear Empresa', 'url'=>array('create')),
 );
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -16,14 +16,14 @@ $('.search-form').toggle();
 return false;
 });
 $('.search-form form').submit(function(){
-$.fn.yiiGridView.update('entidad-grid', {
+$.fn.yiiGridView.update('empresa-grid', {
 data: $(this).serialize()
 });
 return false;
 });
 ");
 ?>
-<h1>Administrar Entidades</h1>
+<h1>Administrar Empresas</h1>
 <p>
 También puede escribir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 ó <b>=</b>) al principio de cada uno de los valores de búsqueda para especificar cómo se debe hacer la comparación.
@@ -35,16 +35,13 @@ También puede escribir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, 
 )); ?>
 </div><!-- search-form -->
 <?php $this->widget('booster.widgets.TbGridView',array(
-'id'=>'entidad-grid',
+'id'=>'empresa-grid',
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
 		'id',
 		'cuit',
-		array('name'=>'tipo_entidad','value'=>'$data->tipoEntidad->descripcion','filter'=>TipoEntidad::getTipoEntidad('id')),
-		array('name'=>'exportar','value' =>'$data->exportar ? "SI": "NO"'),		
-		'razonSocial',
-		'direccion',
+		'razon_social',
 array(
 'class'=>'booster.widgets.TbButtonColumn',
 ),

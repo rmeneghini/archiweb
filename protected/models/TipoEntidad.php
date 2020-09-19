@@ -95,4 +95,8 @@ class TipoEntidad extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public static function getTipoEntidad($clave) {
+		return  CHtml::listData(TipoEntidad::model()->findAll(),$clave,'descripcion');
+	}
 }

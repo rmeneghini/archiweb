@@ -35,6 +35,7 @@ class Entidad extends CActiveRecord
 			array('cuit, tipo_entidad, razonSocial, direccion', 'required'),
 			array('tipo_entidad, exportar', 'numerical', 'integerOnly'=>true),
 			array('cuit', 'length', 'max'=>12),
+			array('cuit', 'unique', 'message' => 'CUIT ya ingresado al sistema'),
 			array('razonSocial, direccion', 'length', 'max'=>110),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -64,8 +65,8 @@ class Entidad extends CActiveRecord
 			'cuit' => 'Cuit',
 			'tipo_entidad' => 'Tipo Entidad',
 			'exportar' => 'Exportar',
-			'razonSocial' => 'Razon Social',
-			'direccion' => 'Direccion',
+			'razonSocial' => 'Razón Social',
+			'direccion' => 'Dirección',
 		);
 	}
 

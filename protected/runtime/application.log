@@ -1,94 +1,31 @@
-2020/09/14 13:36:07 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (170)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 13:38:31 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (170)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 13:53:16 [error] [exception.CException] CException: La propiedad "Descargas"."productos" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
+2020/09/18 08:02:07 [error] [php] Undefined variable: data (C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:52)
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('productos')
-#1 C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php(614) : eval()'d code(1): CActiveRecord->__get('productos')
-#2 C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php(614): eval()
-#3 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CDataColumn.php(142): CComponent->evaluateExpression('$data->producto...', Array)
-#4 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridColumn.php(231): CDataColumn->getDataCellContent(0)
-#5 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridColumn.php(154): CGridColumn->renderDataCellContent(0, Object(Descargas))
-#6 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(639): CGridColumn->renderDataCell(0)
-#7 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell(Object(TbDataColumn), 0)
-#8 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow(0)
-#9 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
-#10 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
-#11 [internal function]: CBaseListView->renderSection(Array)
-#12 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
-#13 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(149): CBaseListView->renderContent()
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(182): CBaseListView->run()
-#15 C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php(40): CBaseController->widget('booster.widgets...', Array)
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('admin', Array, true)
-#20 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(158): CController->render('admin', Array)
-#21 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#22 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#23 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#24 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#25 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#26 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#27 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#28 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#29 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#30 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#31 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#32 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#33 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#34 {main}
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): DescargasController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): DescargasController->render()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
 REQUEST_URI=/archiweb/index.php/descargas/admin
----
-2020/09/14 14:44:08 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "create" in C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php:286
+in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php (52)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (184)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/18 08:11:33 [error] [exception.ParseError] ParseError: syntax error, unexpected '>' in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:104
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('create')
-#1 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#3 {main}
-REQUEST_URI=/archiweb/index.php/create
-HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
----
-2020/09/14 15:50:26 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (171)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 15:50:44 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (171)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 16:04:10 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (171)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 16:04:10 [error] [php] Undefined index: delimitador-importacio (C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php:192)
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
-#1 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#9 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#10 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
-REQUEST_URI=/archiweb/index.php/descargas/importar
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (192)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 16:04:32 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (171)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 16:04:52 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (171)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/14 16:27:33 [error] [exception.Error] Error: Call to a member function getData() on null in C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php:4
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
-#1 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(168): CController->renderPartial('csv', Array, true)
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('admin', Array, true)
+#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): CController->render('admin', Array)
 #4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
 #5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
 #6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
@@ -103,71 +40,194 @@ Stack trace:
 #15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
 #17 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
+REQUEST_URI=/archiweb/index.php/descargas/admin
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/index
+---
+2020/09/18 08:19:56 [error] [php] Use of undefined constant X - assumed 'X' (this will throw an Error in a future version of PHP) (C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php(614) : eval()'d code:1)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridColumn.php(231): TbDataColumn->getDataCellContent()
+#1 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridColumn.php(154): TbDataColumn->renderDataCellContent()
+#2 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(639): TbDataColumn->renderDataCell()
+#3 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(623): TbGridView->renderDataCell()
+#4 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(579): TbGridView->renderTableRow()
+#5 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\grid\CGridView.php(489): TbGridView->renderTableBody()
+#6 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(181): TbGridView->renderItems()
+#7 unknown(0): TbGridView->renderSection()
+#8 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#9 C:\xampp\htdocs\archiweb\protected\framework\zii\widgets\CBaseListView.php(149): TbGridView->renderContent()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(182): TbGridView->run()
+#11 C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php(47): DescargasController->widget()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): DescargasController->renderInternal()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): DescargasController->renderPartial()
+#16 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): DescargasController->render()
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#20 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#22 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#23 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#24 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#25 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#26 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#27 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#28 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#29 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/descargas/admin
+in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php (47)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (184)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/18 11:11:12 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ')' in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:61
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('admin', Array, true)
+#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): CController->render('admin', Array)
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
+#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/archiweb/index.php/descargas/admin
+HTTP_REFERER=http://localhost/archiweb/index.php/site/login
+---
+2020/09/18 11:11:25 [error] [exception.ParseError] ParseError: syntax error, unexpected '?>', expecting ')' in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:62
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('admin', Array, true)
+#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): CController->render('admin', Array)
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
+#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/archiweb/index.php/descargas/admin
+HTTP_REFERER=http://localhost/archiweb/index.php/site/login
+---
+2020/09/18 12:29:13 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:119)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): DescargasController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): DescargasController->render()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/descargas/admin
+in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php (119)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (184)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/18 14:42:56 [error] [php] Undefined variable: data (C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php:72)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): DescargasController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(184): DescargasController->render()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/descargas/admin
+in C:\xampp\htdocs\archiweb\protected\views\descargas\admin.php (72)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (184)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/18 17:12:40 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "descarga/analisis" in C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descarga/analis...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/archiweb/index.php/descarga/analisis
 HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/14 16:29:50 [error] [exception.CException] CException: La propiedad "Descargas"."exportado" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:173
+2020/09/18 17:17:28 [error] [exception.CHttpException.400] CHttpException: Su solicitud es inválida. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:337
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(162): CComponent->__set('exportado', 1)
-#1 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(5): CActiveRecord->__set('exportado', 1)
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(168): CController->renderPartial('csv', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#17 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#18 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#19 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('analisis')
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/anali...')
+#10 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#12 {main}
+REQUEST_URI=/archiweb/index.php/descargas/analisis
 HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/14 17:03:36 [error] [exception.CException] CException: La propiedad "Descargas"."exportado" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:173
+2020/09/18 17:31:57 [error] [php] Trying to get property 'bonifica_rebaja' of non-object (C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php:402)
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(162): CComponent->__set('exportado', 1)
-#1 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(5): CActiveRecord->__set('exportado', 1)
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(168): CController->renderPartial('csv', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#17 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#18 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#19 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
-HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
----
-2020/09/14 17:04:18 [error] [exception.CException] CException: La propiedad "Descargas"."cuotas" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/descargas/analisis
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (402)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 13:54:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `descargas` `t` WHERE t.cuit_destion IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1).
+in C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php (4)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (178)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 13:54:51 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. The SQL statement executed was: SELECT * FROM `descargas` `t` WHERE t.cuit_destion IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1) in C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php:543
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('cuotas')
-#1 C:\xampp\htdocs\archiweb\protected\views\descargas\_csv.php(31): CActiveRecord->__get('cuotas')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(7): CController->renderPartial('_csv', Array)
+#0 C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CActiveDataProvider.php(199): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#5 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(4): CDataProvider->getData()
 #6 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
 #7 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
 #8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#9 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(168): CController->renderPartial('csv', Array, true)
+#9 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(178): CController->renderPartial('csv', Array, true)
 #10 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
 #11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
 #12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
@@ -185,440 +245,1688 @@ Stack trace:
 REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
 HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/14 17:06:14 [error] [php] array_keys() expects parameter 1 to be array, object given (C:\xampp\htdocs\archiweb\protected\views\descargas\_csv.php:31)
+2020/09/19 13:56:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `descargas` `t` WHERE t.cuit_destion IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1).
+in C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php (4)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (178)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 13:56:07 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. The SQL statement executed was: SELECT * FROM `descargas` `t` WHERE t.cuit_destion IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1) in C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php:543
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): DescargasController->renderInternal()
-#1 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
-#2 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(7): DescargasController->renderPartial()
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): DescargasController->renderInternal()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): DescargasController->renderFile()
-#6 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(168): DescargasController->renderPartial()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#18 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+#0 C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CActiveDataProvider.php(199): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#5 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(4): CDataProvider->getData()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(178): CController->renderPartial('csv', Array, true)
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
+#20 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
+#21 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#23 {main}
 REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
-in C:\xampp\htdocs\archiweb\protected\views\descargas\_csv.php (31)
-in C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php (7)
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (168)
-2020/09/15 07:03:33 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:40:41 [error] [php] reset() expects parameter 1 to be array, int given (C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php:196)
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php(88): Text_Diff_Engine_native->_compareseq()
-#1 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff.php(56): Text_Diff_Engine_native->diff()
-#2 C:\xampp\htdocs\archiweb\protected\framework\gii\components\TextDiff.php(18): Text_Diff->__construct()
-#3 C:\xampp\htdocs\archiweb\protected\framework\gii\CCodeGenerator.php(109): compare()
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): ModelGenerator->actionDiff()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(286): ModelGenerator->runAction()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): ModelGenerator->runActionWithFilters()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): ModelGenerator->run()
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#10 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#11 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
-REQUEST_URI=/archiweb/index.php/gii/model/diff/id/0
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:40:52 [error] [php] reset() expects parameter 1 to be array, int given (C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php:196)
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php(88): Text_Diff_Engine_native->_compareseq()
-#1 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff.php(56): Text_Diff_Engine_native->diff()
-#2 C:\xampp\htdocs\archiweb\protected\framework\gii\components\TextDiff.php(18): Text_Diff->__construct()
-#3 C:\xampp\htdocs\archiweb\protected\framework\gii\CCodeGenerator.php(109): compare()
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): ModelGenerator->actionDiff()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(286): ModelGenerator->runAction()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): ModelGenerator->runActionWithFilters()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): ModelGenerator->run()
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#10 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#11 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
-REQUEST_URI=/archiweb/index.php/gii/model/diff/id/0
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:41:08 [error] [php] reset() expects parameter 1 to be array, int given (C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php:196)
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php(88): Text_Diff_Engine_native->_compareseq()
-#1 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff.php(56): Text_Diff_Engine_native->diff()
-#2 C:\xampp\htdocs\archiweb\protected\framework\gii\components\TextDiff.php(18): Text_Diff->__construct()
-#3 C:\xampp\htdocs\archiweb\protected\framework\gii\CCodeGenerator.php(109): compare()
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): ModelGenerator->actionDiff()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(286): ModelGenerator->runAction()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): ModelGenerator->runActionWithFilters()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): ModelGenerator->run()
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#10 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#11 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
-REQUEST_URI=/archiweb/index.php/gii/model/diff/id/0
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:51:58 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:51:58 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%G2% LIMIT 1' at line 1. La sentencia SQL ejecutada fue: SELECT * FROM `rubro` `t` WHERE valores LIKE %G2% LIMIT 1.
-in C:\xampp\htdocs\archiweb\protected\models\Descargas.php (203)
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (253)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:51:58 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%G2% LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `rubro` `t` WHERE valores LIKE %G2% LIMIT 1 in C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php:543
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
-#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryRow()
-#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1464): CActiveRecord->query(Object(CDbCriteria))
-#3 C:\xampp\htdocs\archiweb\protected\models\Descargas.php(203): CActiveRecord->find('valores LIKE %G...')
-#4 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1103): Descargas->afterSave()
-#5 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(811): CActiveRecord->insert(NULL)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(253): CActiveRecord->save()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionImportar()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('importar')
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/impor...')
-#18 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#20 {main}
-REQUEST_URI=/archiweb/index.php/descargas/importar
-HTTP_REFERER=http://localhost/archiweb/index.php/descargas/importar
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/15 07:53:41 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
+2020/09/19 13:56:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `descargas` `t` WHERE t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1).
+in C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php (4)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (178)
 in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 07:54:26 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 08:15:04 [error] [exception.CDbException] CDbException: La clase Active Record "Descargas" contiene una configuración inválida para la relación "analisis0". La misma debe especificar el tipo de relación, la clase active record relacionada y la clave foránea. in C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php:2439
+2020/09/19 13:56:36 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'entidad.exporta' in 'where clause'. The SQL statement executed was: SELECT * FROM `descargas` `t` WHERE t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exporta=1) in C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php:543
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(2418): CActiveRecordMetaData->addRelation('analisis0', Array)
-#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Descargas))
-#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
-#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(146): CActiveRecord->__construct('search')
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#17 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin
-HTTP_REFERER=http://localhost/archiweb/index.php/site/login
+#0 C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CActiveDataProvider.php(199): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#5 C:\xampp\htdocs\archiweb\protected\views\descargas\csv.php(4): CDataProvider->getData()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(178): CController->renderPartial('csv', Array, true)
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
+#20 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
+#21 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#23 {main}
+REQUEST_URI=/archiweb/index.php/descargas/admin?export=csv
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/15 08:18:32 [error] [exception.CDbException] CDbException: La clase Active Record "Descargas" contiene una configuración inválida para la relación "analisis0". La misma debe especificar el tipo de relación, la clase active record relacionada y la clave foránea. in C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php:2439
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(2418): CActiveRecordMetaData->addRelation('analisis0', Array)
-#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Descargas))
-#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
-#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(146): CActiveRecord->__construct('search')
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#17 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin
-HTTP_REFERER=http://localhost/archiweb/index.php/site/login
----
-2020/09/15 08:19:06 [error] [exception.CDbException] CDbException: La clase Active Record "Descargas" contiene una configuración inválida para la relación "analisis0". La misma debe especificar el tipo de relación, la clase active record relacionada y la clave foránea. in C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php:2439
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(2418): CActiveRecordMetaData->addRelation('analisis0', Array)
-#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Descargas))
-#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
-#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(146): CActiveRecord->__construct('search')
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#17 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin
-HTTP_REFERER=http://localhost/archiweb/index.php/site/login
----
-2020/09/15 08:22:55 [error] [exception.CDbException] CDbException: La clase Active Record "Descargas" contiene una configuración inválida para la relación "analisis0". La misma debe especificar el tipo de relación, la clase active record relacionada y la clave foránea. in C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php:2439
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(2418): CActiveRecordMetaData->addRelation('analisis0', Array)
-#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Descargas))
-#2 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
-#3 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(146): CActiveRecord->__construct('search')
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAdmin()
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('admin')
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
-#15 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#16 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#17 {main}
-REQUEST_URI=/archiweb/index.php/descargas/admin
-HTTP_REFERER=http://localhost/archiweb/index.php/site/login
----
-2020/09/15 08:24:06 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
+2020/09/19 14:30:58 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (198)
 in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 08:28:40 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
 in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 09:28:18 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "mermasHumedad" in C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php:286
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_remitente_comercial' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_remitente_comercial' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:58 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+  'cuit_intermediario' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:30:59 [warning] [DescargasController::actionImportar] Error importar descarga: array (
+  'cuit_destino' => 
+  array (
+    0 => 'El cuit ingresado no esta registrado como una entidad.',
+  ),
+)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (288)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 14:43:26 [error] [exception.CException] CException: La propiedad "Analisis"."createHtmlTable" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
 Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermasHumedad')
-#1 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#3 {main}
-REQUEST_URI=/archiweb/index.php/mermasHumedad
----
-2020/09/15 10:16:19 [error] [php] include(double.php): failed to open stream: No such file or directory (C:\xampp\htdocs\archiweb\protected\framework\YiiBase.php:463)
-Stack trace:
-#0 unknown(0): spl_autoload_call()
-#1 C:\xampp\htdocs\archiweb\protected\framework\YiiBase.php(310): class_exists()
-#2 C:\xampp\htdocs\archiweb\protected\framework\validators\CValidator.php(174): import()
-#3 C:\xampp\htdocs\archiweb\protected\framework\base\CModel.php(287): createValidator()
-#4 C:\xampp\htdocs\archiweb\protected\framework\base\CModel.php(260): MermasHumedad->createValidators()
-#5 C:\xampp\htdocs\archiweb\protected\framework\base\CModel.php(304): MermasHumedad->getValidators()
-#6 C:\xampp\htdocs\archiweb\protected\framework\web\helpers\CHtml.php(1520): MermasHumedad->isAttributeRequired()
-#7 C:\xampp\htdocs\archiweb\protected\framework\web\widgets\CActiveForm.php(600): activeLabelEx()
-#8 C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php(2413): TbActiveForm->labelEx()
-#9 C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php(2255): TbActiveForm->horizontalGroup()
-#10 C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php(1235): TbActiveForm->customFieldGroupInternal()
-#11 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\_form.php(9): TbActiveForm->dropDownListGroup()
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): MermasHumedadController->renderInternal()
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): MermasHumedadController->renderFile()
-#15 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\create.php(15): MermasHumedadController->renderPartial()
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): MermasHumedadController->renderInternal()
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): MermasHumedadController->renderFile()
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): MermasHumedadController->renderPartial()
-#20 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(72): MermasHumedadController->render()
-#21 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): MermasHumedadController->actionCreate()
-#22 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
-#23 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): MermasHumedadController->runAction()
-#24 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#25 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
-#26 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): MermasHumedadController->filterAccessControl()
-#27 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
-#28 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#29 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): MermasHumedadController->runActionWithFilters()
-#30 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): MermasHumedadController->run()
-#31 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#32 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#33 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
-REQUEST_URI=/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
-in C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php (2413)
-in C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php (2255)
-in C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php (1235)
-2020/09/15 10:35:53 [error] [exception.CException] CException: La propiedad "MermasHumedad"."productos" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('productos')
-#1 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\view.php(4): CActiveRecord->__get('productos')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('view', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(54): CController->render('view', Array)
-#7 [internal function]: MermasHumedadController->actionView('15', '13.5')
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(MermasHumedadController), Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MermasHumedadController), Object(ReflectionMethod), Array)
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('view')
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermashumedad/v...')
-#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#21 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#22 {main}
-REQUEST_URI=/archiweb/index.php/mermashumedad/view?producto=15&porcentaje_humedad=13.5
-HTTP_REFERER=http://localhost/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
----
-2020/09/15 10:36:33 [error] [exception.CException] CException: La propiedad "MermasHumedad"."productos" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('productos')
-#1 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\view.php(4): CActiveRecord->__get('productos')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('view', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(54): CController->render('view', Array)
-#7 [internal function]: MermasHumedadController->actionView('23', '13.5')
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(MermasHumedadController), Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MermasHumedadController), Object(ReflectionMethod), Array)
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('view')
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermashumedad/v...')
-#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#21 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#22 {main}
-REQUEST_URI=/archiweb/index.php/mermashumedad/view?producto=23&porcentaje_humedad=13.5
-HTTP_REFERER=http://localhost/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
----
-2020/09/15 10:39:01 [error] [exception.CException] CException: La propiedad "MermasHumedad"."productos" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('productos')
-#1 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\view.php(4): CActiveRecord->__get('productos')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('view', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(54): CController->render('view', Array)
-#7 [internal function]: MermasHumedadController->actionView('23', '13.5')
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(MermasHumedadController), Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MermasHumedadController), Object(ReflectionMethod), Array)
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('view')
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermashumedad/v...')
-#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#21 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#22 {main}
-REQUEST_URI=/archiweb/index.php/mermashumedad/view?producto=23&porcentaje_humedad=13.5
-HTTP_REFERER=http://localhost/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
----
-2020/09/15 10:39:03 [error] [exception.CException] CException: La propiedad "MermasHumedad"."productos" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('productos')
-#1 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\view.php(4): CActiveRecord->__get('productos')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('view', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(54): CController->render('view', Array)
-#7 [internal function]: MermasHumedadController->actionView('23', '13.5')
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(MermasHumedadController), Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MermasHumedadController), Object(ReflectionMethod), Array)
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('view')
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermashumedad/v...')
-#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#21 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#22 {main}
-REQUEST_URI=/archiweb/index.php/mermashumedad/view?producto=23&porcentaje_humedad=13.5
-HTTP_REFERER=http://localhost/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
----
-2020/09/15 10:40:57 [error] [exception.CException] CException: La propiedad "MermasHumedad"."rubros" no se encuentra definida. in C:\xampp\htdocs\archiweb\protected\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('rubros')
-#1 C:\xampp\htdocs\archiweb\protected\views\mermasHumedad\view.php(4): CActiveRecord->__get('rubros')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
-#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
-#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): CController->renderPartial('view', Array, true)
-#6 C:\xampp\htdocs\archiweb\protected\controllers\MermasHumedadController.php(54): CController->render('view', Array)
-#7 [internal function]: MermasHumedadController->actionView('23', '13.5')
-#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(MermasHumedadController), Array)
-#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MermasHumedadController), Object(ReflectionMethod), Array)
-#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
-#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
-#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
-#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
-#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('view')
-#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('mermashumedad/v...')
-#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
-#21 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
-#22 {main}
-REQUEST_URI=/archiweb/index.php/mermashumedad/view?producto=23&porcentaje_humedad=13.5
-HTTP_REFERER=http://localhost/archiweb/index.php/mermashumedad/create?producto=&porcentaje_humedad=
----
-2020/09/15 12:08:18 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:11:57 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:12:26 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:15:16 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:17:36 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:18:42 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:23:07 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:23:33 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:25:57 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
-in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:25:57 [error] [exception.ParseError] ParseError: syntax error, unexpected 'public' (T_PUBLIC), expecting ';' or ',' in C:\xampp\htdocs\archiweb\protected\models\MermasHumedad.php:20
-Stack trace:
-#0 [internal function]: YiiBase::autoload('MermasHumedad')
-#1 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(208): spl_autoload_call('MermasHumedad')
-#2 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionImportar()
+#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(145): CComponent->__get('createHtmlTable')
+#1 C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php(404): CActiveRecord->__get('createHtmlTable')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): DescargasController->actionAnalisis()
 #3 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
 #4 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
 #5 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
@@ -627,17 +1935,201 @@ Stack trace:
 #8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
 #9 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
 #10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('importar')
-#12 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/impor...')
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('analisis')
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/anali...')
 #13 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
 #14 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
 #15 {main}
-REQUEST_URI=/archiweb/index.php/descargas/importar
-HTTP_REFERER=http://localhost/archiweb/index.php/descargas/importar
+REQUEST_URI=/archiweb/index.php/descargas/analisis
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
 ---
-2020/09/15 12:27:07 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
+2020/09/19 15:17:14 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ')' in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php:405
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(276): CWebApplication->createController('admin/')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('descargas/admin')
+#2 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#4 {main}
+REQUEST_URI=/archiweb/index.php/descargas/admin
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
+---
+2020/09/19 15:24:37 [error] [php] Trying to get property 'razon_social' of non-object (C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php:69)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\views\usuario\update.php(21): UsuarioController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): UsuarioController->renderInternal()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): UsuarioController->renderPartial()
+#6 C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php(194): UsuarioController->render()
+#7 unknown(0): UsuarioController->actionUpdate()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): UsuarioController->runAction()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): UsuarioController->filterAccessControl()
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): UsuarioController->runActionWithFilters()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): UsuarioController->run()
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/usuario/update/8
+in C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php (69)
+in C:\xampp\htdocs\archiweb\protected\views\usuario\update.php (21)
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (194)
+2020/09/19 15:24:45 [error] [php] Trying to get property 'razon_social' of non-object (C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php:69)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\views\usuario\update.php(21): UsuarioController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): UsuarioController->renderInternal()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): UsuarioController->renderPartial()
+#6 C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php(194): UsuarioController->render()
+#7 unknown(0): UsuarioController->actionUpdate()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): UsuarioController->runAction()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): UsuarioController->filterAccessControl()
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): UsuarioController->runActionWithFilters()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): UsuarioController->run()
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/usuario/update/8
+in C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php (69)
+in C:\xampp\htdocs\archiweb\protected\views\usuario\update.php (21)
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (194)
+2020/09/19 15:25:59 [error] [php] Trying to get property 'razon_social' of non-object (C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php:69)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#1 C:\xampp\htdocs\archiweb\protected\views\usuario\update.php(21): UsuarioController->renderPartial()
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\CBaseController.php(95): UsuarioController->renderInternal()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(872): UsuarioController->renderFile()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(785): UsuarioController->renderPartial()
+#6 C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php(194): UsuarioController->render()
+#7 unknown(0): UsuarioController->actionUpdate()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): UsuarioController->runAction()
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): UsuarioController->filterAccessControl()
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): UsuarioController->runActionWithFilters()
+#18 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): UsuarioController->run()
+#19 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/usuario/update/8
+in C:\xampp\htdocs\archiweb\protected\views\usuario\_form.php (69)
+in C:\xampp\htdocs\archiweb\protected\views\usuario\update.php (21)
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (194)
+2020/09/19 15:28:32 [warning] [application] Error al establecer unsafe al atributo "list-emp-json" de "Usuario".
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (149)
 in C:\xampp\htdocs\archiweb\index.php (25)
-2020/09/15 12:27:34 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
-in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (188)
+2020/09/19 15:28:32 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-1' for key 'PRIMARY'. La sentencia SQL ejecutada fue: INSERT INTO `usuario_empresa` (`usuario`, `empresa`) VALUES (:yp0, :yp1).
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (179)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 15:28:32 [error] [exception.CDbException] CDbException: CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '8-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `usuario_empresa` (`usuario`, `empresa`) VALUES (:yp0, :yp1) in C:\xampp\htdocs\archiweb\protected\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(1083): CDbCommand->execute()
+#1 C:\xampp\htdocs\archiweb\protected\framework\db\ar\CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php(179): CActiveRecord->save()
+#3 [internal function]: UsuarioController->actionUpdate('8')
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(UsuarioController), Array)
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UsuarioController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('update')
+#15 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/update')
+#16 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#18 {main}
+REQUEST_URI=/archiweb/index.php/usuario/update/8
+HTTP_REFERER=http://localhost/archiweb/index.php/usuario/update/8
+---
+2020/09/19 15:53:57 [warning] [application] Error al establecer unsafe al atributo "list-emp-json" de "Usuario".
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (149)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 15:54:08 [warning] [application] Error al establecer unsafe al atributo "list-emp-json" de "Usuario".
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (149)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 15:54:15 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "actionEliminarEmp" solicitada. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(270): CController->missingAction('actionEliminarE...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('actionEliminarE...')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/actionE...')
+#3 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#5 {main}
+REQUEST_URI=/archiweb/index.php/usuario/actionEliminarEmp?usuario=8&empresa=2
+HTTP_REFERER=http://localhost/archiweb/index.php/usuario/update/8
+---
+2020/09/19 15:54:59 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "actionEliminarEmp" solicitada. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(270): CController->missingAction('actionEliminarE...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('actionEliminarE...')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/actionE...')
+#3 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#5 {main}
+REQUEST_URI=/archiweb/index.php/usuario/actionEliminarEmp?usuario=8&empresa=2
+HTTP_REFERER=http://localhost/archiweb/index.php/usuario/update/8
+---
+2020/09/19 15:55:59 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "actionEliminarEmp" solicitada. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(270): CController->missingAction('actionEliminarE...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('actionEliminarE...')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/actionE...')
+#3 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#5 {main}
+REQUEST_URI=/archiweb/index.php/usuario/actionEliminarEmp?usuario=8&empresa=2
+HTTP_REFERER=http://localhost/archiweb/index.php/usuario/update/8
+---
+2020/09/19 15:56:03 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "actionEliminarEmp" solicitada. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(270): CController->missingAction('actionEliminarE...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('actionEliminarE...')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/actionE...')
+#3 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#5 {main}
+REQUEST_URI=/archiweb/index.php/usuario/actionEliminarEmp?usuario=8&empresa=2
+---
+2020/09/19 15:57:06 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "actionEliminarEmp" solicitada. in C:\xampp\htdocs\archiweb\protected\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(270): CController->missingAction('actionEliminarE...')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): CController->run('actionEliminarE...')
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/actionE...')
+#3 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#5 {main}
+REQUEST_URI=/archiweb/index.php/usuario/actionEliminarEmp?usuario=8&empresa=2
+---
+2020/09/19 15:57:36 [warning] [application] Error al establecer unsafe al atributo "list-emp-json" de "Usuario".
+in C:\xampp\htdocs\archiweb\protected\controllers\UsuarioController.php (149)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/19 16:02:08 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (394)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (74)
 in C:\xampp\htdocs\archiweb\index.php (25)

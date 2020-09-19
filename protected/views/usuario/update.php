@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Actualizar Usuario <?php echo $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form',array('model'=>$model,'rol'=>$rol)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model,'rol'=>$rol,'empresas_asociadas'=>$empresas_asociadas,'empresas'=>$empresas)); ?>

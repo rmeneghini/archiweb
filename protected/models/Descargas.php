@@ -6,9 +6,9 @@
  * The followings are the available columns in table 'descargas':
  * @property integer $id
  * @property string $fecha_carga
- * @property integer $carta_porte
+ * @property string $carta_porte
  * @property string $fecha_carta_porte
- * @property integer $cuit_titular
+ * @property string $cuit_titular
  * @property integer $producto
  * @property string $cod_postal
  * @property integer $kg_brutos_procedencia
@@ -17,8 +17,8 @@
  * @property string $calidad
  * @property double $porcentaje_humedad
  * @property double $merma_humedad
- * @property integer $cuit_corredor
- * @property integer $cuit_destino
+ * @property string $cuit_corredor
+ * @property string $cuit_destino
  * @property string $chasis
  * @property string $acoplado
  * @property string $fecha_arribo
@@ -35,6 +35,8 @@
  * @property integer $fumigado
  * @property integer $usuario
  * @property integer $analisis_finalizado
+ * @property string $cuit_intermediario
+ * @property string $cuit_remitente_comercial
  *
  * The followings are the available model relations:
  * @property Producto $producto0
@@ -43,15 +45,16 @@
 class Descargas extends CActiveRecord
 {
 
-	function init(){
-		if($this->isNewRecord) {
-		// set defaults
-		$this->fecha_carga	= date("Ymd");
-		$this->analisis_finalizado = 0;
-		$this->porcentaje_zaranda = 0;
-		$this->merma_humedad = 0;
-		$this->otras_mermas = 0;
-		$this->merma_zaranda = 0;		
+	function init()
+	{
+		if ($this->isNewRecord) {
+			// set defaults
+			$this->fecha_carga	= date("Ymd");
+			$this->analisis_finalizado = 0;
+			$this->porcentaje_zaranda = 0;
+			$this->merma_humedad = 0;
+			$this->otras_mermas = 0;
+			$this->merma_zaranda = 0;
 		}
 	}
 
@@ -71,20 +74,33 @@ class Descargas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario, analisis_finalizado', 'required'),
-			array('carta_porte, cuit_titular, producto, cuit_corredor, cuit_destino, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly'=>true),
-			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda', 'numerical', 'integerOnly'=>false),
+			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
+			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
+			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, merma_humedad, porcentaje_zaranda', 'numerical'),
-			array('cod_postal', 'length', 'max'=>6),
-			array('calidad', 'length', 'max'=>3),
-			array('chasis, acoplado', 'length', 'max'=>7),
-			array('analisis', 'length', 'max'=>110),
-			array('fecha_carta_porte', 'safe'),
+			array('carta_porte', 'length', 'max' => 20,'min'=> 9),
+			array('carta_porte','unique','message' => 'Carta de porta ya ingresada al sistema'),
+			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'length', 'max' => 12),
+			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'validar_cuit'),
+			array('cod_postal', 'length', 'max' => 6),
+			array('calidad', 'length', 'max' => 3),
+			array('chasis, acoplado', 'length', 'max' => 8),
+			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado', 'safe', 'on'=>'search'),
+			array('id, fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
 		);
 	}
+
+	// funcion eu valida los cuit que esten en la table entidad
+	public function validar_cuit($attribute,$params) {		
+		
+		$entidad=Entidad::model()->find('cuit=?',array($this->$attribute));            
+		if(!$entidad) {
+			$this->addError($attribute, 'El cuit ingresado no esta registrado como una entidad.');                
+		}
+	}
+	
 
 	/**
 	 * @return array relational rules.
@@ -96,7 +112,7 @@ class Descargas extends CActiveRecord
 		return array(
 			'producto0' => array(self::BELONGS_TO, 'Producto', 'producto'),
 			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario'),
-			'analisis0' => array(self::HAS_ONE, 'Analisis', array('carta_porte'=>'carta_porte')),
+			'analisis0' => array(self::HAS_ONE, 'Analisis', array('carta_porte' => 'carta_porte')),
 		);
 	}
 
@@ -137,6 +153,8 @@ class Descargas extends CActiveRecord
 			'fumigado' => 'Fumigado',
 			'usuario' => 'Usuario',
 			'analisis_finalizado' => 'Analisis Finalizado',
+			'cuit_intermediario' => 'Cuit Intermediario',
+			'cuit_remitente_comercial' => 'Cuit Remitente Comercial',
 		);
 	}
 
@@ -156,68 +174,90 @@ class Descargas extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('fecha_carga',$this->fecha_carga,true);
-		$criteria->compare('carta_porte',$this->carta_porte);
-		$criteria->compare('fecha_carta_porte',$this->fecha_carta_porte,true);
-		$criteria->compare('cuit_titular',$this->cuit_titular);
-		$criteria->compare('producto',$this->producto);
-		$criteria->compare('cod_postal',$this->cod_postal,true);
-		$criteria->compare('kg_brutos_procedencia',$this->kg_brutos_procedencia);
-		$criteria->compare('kg_tara_procedencia',$this->kg_tara_procedencia);
-		$criteria->compare('kg_netos_procedencia',$this->kg_netos_procedencia);
-		$criteria->compare('calidad',$this->calidad,true);
-		$criteria->compare('porcentaje_humedad',$this->porcentaje_humedad);
-		$criteria->compare('merma_humedad',$this->merma_humedad);
-		$criteria->compare('cuit_corredor',$this->cuit_corredor);
-		$criteria->compare('cuit_destino',$this->cuit_destino);
-		$criteria->compare('chasis',$this->chasis,true);
-		$criteria->compare('acoplado',$this->acoplado,true);
-		$criteria->compare('fecha_arribo',$this->fecha_arribo,true);
-		$criteria->compare('fecha_descarga',$this->fecha_descarga,true);
-		$criteria->compare('kg_brutos_destino',$this->kg_brutos_destino);
-		$criteria->compare('kg_tara_destino',$this->kg_tara_destino);
-		$criteria->compare('kg_netos_destino',$this->kg_netos_destino);
-		$criteria->compare('kg_merma_total',$this->kg_merma_total);
-		$criteria->compare('otras_mermas',$this->otras_mermas);
-		$criteria->compare('neto_aplicable',$this->neto_aplicable);
-		$criteria->compare('analisis',$this->analisis,true);
-		$criteria->compare('porcentaje_zaranda',$this->porcentaje_zaranda);
-		$criteria->compare('merma_zaranda',$this->merma_zaranda);
-		$criteria->compare('fumigado',$this->fumigado);
-		$criteria->compare('usuario',$this->usuario);
-		$criteria->compare('analisis_finalizado',$this->analisis_finalizado);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('fecha_carga', $this->fecha_carga, true);
+		$criteria->compare('carta_porte', $this->carta_porte, true);
+		$criteria->compare('fecha_carta_porte', $this->fecha_carta_porte, true);
+		$criteria->compare('cuit_titular', $this->cuit_titular, true);
+		$criteria->compare('producto', $this->producto);
+		$criteria->compare('cod_postal', $this->cod_postal, true);
+		$criteria->compare('kg_brutos_procedencia', $this->kg_brutos_procedencia);
+		$criteria->compare('kg_tara_procedencia', $this->kg_tara_procedencia);
+		$criteria->compare('kg_netos_procedencia', $this->kg_netos_procedencia);
+		$criteria->compare('calidad', $this->calidad, true);
+		$criteria->compare('porcentaje_humedad', $this->porcentaje_humedad);
+		$criteria->compare('merma_humedad', $this->merma_humedad);
+		$criteria->compare('cuit_corredor', $this->cuit_corredor, true);
+		$criteria->compare('cuit_destino', $this->cuit_destino, true);
+		$criteria->compare('chasis', $this->chasis, true);
+		$criteria->compare('acoplado', $this->acoplado, true);
+		$criteria->compare('fecha_arribo', $this->fecha_arribo, true);
+		$criteria->compare('fecha_descarga', $this->fecha_descarga, true);
+		$criteria->compare('kg_brutos_destino', $this->kg_brutos_destino);
+		$criteria->compare('kg_tara_destino', $this->kg_tara_destino);
+		$criteria->compare('kg_netos_destino', $this->kg_netos_destino);
+		$criteria->compare('kg_merma_total', $this->kg_merma_total);
+		$criteria->compare('otras_mermas', $this->otras_mermas);
+		$criteria->compare('neto_aplicable', $this->neto_aplicable);
+		$criteria->compare('analisis', $this->analisis, true);
+		$criteria->compare('porcentaje_zaranda', $this->porcentaje_zaranda);
+		$criteria->compare('merma_zaranda', $this->merma_zaranda);
+		$criteria->compare('fumigado', $this->fumigado);
+		$criteria->compare('usuario', $this->usuario);
+		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
+		$criteria->compare('cuit_intermediario', $this->cuit_intermediario, true);
+		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
 
-		Yii::app()->user->setState('export',new CActiveDataProvider($this, array('criteria'=>$criteria,'pagination'=>false,)));
+		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
+		$temp_criteria = clone $criteria;
+		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1)';
+		
+
+		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 
 	// En este metodo relizo los calculos desp de crear una descarga, por ej el analisis
-	protected function afterSave(){
-		$calidades = array( "G1", "G2", "G3");
-		if(in_array($this->calidad, $calidades)){
-			// busco el id del rubro
-			$rubro = Rubro::model()->find('valores LIKE "%'.$this->calidad.'%"');
-			if($rubro){
-				$analisis = new Analisis();
-				$analisis->rubro = $rubro->id;
-				$analisis->carta_porte = $this->carta_porte;
-				$analisis->producto = $this->producto;
-				$analisis->valor = floatval(preg_replace('/[^0-9]+/', '', $this->calidad));
-				// busco el rubro calculo valor
-				$rubroCalValor = RubroCalculoValor::model()->find('producto='.$this->producto.' AND rubro='.$rubro->id.' AND valor_desde >= '.$analisis->valor.' AND valor_hasta <= '.$analisis->valor);
-				if($rubroCalValor){
-					$analisis->bonifica_rebaja = $rubroCalValor->bonifica ?  $rubroCalValor->castiga_bonifica : $rubroCalValor->castiga_bonifica * -1;
-				}					
-				$analisis->save();
-			}
+	
+	public function insert($attributes = null){
+
+		// si Calidad es CO, G1, G2, G3 analisis finalizado lleva true
+		$this->analisis_finalizado = intval(Descargas::analisisFinalizado($this->calidad));
+
+		if ($result = parent::insert($attributes)) {
 			
+			$calidades = array("G1", "G2", "G3");
+			if (in_array($this->calidad, $calidades)) {
+				// busco el id del rubro
+				$rubro = Rubro::model()->find('valores LIKE "%' . $this->calidad . '%"');
+				if ($rubro) {
+					$analisis = new Analisis();
+					$analisis->rubro = $rubro->id;
+					$analisis->carta_porte = $this->carta_porte;
+					$analisis->producto = $this->producto;
+					$analisis->valor = floatval(preg_replace('/[^0-9]+/', '', $this->calidad));
+					// busco el rubro calculo valor
+					$rubroCalValor = RubroCalculoValor::model()->find('producto=' . $this->producto . ' AND rubro=' . $rubro->id . ' AND valor_desde >= ' . $analisis->valor . ' AND valor_hasta <= ' . $analisis->valor);
+					if ($rubroCalValor) {
+						$analisis->bonifica_rebaja = $rubroCalValor->bonifica ?  $rubroCalValor->castiga_bonifica : $rubroCalValor->castiga_bonifica * -1;
+					} else {
+						// se debe setear un error y eliminar la descarga
+						Yii::app()->user->setFlash('danger', "Falta Rubro Calculo Valor . Prod:".$this->producto.' Rubro:'. $rubro->id." Valor:".$analisis->valor);
+						$this->delete();
+						return false;
+					}
+					if (!$analisis->save()) {
+						Yii::log("No grabo analisis: " . var_export($analisis->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
+					}
+				}
+			}
 		}
+		return $result;
 	}
 
 	/**
@@ -226,15 +266,14 @@ class Descargas extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Descargas the static model class
 	 */
-	public static function model($className=__CLASS__)
+	public static function model($className = __CLASS__)
 	{
 		return parent::model($className);
 	}
 
 	// Devuelve verdadero o falso si la calidad indica que tiene finalizado el analisis
-	public static function analisisFinalizado($calidad){		
+	public static function analisisFinalizado($calidad)
+	{
 		return in_array($calidad, array("CO", "G1", "G2", "G3"));
 	}
-
-	
 }

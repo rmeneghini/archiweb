@@ -29,7 +29,7 @@ class DescargasController extends Controller
 		return array(
 			array(
 				'allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('index', 'view'),
+				'actions' => array('index', 'view','analisis'),
 				'users' => array('@'),
 			),
 			array(
@@ -71,13 +71,15 @@ class DescargasController extends Controller
 	{
 		$model = new Descargas;
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
+			$model->usuario =  Yii::app()->user->id;
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 		$modelProducto = new Producto('search');
+		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
 		$this->render('create', array(
 			'model' => $model,
 			'modelProducto' => $modelProducto,
@@ -95,10 +97,15 @@ class DescargasController extends Controller
 		// $this->performAjaxValidation($model);
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
+			$model->usuario =  Yii::app()->user->id;
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 		$modelProducto = new Producto('search');
+		// formateo fechas	
+		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
+		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
+		////////////
 		$this->render('update', array(
 			'model' => $model,
 			'modelProducto' => $modelProducto,
@@ -150,6 +157,9 @@ class DescargasController extends Controller
 		if (!Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id)) {
 			// si no tiene el rol de admin solo vera los que cargo
 			$model->usuario = Yii::app()->user->id;
+		}else{
+			// si es admin tenemos que filtrar por empresa
+			//TODO
 		}
 
 		if (isset($_GET['Descargas']))
@@ -221,12 +231,13 @@ class DescargasController extends Controller
 								/**********************/
 								/*   DESCARGAS    */
 								/**********************/
-								// compruebo que la carta de porte no exista en el sistema								
-								$descarga=Descargas::model()->find('carta_porte='.$linea[1]);
+								// compruebo que la carta de porte no exista en el sistema	
+								$carta_de_porte = str_pad($linea[1], 9, $configuracion['coompletar_CP'], STR_PAD_LEFT); // se completa con 5 por izq hasta 9
+								$descarga=Descargas::model()->find('carta_porte='.$carta_de_porte);
 								if($descarga==null){
 									$descarga                = new Descargas();
 									//$descarga->fecha_carga	= date("Ymd"); // Fecha del día
-									$descarga->carta_porte	= $linea[1];								
+									$descarga->carta_porte	= $carta_de_porte; 
 									$descarga->fecha_carta_porte	= date("Ymd", strtotime($linea[4]));
 									$descarga->cuit_titular	= $linea[8];
 									$descarga->producto = intval($linea[14]);
@@ -247,17 +258,18 @@ class DescargasController extends Controller
 									$descarga->kg_netos_destino = intval($linea[51]);
 									$descarga->kg_merma_total = intval($linea[52]);
 									$descarga->neto_aplicable = intval($linea[53]);
-									$descarga->analisis = $linea[54];	
+									$descarga->analisis = $linea[54];										
 									$descarga->usuario =  Yii::app()->user->id;							
-									// si Calidad es CO, G1, G2, G3 analisis finalizado lleva true
-									$descarga->analisis_finalizado = intval(Descargas::analisisFinalizado($descarga->calidad));
+									
+									$descarga->cuit_intermediario = $linea[10];
+									$descarga->cuit_remitente_comercial = $linea[12];
 									// calculo otras mermas
 									$descarga->otras_mermas = intval($linea[52]);
 									$descarga->merma_humedad = 0;
 									if($descarga->porcentaje_humedad == 0 || $descarga->porcentaje_humedad < $porc_min[$descarga->producto]){
 										$descarga->porcentaje_humedad=$porc_min[$descarga->producto];
 									}else{
-										$mer_hum = MermasHumedad::model()->find(array('producto'=>$descarga->producto,'porcentaje_humedad'=>$descarga->porcentaje_humedad));
+										$mer_hum = MermasHumedad::model()->findByPk(array('producto'=>$descarga->producto,'porcentaje_humedad'=>$descarga->porcentaje_humedad));
 										if($mer_hum){
 											$descarga->merma_humedad = (($mer_hum->valor * $descarga->kg_netos_destino)/100);
 											if($descarga->otras_mermas > $descarga->merma_humedad){
@@ -271,10 +283,13 @@ class DescargasController extends Controller
 									}
 
 									set_time_limit(2); // agrego 2 segundo al tiempo limite de ejecucion de query
+									//Yii::log(" A DESCARG: " . var_export($descarga, true), CLogger::LEVEL_WARNING, __METHOD__);
 									if (!$descarga->save()) {
 										Yii::log("Error importar descarga: " . var_export($descarga->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
 									}else{
-										$reg++;									
+										$reg++;	
+										//$de = Descargas::model()->findByPk($descarga->id);
+										//Yii::log("POS INSERT: " . var_export($de, true), CLogger::LEVEL_WARNING, __METHOD__);
 									}
 								}
 							}
@@ -379,5 +394,15 @@ class DescargasController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function actionAnalisis() {
+		header("Content-type: application/json"); // para que devuelva mime json, jquery lo agradece.
+		$descarga  = Descargas::model()->findByPk($_POST['descarga']);
+		$analisis =$descarga->analisis0;		
+		//echo CJSON::encode($analisis->bonifica_rebaja.' '.$analisis->valor);
+		$html = CHtml::openTag('td', $htmlOptions = array('colspan'=>'8')).CHtml::openTag('table', $htmlOptions = array('class'=>'table table-bordered'))."<thead><tr> <th>Bonifica / Rebaja</th><th>Valor</th></tr></thead><tbody>
+  <tr><td>".($analisis->bonifica_rebaja?'Bonifica':'Rebaja')."</td> <td>".$analisis->valor."</td></tr></tbody>".CHtml::closeTag('table'). CHtml::closeTag('td');
+		echo CJSON::encode($html);
 	}
 }

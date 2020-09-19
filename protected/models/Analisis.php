@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'analisis':
  * @property integer $id
  * @property integer $rubro
- * @property integer $carta_porte
+ * @property string $carta_porte
  * @property integer $producto
  * @property integer $bonifica_rebaja
  * @property double $valor
@@ -33,9 +33,10 @@ class Analisis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rubro, carta_porte, producto', 'required'),
-			array('rubro, carta_porte, producto, bonifica_rebaja', 'numerical', 'integerOnly'=>true),
+			array('rubro, carta_porte, producto, bonifica_rebaja, valor', 'required'),
+			array('rubro, producto, bonifica_rebaja', 'numerical', 'integerOnly'=>true),
 			array('valor', 'numerical'),
+			array('carta_porte', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, rubro, carta_porte, producto, bonifica_rebaja, valor', 'safe', 'on'=>'search'),
@@ -90,7 +91,7 @@ class Analisis extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('rubro',$this->rubro);
-		$criteria->compare('carta_porte',$this->carta_porte);
+		$criteria->compare('carta_porte',$this->carta_porte,true);
 		$criteria->compare('producto',$this->producto);
 		$criteria->compare('bonifica_rebaja',$this->bonifica_rebaja);
 		$criteria->compare('valor',$this->valor);

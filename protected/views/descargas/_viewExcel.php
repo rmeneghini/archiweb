@@ -3,8 +3,8 @@
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('fecha_carga')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('carta_porte')); ?> </th>
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_titular')); ?> </th>
-	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_corredor')); ?> </th>	
-	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_destino')); ?> </th>	
+	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_intermediario')); ?> </th>	
+	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('producto')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_destino')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('cuit_corredor')); ?> </th>	
@@ -28,8 +28,8 @@
 	<td> <?php echo CHtml::encode($data->fecha_carga); ?> </td>	
 	<td> <?php echo CHtml::encode($data->carta_porte); ?></td>	
 	<td> <?php echo CHtml::encode($data->cuit_titular); ?></td>	
-	<td> <?php echo CHtml::encode($data->cuit_corredor); ?></td>	
-	<td> <?php echo CHtml::encode($data->cuit_destino); ?></td>
+	<td> <?php echo CHtml::encode($data->cuit_intermediario); ?></td>	
+	<td> <?php echo CHtml::encode($data->cuit_remitente_comercial); ?></td>
 	<td> <?php echo CHtml::encode($data->producto); ?></td>	
 	<td> <?php echo CHtml::encode($data->cuit_destino); ?> </td>	
 	<td> <?php echo CHtml::encode($data->cuit_corredor); ?></td>	

@@ -32,7 +32,7 @@ class UsuarioController extends Controller
 				'roles'=>array('admin'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','asociar'),
+				'actions'=>array('create','update','asociar','eliminarEmp'),
 				'roles'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -61,6 +61,18 @@ class UsuarioController extends Controller
 	public function actionCreate()
 	{
 		$model=new Usuario;
+
+		$empresas_asociadas = new UsuarioEmpresa('search');
+		$empresas_asociadas->unsetAttributes();
+
+		//empresas para listar
+		$empresas = new Empresa('search');
+		$empresas->unsetAttributes();
+		if(isset($_GET['Empresa'])){
+			$empresas->attributes=$_GET['Empresa'];	
+		}
+
+
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 		if(isset($_POST['Usuario']))
@@ -69,25 +81,39 @@ class UsuarioController extends Controller
 			$model->password=$model->hashPassword($model->password);
 			$model->hash_activacion = md5($model->nombre."-activar");//este hash es para la activacion
 			if($model->save()){
-								// le asigno un rol								
-                                Yii::app()->authManager->assign($_POST['rol'],$model->id);
-                                // se agrego la siguiente línea para setear mensajes luego de cada acción
-                                Yii::app()->user->setFlash("success","Usuario creado con éxito.");
-                                // fin modificacion
-                                // si el rol es distinto de super creo una persona y pido que le llenen sus datos
-                                if($_POST['rol']!='super'){
-                                	/*$persona = new Persona;
-                                	$persona->id_usuario=$model->id;*/
-                                	
-                                	$this->redirect(array('persona/create','id_usuario'=>$model->id));
-                                }else{
-									$this->redirect(array('view','id'=>$model->id));
-								}
-                        }
+				// le asigno un rol								
+                Yii::app()->authManager->assign($_POST['rol'],$model->id);                
+				// compruebo si vienen los datos de las empresas
+				if(isset($_POST['Usuario']['list-emp-json'])){
+					$list_emp_json=json_decode($_POST['Usuario']['list-emp-json']);
+					foreach ($list_emp_json as $emp_json) {
+						$usuario_emp = new UsuarioEmpresa();
+						$usuario_emp->usuario=$model->id;
+						$usuario_emp->empresa = $emp_json->empresa;
+						// falta recuperar el rol en el tribunal
+						if(!$usuario_emp->save()){
+							Yii::log("errors saving UsuarioEmpresa: " . var_export($usuario_emp->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
+						}						
+					}
+				}
+				// se agrego la siguiente línea para setear mensajes luego de cada acción
+                Yii::app()->user->setFlash("success","Usuario creado con éxito.");
+				// fin modificacion
+                // si el rol es distinto de super creo una persona y pido que le llenen sus datos
+                if($_POST['rol']!='super'){
+            	   	/*$persona = new Persona;
+                   	$persona->id_usuario=$model->id;*/
+                  	$this->redirect(array('persona/create','id_usuario'=>$model->id));
+                }else{
+					$this->redirect(array('view','id'=>$model->id));
+				}
+            }
 		}
 		$this->render('create',array(
 			'model'=>$model,
 			'rol'=>'user',
+			'empresas_asociadas'=>$empresas_asociadas,
+			'empresas'=>$empresas,
 		));
 	}
 	/**
@@ -99,6 +125,18 @@ class UsuarioController extends Controller
 	{
 		$model=$this->loadModel($id);
 		$passwordActual=$model->password;
+
+		//recupero las empresas asociadas
+		$empresas_asociadas=UsuarioEmpresa::model()->findAll('usuario = '.$id);
+		
+		//empresas para listar
+		$empresas = new Empresa('search');
+		$empresas->unsetAttributes();
+		if(isset($_GET['Empresa'])){
+			$empresas->attributes=$_GET['Empresa'];	
+		}
+
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		// recupero los roles del usuario que no debería ser más de uno
@@ -125,16 +163,35 @@ class UsuarioController extends Controller
 				}
 				 if(!Yii::app()->authManager->checkAccess($_POST['rol'],$model->id)){
                      Yii::app()->authManager->assign($_POST['rol'],$model->id);
-                 }
-                                // se agrego la siguiente línea para setear mensajes luego de cada acción
-                                Yii::app()->user->setFlash("success","Usuario actualizado con éxito.");
-                                // fin modificacion
+				 }
+				 // compruebo si vienen los datos de las empresas
+				if(isset($_POST['Usuario']['list-emp-json'])){
+					// borro lo que exista y vuelvo a insertar
+					foreach ($empresas_asociadas as $empresaDel) {
+						$empresaDel->delete();
+					}
+					$list_emp_json=json_decode($_POST['Usuario']['list-emp-json']);
+					foreach ($list_emp_json as $emp_json) {
+						$usuario_emp = new UsuarioEmpresa();
+						$usuario_emp->usuario=$model->id;
+						$usuario_emp->empresa = $emp_json->empresa;
+						// falta recuperar el rol en el tribunal
+						if(!$usuario_emp->save()){
+							Yii::log("errors saving UsuarioEmpresa: " . var_export($usuario_emp->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
+						}						
+					}
+				}
+                 // se agrego la siguiente línea para setear mensajes luego de cada acción
+                 Yii::app()->user->setFlash("success","Usuario actualizado con éxito.");
+                 // fin modificacion
 				$this->redirect(array('view','id'=>$model->id));
                         }
 		}
 		$this->render('update',array(
 			'model'=>$model,
 			'rol'=>$rol,
+			'empresas_asociadas'=>$empresas_asociadas,
+			'empresas'=>$empresas,
 		));
 	}
 	/**
@@ -243,5 +300,12 @@ class UsuarioController extends Controller
 			'rol'=>'cliente',
 			'persona'=>$persona,			
 		));
+	}
+
+	//elimino la asociacion usuario-empresa
+    public function actionEliminarEmp($usuario,$empresa) {
+		header("Content-type: application/json"); // para que devuelva mime json, jquery lo agradece.
+		 UsuarioEmpresa::model()->findByPk(array('usuario'=>$usuario,'empresa'=>$empresa))->delete();
+		echo CJSON::encode("OK");
 	}
 }

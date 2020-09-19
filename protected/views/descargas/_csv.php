@@ -4,8 +4,8 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('fecha_carga'));
 	$row[]= CHtml::encode($data->getAttributeLabel('carta_porte'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_titular'));
-	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));//consultar	
-	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));//consultar
+	$row[]= CHtml::encode($data->getAttributeLabel('cuit_intermediario'));//consultar	
+	$row[]= CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial'));//consultar
 	$row[]= CHtml::encode($data->getAttributeLabel('producto'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));
@@ -34,8 +34,8 @@ if($primero){
 	$row[]= CHtml::encode($data->fecha_carga);
 	$row[]= CHtml::encode($data->carta_porte);
 	$row[]= CHtml::encode($data->cuit_titular);	
-	$row[]= CHtml::encode($data->cuit_corredor);	
-	$row[]= CHtml::encode($data->cuit_destino);
+	$row[]= CHtml::encode($data->cuit_intermediario);	
+	$row[]= CHtml::encode($data->cuit_remitente_comercial);
 	$row[]= CHtml::encode($data->producto);
 	$row[]= CHtml::encode($data->cuit_destino);
 	$row[]= CHtml::encode($data->cuit_corredor);

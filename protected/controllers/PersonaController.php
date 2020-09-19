@@ -74,6 +74,7 @@ class PersonaController extends Controller
 		}
 		$this->render('create',array(
 			'model'=>$model,
+			'pais'=>Yii::app()->params['paisDefault'],
 		));
 	}
 	/**
@@ -94,8 +95,10 @@ class PersonaController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 		$model->fecha_nac = date("d-m-Y", strtotime($model->fecha_nac));
+		$pais = $model->idLocalidad->provincia0->pais0->nombre;	
 		$this->render('update',array(
 			'model'=>$model,
+			'pais'=>$pais,
 		));
 	}
 	/**

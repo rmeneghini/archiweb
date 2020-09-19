@@ -29,15 +29,15 @@ class EntidadController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
-				'roles'=>array('datos'),
+				'roles'=>array('super'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 			'actions'=>array('admin','delete'),
-			'roles'=>array('datos'),
+			'roles'=>array('super'),
 			),
 			array('deny',  // deny all users
 			'users'=>array('*'),
@@ -62,7 +62,11 @@ class EntidadController extends Controller
 	{
 		$model=new Entidad;
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
+		/*if(isset($_POST['ajax']) && $_POST['ajax']==='recuperar-form'){
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}*/
 		if(isset($_POST['Entidad'])){
 			$model->attributes=$_POST['Entidad'];
 			if($model->save())

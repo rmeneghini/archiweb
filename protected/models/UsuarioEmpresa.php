@@ -1,26 +1,22 @@
 <?php
+
 /**
- * This is the model class for table "localidad".
+ * This is the model class for table "usuario_empresa".
  *
- * The followings are the available columns in table 'localidad':
- * @property integer $id
- * @property string $nombre
- * @property string $codigo_postal
- * @property integer $provincia
- *
- * The followings are the available model relations:
- * @property Provincia $provincia0
- * @property Persona[] $personas
+ * The followings are the available columns in table 'usuario_empresa':
+ * @property integer $usuario
+ * @property integer $empresa
  */
-class Localidad extends CActiveRecord
-{	
+class UsuarioEmpresa extends CActiveRecord
+{
 	/**
 	 * @return string the associated database table name
-	 */	
+	 */
 	public function tableName()
 	{
-		return 'localidad';
+		return 'usuario_empresa';
 	}
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -29,15 +25,14 @@ class Localidad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, provincia', 'required'),
-			array('provincia', 'numerical', 'integerOnly'=>true),
-			array('nombre', 'length', 'max'=>90),
-			array('codigo_postal', 'length', 'max'=>10),
+			array('usuario, empresa', 'required'),
+			array('usuario, empresa', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, nombre, codigo_postal, provincia', 'safe', 'on'=>'search'),
+			array('usuario, empresa', 'safe', 'on'=>'search'),
 		);
 	}
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -46,22 +41,22 @@ class Localidad extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'provincia0' => array(self::BELONGS_TO, 'Provincia', 'provincia'),
-			'personas' => array(self::HAS_MANY, 'Persona', 'localidad'),
+			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario','joinType'=>'INNER JOIN'),
+			'empresa0' => array(self::BELONGS_TO, 'Empresa', 'empresa','joinType'=>'INNER JOIN'),
 		);
 	}
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'nombre' => 'Nombre',
-			'codigo_postal' => 'Codigo Postal',
-			'provincia' => 'Provincia',
+			'usuario' => 'Usuario',
+			'empresa' => 'Empresa',
 		);
 	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -77,29 +72,25 @@ class Localidad extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
+
 		$criteria=new CDbCriteria;
-		$criteria->compare('id',$this->id);
-		$criteria->compare('nombre',$this->nombre,true);
-		$criteria->compare('codigo_postal',$this->codigo_postal,true);
-		$criteria->compare('provincia',$this->provincia);
+
+		$criteria->compare('usuario',$this->usuario);
+		$criteria->compare('empresa',$this->empresa);
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Localidad the static model class
+	 * @return UsuarioEmpresa the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-	public static function getLocalidades($clave,$provincia=null) {	
-		if(!$provincia)
-			$provincia=Provincia::model()->find('nombre=?',array(Yii::app()->params['provDefault']))->id;
-		return  CHtml::listData(Localidad::model()->findAll("provincia=?",array($provincia)),$clave,'nombre');		
-        
-    }
 }
