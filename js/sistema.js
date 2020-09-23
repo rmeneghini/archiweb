@@ -1,3 +1,17 @@
+var Descargas = {
+    calculoNetoApli: function() {
+        var kgNet = jQuery("#Descargas_kg_netos_destino").val();
+        var merHum = jQuery("#Descargas_merma_humedad").val();
+        var merZar = jQuery("#Descargas_merma_zaranda").val();
+        var otraMer = jQuery("#Descargas_otras_mermas").val();
+        jQuery("#Descargas_neto_aplicable").val(kgNet - merHum - merZar - otraMer);
+    },
+    calculoNeto: function() {
+        jQuery("#Descargas_kg_netos_destino").val(jQuery("#Descargas_kg_brutos_destino").val() - jQuery("#Descargas_kg_tara_destino").val());
+        Descargas.calculoNetoApli();
+    }
+}
+
 var Usuario = {
         // esta funcion las empresas asocidas a un usuario
         cargarEmpresas: function(datos) {
