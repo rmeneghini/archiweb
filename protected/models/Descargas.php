@@ -44,6 +44,9 @@
  */
 class Descargas extends CActiveRecord
 {
+	public $titular;//busqueda por razosocial titular
+	public $corredor;//busqueda por razosocial corredor
+	public $destino;//busqueda por razosocial destino
 
 	function init()
 	{
@@ -74,7 +77,7 @@ class Descargas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
+			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
 			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
 			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, merma_humedad, porcentaje_zaranda', 'numerical'),
@@ -88,7 +91,7 @@ class Descargas extends CActiveRecord
 			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
+			array('titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -113,6 +116,9 @@ class Descargas extends CActiveRecord
 			'producto0' => array(self::BELONGS_TO, 'Producto', 'producto'),
 			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario'),
 			'analisis0' => array(self::HAS_ONE, 'Analisis', array('carta_porte' => 'carta_porte')),
+			'ent_titular' => array(self::BELONGS_TO, 'Entidad', array('cuit_titular' => 'cuit')),
+			'ent_corredor' => array(self::BELONGS_TO, 'Entidad', array('cuit_corredor' => 'cuit')),
+			'ent_destino' => array(self::BELONGS_TO, 'Entidad', array('cuit_destino' => 'cuit')),
 		);
 	}
 
@@ -170,16 +176,19 @@ class Descargas extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($filtro_empresas = null)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria = new CDbCriteria;
 
+		$criteria->with = array('ent_titular','ent_corredor','ent_destino');
+
 		$criteria->compare('id', $this->id);
-		$criteria->compare('fecha_carga', $this->fecha_carga, true);
+		$criteria->compare('DATE_FORMAT(fecha_carga,"%d/%m/%Y")',  $this->fecha_carga, true);
+		//Yii::log(" - PASO - ".var_export($this,true), CLogger::LEVEL_WARNING, __METHOD__);
 		$criteria->compare('carta_porte', $this->carta_porte, true);
-		$criteria->compare('fecha_carta_porte', $this->fecha_carta_porte, true);
+		$criteria->compare('DATE_FORMAT(fecha_carta_porte,"%d/%m/%Y")', $this->fecha_carta_porte, true);
 		$criteria->compare('cuit_titular', $this->cuit_titular, true);
 		$criteria->compare('producto', $this->producto);
 		$criteria->compare('cod_postal', $this->cod_postal, true);
@@ -205,7 +214,23 @@ class Descargas extends CActiveRecord
 		$criteria->compare('porcentaje_zaranda', $this->porcentaje_zaranda);
 		$criteria->compare('merma_zaranda', $this->merma_zaranda);
 		$criteria->compare('fumigado', $this->fumigado);
+
+		//busqueda por razon social titular
+		$criteria->compare('ent_titular.razonSocial', $this->titular, true);
+		//busqueda por razon social corredor
+		$criteria->compare('ent_corredor.razonSocial', $this->corredor, true);
+		//busqueda por razon social destino
+		$criteria->compare('ent_destino.razonSocial', $this->destino, true);
+		
+		
+		//$criteria->compare('ent_titular.razonSocial', $this->ent_titular->razonSocial, true);
+		// si el filtro de empresas no es null, selecciono los usuarios
+		if($filtro_empresas){
+			$criteria->addInCondition('usuario',$filtro_empresas);
+		}
 		$criteria->compare('usuario', $this->usuario);
+		
+		
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
 		$criteria->compare('cuit_intermediario', $this->cuit_intermediario, true);
 		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
@@ -213,9 +238,13 @@ class Descargas extends CActiveRecord
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
 		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1)';
-		
+		$temp_criteria->with = array('analisis0');
+		$temp_criteria->together = true;	
+
 
 		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
+		
+		
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

@@ -52,15 +52,7 @@ if($primero){
 	$row[]= CHtml::encode($data->analisis);
 	$row[]= CHtml::encode($data->fecha_descarga);
 
-
-
-
-	/*$row[]= CHtml::encode('$'.$data->imp_total);
-	$row[]= CHtml::encode($data->fecha_hora_generacion);
-	$row[]= CHtml::encode($cuota->numero);
-	$row[]= CHtml::encode('$'.$cuota->importe);
-	$row[]= CHtml::encode($cuota->idCuenta->nro);
-	$row[]= CHtml::encode($cuota->anio);*/
+	
 	fputcsv($fp,$row,$delimitador,chr(0));
 //}
 ?>

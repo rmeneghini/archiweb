@@ -28,8 +28,8 @@ class MermasHumedadController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'actions'=>array('index','view','defaultValor'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -168,5 +168,14 @@ class MermasHumedadController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function actionDefaultValor() {
+		header("Content-type: application/json"); // para que devuelva mime json, jquery lo agradece.
+		if (isset($_POST['Descargas']['porcentaje_humedad']) && isset($_POST['Descargas']['producto'])) {
+			$model = MermasHumedad::model()->findByPk(array('producto'=>$_POST['Descargas']['producto'],'porcentaje_humedad'=>$_POST['Descargas']['porcentaje_humedad']));
+			if($model)
+				echo CJSON::encode($model->valor);
+		}		
 	}
 }

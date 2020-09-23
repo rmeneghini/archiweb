@@ -29,15 +29,15 @@ class RubroCalculoValorController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
-				'roles'=>array('admin'),
+				'roles'=>array('super'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 			'actions'=>array('admin','delete'),
-			'roles'=>array('admin'),
+			'roles'=>array('super'),
 			),
 			array('deny',  // deny all users
 			'users'=>array('*'),
@@ -48,10 +48,10 @@ class RubroCalculoValorController extends Controller
 	* Displays a particular model.
 	* @param integer $id the ID of the model to be displayed
 	*/
-	public function actionView($producto,$rubro)
+	public function actionView($producto,$rubro,$valor_desde,$valor_hasta)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($producto,$rubro),
+			'model'=>$this->loadModel($producto,$rubro,$valor_desde,$valor_hasta),
 		));
 	}
 	/**
@@ -66,7 +66,7 @@ class RubroCalculoValorController extends Controller
 		if(isset($_POST['RubroCalculoValor'])){
 			$model->attributes=$_POST['RubroCalculoValor'];
 			if($model->save())
-			$this->redirect(array('view','producto'=>$model->producto,'rubro'=>$model->rubro));
+			$this->redirect(array('view','producto'=>$model->producto,'rubro'=>$model->rubro,'valor_desde'=>$model->valor_desde,'valor_hasta'=>$model->valor_hasta));
 		}
 		$this->render('create',array(
 			'model'=>$model,
@@ -77,15 +77,15 @@ class RubroCalculoValorController extends Controller
 	* If update is successful, the browser will be redirected to the 'view' page.
 	* @param integer $id the ID of the model to be updated
 	*/
-	public function actionUpdate($producto,$rubro)
+	public function actionUpdate($producto,$rubro,$valor_desde,$valor_hasta)
 	{
-		$model=$this->loadModel($producto,$rubro);
+		$model=$this->loadModel($producto,$rubro,$valor_desde,$valor_hasta);
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		if(isset($_POST['RubroCalculoValor'])){
 			$model->attributes=$_POST['RubroCalculoValor'];
 			if($model->save())
-				$this->redirect(array('view','producto'=>$model->producto,'rubro'=>$model->rubro));
+				$this->redirect(array('view','producto'=>$model->producto,'rubro'=>$model->rubro,'valor_desde'=>$model->valor_desde,'valor_hasta'=>$model->valor_hasta));
 		}
 		$this->render('update',array(
 			'model'=>$model,
@@ -96,11 +96,11 @@ class RubroCalculoValorController extends Controller
 	* If deletion is successful, the browser will be redirected to the 'admin' page.
 	* @param integer $id the ID of the model to be deleted
 	*/
-	public function actionDelete($producto,$rubro)
+	public function actionDelete($producto,$rubro,$valor_desde,$valor_hasta)
 	{
 		if(Yii::app()->request->isPostRequest){
 			// we only allow deletion via POST request
-			$this->loadModel($producto,$rubro)->delete();
+			$this->loadModel($producto,$rubro,$valor_desde,$valor_hasta)->delete();
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -151,9 +151,9 @@ class RubroCalculoValorController extends Controller
 	* If the data model is not found, an HTTP exception will be raised.
 	* @param integer the ID of the model to be loaded
 	*/
-	public function loadModel($producto,$rubro)
+	public function loadModel($producto,$rubro,$valor_desde,$valor_hasta)
 	{
-		$model=RubroCalculoValor::model()->findByPk(array('producto'=>$producto,'rubro'=>$rubro));
+		$model=RubroCalculoValor::model()->findByPk(array('producto'=>$producto,'rubro'=>$rubro,'valor_desde'=>$valor_desde,'valor_hasta'=>$valor_hasta));
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

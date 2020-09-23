@@ -49,6 +49,9 @@
 										array('label'=>'Localidades', 'url'=>array('/localidad/')),
 										array('label'=>'Entidades', 'url'=>array('/entidad/admin')),
 										array('label'=>'Empresas', 'url'=>array('/empresa/admin')),
+										array('label'=>'Productos', 'url'=>array('/producto/admin')),
+										array('label'=>'Rubro-Valor', 'url'=>array('/rubrocalculovalor/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id),),
+										array('label'=>'Análisis', 'url'=>array('/analisis/admin')),
 										)),
 								array('label'=>'Panel', 'icon'=>'cog','url'=> (Yii::app()->authManager->isAssigned('admin',Yii::app()->user->id))? array('descargas/admin'): array('descargas/admin'), 'visible'=>Yii::app()->authManager->checkAccess('cliente',Yii::app()->user->id)),
 								array('label'=>' ', 'icon'=>'user', 'url'=>'#', 'visible'=>Yii::app()->authManager->checkAccess('cliente',Yii::app()->user->id),
@@ -65,7 +68,7 @@
 					</header>
 				<!-- </div> -->
 			<!-- </div> -->
-			<div class="container">
+			<div class="container-fluid">
 				<!-- <div class="jumbotron"> -->
 				<!-- <section class="row"> -->
 					<?php if(isset($this->breadcrumbs)):?>

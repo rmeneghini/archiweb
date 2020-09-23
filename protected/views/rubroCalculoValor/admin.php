@@ -31,13 +31,13 @@ $('.search-button').click(function(){
     'buttons'=>array
     (
         'view' => array(            
-            'url'=>'Yii::app()->createUrl("rubrocalculovalor/view", array("producto"=>$data->producto,"rubro"=>$data->rubro))',
+            'url'=>'Yii::app()->createUrl("rubrocalculovalor/view", array("producto"=>$data->producto,"rubro"=>$data->rubro,"valor_desde"=>$data->valor_desde,"valor_hasta"=>$data->valor_hasta))',
 		),
 		'update' => array(            
-            'url'=>'Yii::app()->createUrl("rubrocalculovalor/update", array("producto"=>$data->producto,"rubro"=>$data->rubro))',
+            'url'=>'Yii::app()->createUrl("rubrocalculovalor/update", array("producto"=>$data->producto,"rubro"=>$data->rubro,"valor_desde"=>$data->valor_desde,"valor_hasta"=>$data->valor_hasta))',
 		),
 		'delete' => array(            
-            'url'=>'Yii::app()->createUrl("rubrocalculovalor/delete", array("producto"=>$data->producto,"rubro"=>$data->rubro))',
+            'url'=>'Yii::app()->createUrl("rubrocalculovalor/delete", array("producto"=>$data->producto,"rubro"=>$data->rubro,"valor_desde"=>$data->valor_desde,"valor_hasta"=>$data->valor_hasta))',
         ),                
     ),
 );?>

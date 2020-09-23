@@ -16,6 +16,7 @@
  */
 class Entidad extends CActiveRecord
 {
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -82,15 +83,22 @@ class Entidad extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($tipo=null)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria->with = array('tipoEntidad');
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('cuit',$this->cuit,true);
-		$criteria->compare('tipo_entidad',$this->tipo_entidad);
+		//Yii::log(" - PASO - ".var_export($this,true), CLogger::LEVEL_WARNING, __METHOD__);
+		if($tipo){			
+			$criteria->compare('tipoEntidad.descripcion',$tipo);
+
+		}else{
+			$criteria->compare('tipo_entidad',$this->tipo_entidad);
+		}
 		$criteria->compare('exportar',$this->exportar);
 		$criteria->compare('razonSocial',$this->razonSocial,true);
 		$criteria->compare('direccion',$this->direccion,true);

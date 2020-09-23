@@ -9,8 +9,8 @@
 		<?php echo $form->dropDownListGroup($model,'producto',array('widgetOptions'=>array('data'=>Producto::getProductos('id'),'htmlOptions'=>array()))); ?>	
 		<?php echo $form->dropDownListGroup($model,'rubro',array('widgetOptions'=>array('data'=>Rubro::getRubros('id'),'htmlOptions'=>array()))); ?>	
 		
-		<?php echo $form->numberFieldGroup($model,'valor_desde',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
-		<?php echo $form->numberFieldGroup($model,'valor_hasta',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
+		<?php echo $form->textFieldGroup($model,'valor_desde',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
+		<?php echo $form->textFieldGroup($model,'valor_hasta',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
 		<?php echo $form->switchGroup($model, 'diferencia_valor_hasta',array(
 				'widgetOptions' => array(
 					'options' => array(
@@ -43,8 +43,8 @@
 				)
 			)
 		); ?>		
-		<?php echo $form->numberFieldGroup($model,'castiga_bonifica',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
-		<?php echo $form->numberFieldGroup($model,'adicionar_a_castiga_bonifica',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
+		<?php echo $form->textFieldGroup($model,'castiga_bonifica',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
+		<?php echo $form->textFieldGroup($model,'adicionar_a_castiga_bonifica',array('widgetOptions'=>array('htmlOptions'=>array()))); ?>
 		
 
 

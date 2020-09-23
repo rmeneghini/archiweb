@@ -70,6 +70,12 @@ class DescargasController extends Controller
 	public function actionCreate()
 	{
 		$model = new Descargas;
+
+		$modelEntidad = new Entidad('search');
+		$modelEntidad->unsetAttributes();
+		if(isset($_GET['Entidad'])){
+			$modelEntidad->attributes=$_GET['Entidad'];	
+		}
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 		if (isset($_POST['Descargas'])) {
@@ -78,11 +84,11 @@ class DescargasController extends Controller
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
-		$modelProducto = new Producto('search');
+		
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
 		$this->render('create', array(
 			'model' => $model,
-			'modelProducto' => $modelProducto,
+			'modelEntidad' => $modelEntidad,
 		));
 	}
 	/**
@@ -101,14 +107,15 @@ class DescargasController extends Controller
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
-		$modelProducto = new Producto('search');
+		$modelEntidad = new Entidad('search');
 		// formateo fechas	
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
 		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 		////////////
 		$this->render('update', array(
 			'model' => $model,
-			'modelProducto' => $modelProducto,
+			'modelEntidad' => $modelEntidad,
+
 		));
 	}
 	/**
@@ -150,39 +157,72 @@ class DescargasController extends Controller
 	{
 		$this->layout='//layouts/column1';
 
+		
+
 		$model = new Descargas('search');
 		$model->unsetAttributes();  // clear any default values
 
+		$filtro_empresas = null;
 		// segun el rol del usuario le permito ver datos
 		if (!Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id)) {
 			// si no tiene el rol de admin solo vera los que cargo
 			$model->usuario = Yii::app()->user->id;
-		}else{
+		}else if (!Yii::app()->authManager->checkAccess('super', Yii::app()->user->id)) {
 			// si es admin tenemos que filtrar por empresa
-			//TODO
+			$usuarioLog = Usuario::model()->findByPk(Yii::app()->user->id);
+			$filtro_empresas=array();
+			$getId = function($valor) {
+				return $valor->id;
+			};
+			foreach($usuarioLog->empresas as $empUsu){
+				$filtro_empresas=array_merge($filtro_empresas, array_map($getId, $empUsu->usuarios));
+			}
+			//$filtro_empresas;
 		}
 
-		if (isset($_GET['Descargas']))
-			$model->attributes = $_GET['Descargas'];
+
+		if (isset($_GET['Descargas'])){
+			$model->attributes = $_GET['Descargas'];			
+		}
 
 		if(isset($_GET['export']) && $_GET['export']=='grilla'){
 				// marco como exportado
 				$contenido= $this->renderPartial('excel',array('dataProvider'=>Yii::app()->user->getState('export'),),true);
-				Yii::app()->request->sendFile('exportExcel.xls',$contenido);
+				Yii::app()->request->sendFile('AW_Descargas.xls',$contenido);
     			Yii::app()->user->clearState('export');		
 		}else if(isset($_GET['export']) && $_GET['export']=='csv'){
-				// marco como exportado	
+			// marco como exportado	
 			$conf =  Configuracion::singleton();
 			$configuracion = $conf->getAll();
-				$delimitador = $configuracion['delimitador-csv'];					
-				$contenido= $this->renderPartial('csv',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
-				Yii::app()->request->sendFile('exportCSV.csv',Yii::app()->user->getState('exportCSV'));
-    			Yii::app()->user->clearState('exportCSV');		
-			}
+			$delimitador = $configuracion['delimitador-csv'];					
+			$contenido= $this->renderPartial('csv',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
+			
+			Yii::app()->request->sendFile('AW_Descargas.csv',Yii::app()->user->getState('exportCSV'),null,false);
+			//Yii::app()->user->clearState('exportCSV',null);	
+			//Analisis
+			//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('export')->getData(),true), CLogger::LEVEL_WARNING, __METHOD__);
+			$contenido= $this->renderPartial('csv_analisis',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
+			Yii::app()->request->sendFile('AW_Analisis.csv',Yii::app()->user->getState('export_analisisCSV'));
+			//Yii::app()->user->clearState('export_analisisCSV',null);	
+			//Yii::app()->user->clearStates();	
+		}else if(isset($_GET['export']) && $_GET['export']=='csv-a'){
+			// marco como exportado	
+			$conf =  Configuracion::singleton();
+			$configuracion = $conf->getAll();
+			$delimitador = $configuracion['delimitador-csv'];								
+			//Analisis
+			//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('export')->getData(),true), CLogger::LEVEL_WARNING, __METHOD__);
+			$contenido= $this->renderPartial('csv_analisis',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
+			Yii::app()->request->sendFile('AW_Analisis.csv',Yii::app()->user->getState('export_analisisCSV'));
+			//Yii::app()->user->clearState('export_analisisCSV',null);	
+			//Yii::app()->user->clearStates();	
+		}
 
+		
 
 		$this->render('admin', array(
 			'model' => $model,
+			'filtro_empresas'=>$filtro_empresas,
 		));
 	}
 

@@ -32,11 +32,11 @@ class UsuarioController extends Controller
 				'roles'=>array('admin'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','asociar','eliminarEmp'),
-				'roles'=>array('admin'),
+				'actions'=>array('create','update','asociar','eliminarEmp','delete'),
+				'roles'=>array('super'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-			'actions'=>array('admin','delete'),
+			'actions'=>array('admin'),
 			'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -128,6 +128,7 @@ class UsuarioController extends Controller
 
 		//recupero las empresas asociadas
 		$empresas_asociadas=UsuarioEmpresa::model()->findAll('usuario = '.$id);
+		//$empresas_asociadas=$model->empresas;
 		
 		//empresas para listar
 		$empresas = new Empresa('search');
@@ -167,8 +168,9 @@ class UsuarioController extends Controller
 				 // compruebo si vienen los datos de las empresas
 				if(isset($_POST['Usuario']['list-emp-json'])){
 					// borro lo que exista y vuelvo a insertar
-					foreach ($empresas_asociadas as $empresaDel) {
-						$empresaDel->delete();
+					foreach ($model->empresas as $empresaDel) {
+						UsuarioEmpresa::model()->find('usuario = '.$id.' AND empresa = '.$empresaDel->id)->delete();
+						
 					}
 					$list_emp_json=json_decode($_POST['Usuario']['list-emp-json']);
 					foreach ($list_emp_json as $emp_json) {

@@ -12,4 +12,4 @@ $this->menu=array(
 );
 ?>
 <h1>Crear Descargas</h1>
-<?php echo $this->renderPartial('_form', array('model'=>$model,'modelProducto'=>$modelProducto,)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'modelEntidad'=>$modelEntidad,)); ?>

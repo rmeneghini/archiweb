@@ -15,4 +15,4 @@ $this->menu=array(
 );
 ?>
 <h1>Actualizar Descargas <?php echo $model->id; ?></h1>
-<?php echo $this->renderPartial('_form',array('model'=>$model,'modelProducto'=>$modelProducto,)); ?>
+<?php echo $this->renderPartial('_form',array('model'=>$model,'modelEntidad'=>$modelEntidad,)); ?>

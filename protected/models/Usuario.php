@@ -48,8 +48,8 @@ class Usuario extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'empresas' => array(self::MANY_MANY, 'UsuarioEmpresa', 'usuario_empresa(usuario, empresa)','joinType'=>'INNER JOIN'),			
+		return array(			
+			'empresas' => array(self::MANY_MANY, 'Empresa', 'usuario_empresa(usuario, empresa)','joinType'=>'INNER JOIN'),			
 		);
 	}
 
