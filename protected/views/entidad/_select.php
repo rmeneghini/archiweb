@@ -1,5 +1,5 @@
 <?php $this->widget('booster.widgets.TbGridView', array(
-	'id'=>'entidad-grid',
+	'id'=>(isset($grid_name))?$grid_name:'entidad-grid',
     'itemsCssClass'=>'table table-striped table-bordered table-hover',
 	'dataProvider'=>$dataProvider,
 	'filter'=>$model,

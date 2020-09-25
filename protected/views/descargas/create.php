@@ -12,4 +12,8 @@ $this->menu=array(
 );
 ?>
 <h1>Crear Descargas</h1>
-<?php echo $this->renderPartial('_form', array('model'=>$model,'modelEntidad'=>$modelEntidad,)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,
+'modelEntidadTitular' => $modelEntidadTitular,
+'modelEntidadCorredor' => $modelEntidadCorredor,
+'modelEntidadDestino' => $modelEntidadDestino,
+)); ?>

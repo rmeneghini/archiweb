@@ -92,7 +92,8 @@ class Entidad extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('cuit',$this->cuit,true);
-		//Yii::log(" - PASO - ".var_export($this,true), CLogger::LEVEL_WARNING, __METHOD__);
+		//Yii::log(" - PASO GET - ".var_export($_GET,true), CLogger::LEVEL_WARNING, __METHOD__);
+		//Yii::log(" - PASO THIS - ".var_export($this->razonSocial,true), CLogger::LEVEL_WARNING, __METHOD__);
 		if($tipo){			
 			$criteria->compare('tipoEntidad.descripcion',$tipo);
 
@@ -103,9 +104,12 @@ class Entidad extends CActiveRecord
 		$criteria->compare('razonSocial',$this->razonSocial,true);
 		$criteria->compare('direccion',$this->direccion,true);
 
-		return new CActiveDataProvider($this, array(
+		$dataProvider = new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+		
+		//Yii::log(" - PASO GET - ".var_export($dataProvider->id,true), CLogger::LEVEL_WARNING, __METHOD__);
+		return $dataProvider;
 	}
 
 	/**

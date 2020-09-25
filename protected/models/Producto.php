@@ -33,12 +33,12 @@ class Producto extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('id, descripcion, lleva_grado', 'required'),
-			array('id','unique'),
-			array('lleva_grado', 'numerical', 'integerOnly'=>true),
-			array('descripcion', 'length', 'max'=>110),
+			array('id', 'unique'),
+			array('lleva_grado', 'numerical', 'integerOnly' => true),
+			array('descripcion', 'length', 'max' => 110),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, descripcion, lleva_grado', 'safe', 'on'=>'search'),
+			array('id, descripcion, lleva_grado', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -85,14 +85,14 @@ class Producto extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('descripcion',$this->descripcion,true);
-		$criteria->compare('lleva_grado',$this->lleva_grado);
+		$criteria->compare('id', $this->id);
+		$criteria->compare('descripcion', $this->descripcion, true);
+		$criteria->compare('lleva_grado', $this->lleva_grado);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria' => $criteria,
 		));
 	}
 
@@ -102,19 +102,60 @@ class Producto extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Producto the static model class
 	 */
-	public static function model($className=__CLASS__)
+	public static function model($className = __CLASS__)
 	{
 		return parent::model($className);
 	}
 
 
-	public function getProducto(){
-	    return $this->descripcion.' ('.$this->id.')';
+	public function getProducto()
+	{
+		return $this->descripcion . ' (' . $this->id . ')';
 	}
 
-	public static function getProductos($clave) {
-		return  CHtml::listData(Producto::model()->findAll(),$clave,function($prod) {
-			return CHtml::encode($prod->descripcion. ' ('.$prod->id.')');
+	public static function getProductos($clave)
+	{
+		return  CHtml::listData(Producto::model()->findAll(), $clave, function ($prod) {
+			return CHtml::encode($prod->descripcion . ' (' . $prod->id . ')');
 		});
+	}
+
+
+	// Devuelve las calidad a mostrar en el select de la carga manual, esto deberia estar por DB 
+	public static function getAnalisisCalidad($prod='15')
+	{
+		$prodCal = array(
+			'15' => array(
+				"CO" => "Conforme",
+				"G1" => "Grado 1",
+				"G2" => "Grado 2",
+				"G3" => "Grado 3",
+				"CC" => "Condión Cámara",
+				"FE" => "Fuera de Estandar"
+			),
+			'16' => array(
+				"CO" => "Conforme",
+				"G1" => "Grado 1",
+				"G2" => "Grado 2",
+				"G3" => "Grado 3",
+				"CC" => "Condión Cámara",
+				"FE" => "Fuera de Estandar"
+			),
+			'22' => array(
+				"CO" => "Conforme",
+				"G1" => "Grado 1",
+				"G2" => "Grado 2",
+				"G3" => "Grado 3",
+				"CC" => "Condión Cámara",
+				"FE" => "Fuera de Estandar"
+			),
+			'23' => array(
+				"CO" => "Conforme",
+				"CC" => "Condión Cámara",
+				"FE" => "Fuera de Estandar"
+			),
+		);
+
+		return  $prodCal[$prod];
 	}
 }

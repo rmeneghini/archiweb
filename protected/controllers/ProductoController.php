@@ -28,8 +28,8 @@ class ProductoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'actions'=>array('index','view','calidadesPorProducto'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -152,5 +152,18 @@ class ProductoController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/*
+	* El siguiente metodo es para recuperar las calidades segun el producto
+	*/
+	        
+	public function actionCalidadesPorProducto() {		
+	    if (isset($_POST['Descargas']['producto'])) {
+	                $list=  Producto::getAnalisisCalidad($_POST['Descargas']['producto']);
+	                foreach ($list as  $key =>$data) {
+	                    echo "<option value=\"{$key}\">{$data}</option>";
+					}						            
+	        }
 	}
 }

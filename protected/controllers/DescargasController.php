@@ -71,13 +71,30 @@ class DescargasController extends Controller
 	{
 		$model = new Descargas;
 
-		$modelEntidad = new Entidad('search');
-		$modelEntidad->unsetAttributes();
+		
+
+		$modelEntidadTitular = new Entidad('search');
+		$modelEntidadTitular->unsetAttributes();
+		$modelEntidadCorredor = new Entidad('search');
+		$modelEntidadCorredor->unsetAttributes();
+		$modelEntidadDestino = new Entidad('search');
+		$modelEntidadDestino->unsetAttributes();
+		
+		
+		
 		if(isset($_GET['Entidad'])){
-			$modelEntidad->attributes=$_GET['Entidad'];	
+			if($_GET['ajax']=='entidad-grid-titular'){
+				$modelEntidadTitular->attributes=$_GET['Entidad'];
+			}else if($_GET['ajax']=='entidad-grid-corredor'){
+				$modelEntidadCorredor->attributes=$_GET['Entidad'];
+			}else  if($_GET['ajax']=='entidad-grid-destino'){
+				$modelEntidadDestino->attributes=$_GET['Entidad'];
+			}
+			
+			//Yii::log(" - PASO - ".var_export($modelEntidad->tipo_entidad,true), CLogger::LEVEL_WARNING, __METHOD__);
 		}
 		// Uncomment the following line if AJAX validation is needed
-		 $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
 			$model->usuario =  Yii::app()->user->id;
@@ -87,8 +104,10 @@ class DescargasController extends Controller
 		
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
 		$this->render('create', array(
-			'model' => $model,
-			'modelEntidad' => $modelEntidad,
+			'model' => $model,			
+			'modelEntidadTitular' => $modelEntidadTitular,
+			'modelEntidadCorredor' => $modelEntidadCorredor,
+			'modelEntidadDestino' => $modelEntidadDestino,
 		));
 	}
 	/**
@@ -115,7 +134,7 @@ class DescargasController extends Controller
 		$this->render('update', array(
 			'model' => $model,
 			'modelEntidad' => $modelEntidad,
-
+			//'modelEntidadTitular' => $modelEntidadTitular,
 		));
 	}
 	/**

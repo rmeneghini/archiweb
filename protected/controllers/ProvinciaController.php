@@ -28,8 +28,8 @@ class ProvinciaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'actions'=>array('index','view','provinciasPorPais'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -152,5 +152,19 @@ class ProvinciaController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	/*
+	* El siguiente metodo es para recuperar las provincias segun el pais
+	*/
+	        
+	public function actionProvinciasPorPais() {
+	    if (isset($_POST['pais'])) {
+	                $list=  Provincia::model()->findAll("pais=?",array($_POST['pais']));
+	                foreach ($list as $data) {
+	                    echo "<option value=\"{$data->id}\">{$data->nombre}</option>";
+	                }
+	            }
+	        }
 	}
 }
