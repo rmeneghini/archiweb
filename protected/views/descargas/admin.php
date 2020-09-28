@@ -107,7 +107,7 @@ $this->widget(
 		'merma_zaranda',*/
 		array('name'=>'fumigado','value' =>'$data->fumigado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),		
 		array('name'=>'analisis_finalizado','value' =>'$data->analisis_finalizado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),		
-		'usuario',
+		array('name'=>'usuario', 'filter'=>false, 'value'=>'$data->usuario0->nombre'),
 		
 		$botones,
 	),

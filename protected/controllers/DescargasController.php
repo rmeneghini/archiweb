@@ -343,8 +343,11 @@ class DescargasController extends Controller
 
 									set_time_limit(2); // agrego 2 segundo al tiempo limite de ejecucion de query
 									//Yii::log(" A DESCARG: " . var_export($descarga, true), CLogger::LEVEL_WARNING, __METHOD__);
-									if (!$descarga->save()) {
-										Yii::log("Error importar descarga: " . var_export($descarga->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
+									if (!$descarga->save()) {										
+										// guardo los errores para mostrarlos juntos
+										$errores[$carta_de_porte] = $descarga->getErrors();
+										//Yii::app()->user->setFlash('danger', "Error ".var_export($descarga->getErrors(), true));
+										//Yii::log("Error importar descarga: " . var_export($descarga->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
 									}else{
 										$reg++;	
 										//$de = Descargas::model()->findByPk($descarga->id);
@@ -357,6 +360,18 @@ class DescargasController extends Controller
 					fclose($arch);
 					unlink($nom_arch);/* borro el archivo temporal q ya fue importado */
 				}/* end foreach*/
+				// compruebo si el arreglo de errores tiene datos
+				if(count($errores)>0){
+					$msj ='';
+					//print_r($errores); exit();
+					foreach ($errores as $cp => $err) {
+						foreach ($err as $attr => $msj_err) {
+							$msj.='CP: '.$cp.' Campo: '.$attr.'-'.$msj_err[0].' </br>';
+						}
+						
+					}
+					Yii::app()->user->setFlash('danger', "Error/es </br>".$msj);
+				}
 				Yii::app()->user->setFlash('success', "Se importaron " . $reg . " registros nuevos.");
 				// save in runtime folder
 				if (!empty($importoOk)) {
