@@ -16,7 +16,7 @@
  * @property integer $kg_netos_procedencia
  * @property string $calidad
  * @property double $porcentaje_humedad
- * @property double $merma_humedad
+ * @property integer $merma_humedad
  * @property string $cuit_corredor
  * @property string $cuit_destino
  * @property string $chasis
@@ -48,6 +48,8 @@ class Descargas extends CActiveRecord
 	public $corredor;//busqueda por razosocial corredor
 	public $destino;//busqueda por razosocial destino
 
+	public $fecha_rango; // filtro desde hasta fecha_carga
+
 	function init()
 	{
 		if ($this->isNewRecord) {
@@ -77,10 +79,10 @@ class Descargas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
+			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
 			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
-			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda', 'numerical', 'integerOnly' => false),
-			array('porcentaje_humedad, merma_humedad, porcentaje_zaranda', 'numerical'),
+			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda, merma_humedad', 'numerical', 'integerOnly' => false),
+			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
 			array('carta_porte', 'length', 'max' => 20,'min'=> 9),
 			array('carta_porte','unique','message' => 'Carta de porta ya ingresada al sistema'),
 			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'length', 'max' => 12),
@@ -91,13 +93,18 @@ class Descargas extends CActiveRecord
 			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
+			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
 		);
 	}
 
 	// funcion eu valida los cuit que esten en la table entidad
 	public function validar_cuit($attribute,$params) {		
-		
+		// si el cuit es cero o null lo dejo pasar solo para los intermediarios y comerciales
+		if(!$this->$attribute && ($attribute=='cuit_intermediario' || $attribute=='cuit_remitente_comercial')
+		|| ($this->$attribute=='0' && ($attribute=='cuit_intermediario' || $attribute=='cuit_remitente_comercial'))
+		){
+			return;
+		}
 		$entidad=Entidad::model()->find('cuit=?',array($this->$attribute));            
 		if(!$entidad) {
 			$this->addError($attribute, 'El cuit ingresado no esta registrado como una entidad.');                
@@ -185,7 +192,13 @@ class Descargas extends CActiveRecord
 		$criteria->with = array('ent_titular','ent_corredor','ent_destino');
 
 		$criteria->compare('id', $this->id);
-		$criteria->compare('DATE_FORMAT(fecha_carga,"%d/%m/%Y")',  $this->fecha_carga, true);
+		if(isset($this->fecha_rango) && $this->fecha_rango != ''){
+			//Yii::log(" - PASO - ".var_export(explode(" - ", $this->fecha_rango),true), CLogger::LEVEL_WARNING, __METHOD__);
+			$rango =explode(" - ", $this->fecha_rango);
+			$criteria->addCondition('DATE_FORMAT(fecha_carga,"%d/%m/%Y") >= "'.$rango[0].'"');
+			$criteria->addCondition('DATE_FORMAT(fecha_carga,"%d/%m/%Y") <= "'.$rango[1].'"');
+		}
+		//$criteria->compare('DATE_FORMAT(fecha_carga,"%d/%m/%Y")',  $this->fecha_carga, true);
 		//Yii::log(" - PASO - ".var_export($this,true), CLogger::LEVEL_WARNING, __METHOD__);
 		$criteria->compare('carta_porte', $this->carta_porte, true);
 		$criteria->compare('DATE_FORMAT(fecha_carta_porte,"%d/%m/%Y")', $this->fecha_carta_porte, true);
@@ -240,11 +253,11 @@ class Descargas extends CActiveRecord
 		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1)';
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	
-
+		$temp_criteria->limit=Yii::app()->params['limit'];
 
 		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
 		
-		
+		$criteria->limit=Yii::app()->params['limit'];
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

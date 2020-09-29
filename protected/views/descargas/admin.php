@@ -44,7 +44,6 @@ $this->widget(
     )
 );
 ?>
-
 <?php $botones = array(
     'class'=>'booster.widgets.TbButtonColumn',
 	'template'=>'{view}{update}{delete}{analisis}',
@@ -66,15 +65,43 @@ $this->widget(
         ),         
     ),
 );?>
-
+<?php
+$dateRangePickerOptions = array(
+	'locale'=>array(
+			'firstDay'=>1,
+			'applyLabel'=>'Aceptar',
+			'cancelLabel'=>'Cancelar',
+			'fromLabel'=>'Desde',
+			'toLabel'=>'Hasta',
+			'daysOfWeek'=> ['D','L','M','M','J','V','S'],
+		),
+	'showDropdowns'=>true,
+	'format'=>'DD/MM/YYYY',
+	'autoclose'=> true,
+	'opens'=>'center',
+);
+?>
 <?php $this->widget('booster.widgets.TbGridView', array(
 	'id' => 'descargas-grid',
 	'dataProvider' => $model->search($filtro_empresas),
 	'filter' => $model,	
 	'columns' => array(
+		array('name'=>'fecha_rango',
+		'header'=>'Fecha de Carga',
+		//'type'=>'raw',
+		'value'=>'date("d/m/Y", strtotime($data->fecha_carga))',
+		'filter'=>$this->widget('booster.widgets.TbDateRangePicker',array(
+					'model'=>$model,
+					'attribute'=>'fecha_rango',
+					'htmlOptions'=>array('id'=>'Descargas_fecha_rango',
+							//'class'=>'form-control date-filter'
+					),
+					'options'=>$dateRangePickerOptions,
+					),
+				true)),
 		//'id',		
 		//array('name'=>'analisis0','htmlOptions'=>array('class'=>'plus','id'=>'$data->id'),'value'=>'...'	,),
-		array('name'=>'fecha_carga','value'=>'date("d/m/Y",strtotime($data->fecha_carga))'),
+		//array('name'=>'fecha_carga','value'=>'date("d/m/Y",strtotime($data->fecha_carga))'),
 		'carta_porte',
 		array('name'=>'fecha_carta_porte','value'=>'date("d/m/Y",strtotime($data->fecha_carta_porte))'),		
 		'cuit_titular',
@@ -112,8 +139,6 @@ $this->widget(
 		$botones,
 	),
 )); ?>
-
-
 <script>
 function toggleRow(id) {	
     if ($('#table'+id).length) {
@@ -136,5 +161,4 @@ function toggleRow(id) {
         });
     }
 }
-
 </script>

@@ -34,19 +34,14 @@ class DescargasController extends Controller
 			),
 			array(
 				'allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions' => array('create', 'update'),
+				'actions' => array('create', 'update','importar','admin', 'delete'),
 				'roles' => array('cliente'),
 			),
-			array(
+			/*array(
 				'allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions' => array('admin', 'delete'),
 				'roles' => array('cliente'),
-			),
-			array(
-				'allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions' => array('importar'),
-				'roles' => array('admin'),
-			),
+			),*/			
 			array(
 				'deny',  // deny all users
 				'users' => array('*'),
@@ -277,7 +272,8 @@ class DescargasController extends Controller
 				$porc_min = MermasHumedad::getPorcentajesMin();
 				$conf =  Configuracion::singleton();
 				$configuracion = $conf->getAll();
-				$delimitador = $configuracion['delimitador-importacion'];				
+				$delimitador = $configuracion['delimitador-importacion'];	
+				$hoy =strtotime("now");			
 				foreach ($archivos_generados as  $nom_arch) {
 					$arch = fopen($nom_arch, 'r');
 					if (!feof($arch)) {
@@ -297,7 +293,8 @@ class DescargasController extends Controller
 									$descarga                = new Descargas();
 									//$descarga->fecha_carga	= date("Ymd"); // Fecha del día
 									$descarga->carta_porte	= $carta_de_porte; 
-									$descarga->fecha_carta_porte	= date("Ymd", strtotime($linea[4]));
+									$fecha = $this->validateDate($linea[4],'Ymd');									
+									$descarga->fecha_carta_porte	= $fecha? date("Ymd", strtotime($linea[4])):date("Ymd",$hoy);
 									$descarga->cuit_titular	= $linea[8];
 									$descarga->producto = intval($linea[14]);
 									$descarga->cod_postal = $linea[20];
@@ -310,8 +307,10 @@ class DescargasController extends Controller
 									$descarga->cuit_destino = $linea[33];
 									$descarga->chasis = $linea[39];
 									$descarga->acoplado = $linea[40];
-									$descarga->fecha_arribo	= date("Ymd", strtotime($linea[45]));
-									$descarga->fecha_descarga	= date("Ymd", strtotime($linea[46]));
+									$fecha = $this->validateDate($linea[45],'Ymd');
+									$descarga->fecha_arribo	= $fecha? date("Ymd",strtotime($linea[45])):date("Ymd",$hoy);
+									$fecha = $this->validateDate($linea[46],'Ymd');
+									$descarga->fecha_descarga	= $fecha? date("Ymd",strtotime($linea[46])):date("Ymd",$hoy);
 									$descarga->kg_brutos_destino = intval($linea[49]);
 									$descarga->kg_tara_destino = intval($linea[50]);
 									$descarga->kg_netos_destino = intval($linea[51]);
@@ -330,7 +329,7 @@ class DescargasController extends Controller
 									}else{
 										$mer_hum = MermasHumedad::model()->findByPk(array('producto'=>$descarga->producto,'porcentaje_humedad'=>$descarga->porcentaje_humedad));
 										if($mer_hum){
-											$descarga->merma_humedad = (($mer_hum->valor * $descarga->kg_netos_destino)/100);
+											$descarga->merma_humedad = round(($mer_hum->valor * $descarga->kg_netos_destino)/100);
 											if($descarga->otras_mermas > $descarga->merma_humedad){
 												$descarga->otras_mermas = $descarga->otras_mermas - $descarga->merma_humedad;
 											}else{
@@ -478,5 +477,10 @@ class DescargasController extends Controller
 		$html = CHtml::openTag('td', $htmlOptions = array('colspan'=>'8')).CHtml::openTag('table', $htmlOptions = array('class'=>'table table-bordered'))."<thead><tr> <th>Bonifica / Rebaja</th><th>Valor</th></tr></thead><tbody>
   <tr><td>".($analisis->bonifica_rebaja?'Bonifica':'Rebaja')."</td> <td>".$analisis->valor."</td></tr></tbody>".CHtml::closeTag('table'). CHtml::closeTag('td');
 		echo CJSON::encode($html);
+	}
+
+	public  function validateDate($date, $format = 'Y-m-d H:i:s'){
+		$d = DateTime::createFromFormat($format, $date);
+		return $d && $d->format($format) == $date;
 	}
 }

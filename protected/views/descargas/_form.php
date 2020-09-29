@@ -157,7 +157,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
         'type' => 'POST', //request type				
         'url' => $this->createUrl('MermasHumedad/DefaultValor'), //url to call	
         'success' => 'js:function(data) { 
-            let mer = ($("#Descargas_kg_netos_destino").val() * data)/100;
+            let mer = Math.round(($("#Descargas_kg_netos_destino").val() * data)/100);            
             $("#Descargas_merma_humedad").val(mer); 
         }',
     ),
@@ -192,26 +192,26 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 
     <?php echo $form->dropDownListGroup($model,'calidad',array('widgetOptions'=>array('data'=>Producto::getAnalisisCalidad(),'htmlOptions'=>array()))); ?>
 
-    <?php echo $form->textFieldGroup($model, 'kg_merma_total', array('widgetOptions' => array('htmlOptions' => array()))); ?>
+    <?php //echo $form->textFieldGroup($model, 'kg_merma_total', array('widgetOptions' => array('htmlOptions' => array()))); ?>
 
-<?php echo $form->textFieldGroup($model, 'cod_postal', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 6)))); ?>
-<?php echo $form->textFieldGroup($model, 'kg_brutos_procedencia', array('widgetOptions' => array('htmlOptions' => array(
+<?php //echo $form->textFieldGroup($model, 'cod_postal', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 6)))); ?>
+<?php /*echo $form->textFieldGroup($model, 'kg_brutos_procedencia', array('widgetOptions' => array('htmlOptions' => array(
     'onChange' => ' jQuery("#Descargas_kg_netos_procedencia").val(jQuery("#Descargas_kg_brutos_procedencia").val()-jQuery("#Descargas_kg_tara_procedencia").val());'
-)))); ?>
-<?php echo $form->textFieldGroup($model, 'kg_tara_procedencia', array('widgetOptions' => array('htmlOptions' => array(
+))));  */ ?>
+<?php /* echo $form->textFieldGroup($model, 'kg_tara_procedencia', array('widgetOptions' => array('htmlOptions' => array(
     'onChange' => ' jQuery("#Descargas_kg_netos_procedencia").val(jQuery("#Descargas_kg_brutos_procedencia").val()-jQuery("#Descargas_kg_tara_procedencia").val());'
-)))); ?>
-<?php echo $form->textFieldGroup($model, 'kg_netos_procedencia', array('widgetOptions' => array('htmlOptions' => array('readOnly' => true))));  ?>
+)))); */ ?>
+<?php //echo $form->textFieldGroup($model, 'kg_netos_procedencia', array('widgetOptions' => array('htmlOptions' => array('readOnly' => true))));  ?>
 
-<?php echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
-<?php echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
-<?php echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
-<?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
+<?php //echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
+<?php //echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
+<?php //echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
+<?php //echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
 
 
 
-<?php echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); ?>
-<?php echo $form->textFieldGroup($model, 'cuit_remitente_comercial', array('widgetOptions' => array('htmlOptions' => array()))); ?>
+<?php //echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); ?>
+<?php //echo $form->textFieldGroup($model, 'cuit_remitente_comercial', array('widgetOptions' => array('htmlOptions' => array()))); ?>
 
 
 <div class="form-actions">

@@ -94,6 +94,7 @@ return array(
 		'paisDefault'=>'Argentina',
 		'provDefault'=>'Córdoba',
 		'locDefault'=>1,//Cnel Moldes
+		'limit'=>2000,// limit filtro descargas
 		'importar'=>array(
 			'separador'=>';',
 			),

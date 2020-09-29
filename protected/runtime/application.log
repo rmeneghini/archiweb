@@ -1,0 +1,64 @@
+2020/09/29 11:34:42 [error] [php] reset() expects parameter 1 to be array, int given (C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php:196)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff\Engine\native.php(88): Text_Diff_Engine_native->_compareseq()
+#1 C:\xampp\htdocs\archiweb\protected\framework\gii\components\Pear\Text\Diff.php(56): Text_Diff_Engine_native->diff()
+#2 C:\xampp\htdocs\archiweb\protected\framework\gii\components\TextDiff.php(18): Text_Diff->__construct()
+#3 C:\xampp\htdocs\archiweb\protected\framework\gii\CCodeGenerator.php(109): compare()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\actions\CInlineAction.php(49): ModelGenerator->actionDiff()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(286): ModelGenerator->runAction()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): ModelGenerator->runActionWithFilters()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): ModelGenerator->run()
+#9 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/gii/model/diff/id/0
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:47:31 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:47:33 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:47:36 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:48:04 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:48:50 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:49:04 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:49:11 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:49:39 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:50:33 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:50:37 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:50:42 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/09/29 11:50:58 [warning] [application] Error al establecer unsafe al atributo "fecha_carta_porte" de "Descargas".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (467)
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (92)
+in C:\xampp\htdocs\archiweb\index.php (25)
