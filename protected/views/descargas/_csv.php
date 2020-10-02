@@ -7,7 +7,9 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_intermediario'));//consultar	
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial'));//consultar
 	$row[]= CHtml::encode($data->getAttributeLabel('producto'));
+	$row[]= CHtml::encode("cuit_destinatario");// ACA TIENE QUE IR EL CUIT DE DESTINATARIO, POR AHORA VACIO
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));
+	$row[]= CHtml::encode($data->getAttributeLabel('patente'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));
 	$row[]= CHtml::encode($data->getAttributeLabel('kg_brutos_destino'));
 	$row[]= CHtml::encode($data->getAttributeLabel('kg_tara_destino'));
@@ -37,7 +39,9 @@ if($primero){
 	$row[]= CHtml::encode($data->cuit_intermediario);	
 	$row[]= CHtml::encode($data->cuit_remitente_comercial);
 	$row[]= CHtml::encode($data->producto);
+	$row[]= CHtml::encode(" ");
 	$row[]= CHtml::encode($data->cuit_destino);
+	$row[]= CHtml::encode($data->chasis);
 	$row[]= CHtml::encode($data->cuit_corredor);
 	$row[]= CHtml::encode($data->kg_brutos_destino);
 	$row[]= CHtml::encode($data->kg_tara_destino);
@@ -51,7 +55,6 @@ if($primero){
 	$row[]= CHtml::encode($data->fumigado ? 'SI' : 'NO');
 	$row[]= CHtml::encode($data->analisis);
 	$row[]= CHtml::encode($data->fecha_descarga);
-
 	
 	fputcsv($fp,$row,$delimitador,chr(0));
 //}
