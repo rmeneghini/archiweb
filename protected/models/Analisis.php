@@ -8,7 +8,7 @@
  * @property integer $rubro
  * @property string $carta_porte
  * @property integer $producto
- * @property integer $bonifica_rebaja
+ * @property double $bonifica_rebaja
  * @property double $valor
  *
  * The followings are the available model relations:
@@ -34,8 +34,8 @@ class Analisis extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('rubro, carta_porte, producto, bonifica_rebaja, valor', 'required'),
-			array('rubro, producto, bonifica_rebaja', 'numerical', 'integerOnly'=>true),
-			array('valor', 'numerical'),
+			array('rubro, producto', 'numerical', 'integerOnly'=>true),
+			array('valor, bonifica_rebaja', 'numerical'),
 			array('carta_porte', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

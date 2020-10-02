@@ -286,7 +286,7 @@ class Descargas extends CActiveRecord
 					// busco el rubro calculo valor
 					$rubroCalValor = RubroCalculoValor::model()->find('producto=' . $this->producto . ' AND rubro=' . $rubro->id . ' AND valor_desde >= ' . $analisis->valor . ' AND valor_hasta <= ' . $analisis->valor);
 					if ($rubroCalValor) {
-						$analisis->bonifica_rebaja = $rubroCalValor->bonifica ?  $rubroCalValor->castiga_bonifica : $rubroCalValor->castiga_bonifica * -1;
+						$analisis->bonifica_rebaja = $rubroCalValor->bonifica==1 ?  $rubroCalValor->castiga_bonifica : $rubroCalValor->castiga_bonifica * -1;
 					} else {
 						// se debe setear un error y eliminar la descarga
 						Yii::app()->user->setFlash('danger', "Falta Rubro Calculo Valor . Prod:".$this->producto.' Rubro:'. $rubro->id." Valor:".$analisis->valor);
