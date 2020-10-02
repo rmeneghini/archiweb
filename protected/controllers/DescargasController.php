@@ -305,6 +305,7 @@ class DescargasController extends Controller
 									$descarga->porcentaje_humedad = floatval($linea[26]);
 									$descarga->cuit_corredor = $linea[27];
 									$descarga->cuit_destino = $linea[33];
+									$descarga->cuit_destinatario = $linea[31];
 									$descarga->chasis = $linea[39];
 									$descarga->acoplado = $linea[40];
 									$fecha = $this->validateDate($linea[45],'Ymd');

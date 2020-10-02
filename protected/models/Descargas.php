@@ -37,6 +37,7 @@
  * @property integer $analisis_finalizado
  * @property string $cuit_intermediario
  * @property string $cuit_remitente_comercial
+ * @property string $cuit_destinatario
  *
  * The followings are the available model relations:
  * @property Producto $producto0
@@ -85,15 +86,15 @@ class Descargas extends CActiveRecord
 			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
 			array('carta_porte', 'length', 'max' => 20,'min'=> 9),
 			array('carta_porte','unique','message' => 'Carta de porta ya ingresada al sistema'),
-			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'length', 'max' => 12),
-			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'validar_cuit'),
+			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario', 'length', 'max' => 12),
+			array('cuit_titular, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'validar_cuit'),
 			array('cod_postal', 'length', 'max' => 6),
 			array('calidad', 'length', 'max' => 3),
 			array('chasis, acoplado', 'length', 'max' => 8),
 			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial', 'safe', 'on' => 'search'),
+			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -168,6 +169,7 @@ class Descargas extends CActiveRecord
 			'analisis_finalizado' => 'Analisis Finalizado',
 			'cuit_intermediario' => 'Cuit Intermediario',
 			'cuit_remitente_comercial' => 'Cuit Remitente Comercial',
+			'cuit_destinatario' => 'Cuit Destinatario',			
 		);
 	}
 
@@ -247,6 +249,7 @@ class Descargas extends CActiveRecord
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
 		$criteria->compare('cuit_intermediario', $this->cuit_intermediario, true);
 		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
+		$criteria->compare('cuit_destinatario', $this->cuit_destinatario, true);
 
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
