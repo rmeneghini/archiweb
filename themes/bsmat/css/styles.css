@@ -1,265 +1,185 @@
 /*
-
 	Correcciones sobre => bootstrap.min.css
-
-
-
-
-
 1_ BODY
-
 2_ SIDEBAR
-
 3_ TABLAS
-
 */
+
+
 /*BODY*/
-body{
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	font-size: 16px;
-	line-height: 1.3;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.3;
 }
 
-h1,h2,h3,h4,h5{
-	font-family: 'Lato', sans-serif;
-	line-height: 1.3;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.3;
 }
-h1.section-title{
+
+h1.section-title {
     font-weight: 600;
     text-transform: uppercase;
 }
-label{font-weight: 400;}
 
-.form-horizontal .control-label{text-align: left;}
+label {
+    font-weight: 400;
+}
 
+.form-horizontal .control-label {
+    text-align: left;
+}
 
-
-.summary{font-size: 13px;font-weight: 300;}
-
+.summary {
+    font-size: 13px;
+    font-weight: 300;
+}
 
 
 /*SIDEBAR*/
 
-aside{font-size: 15px;}
+aside {
+    font-size: 15px;
+}
 
-.sidebar .portlet-title{border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-bottom: 5px;}
-
+.sidebar .portlet-title {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
 
 
 /*TABLAS*/
 
-table th{font-weight: 400;}
+table th {
+    font-weight: 400;
+}
 
-thead th{text-align: center;}
+thead th {
+    text-align: center;
+}
+
 
 /*oculto label de formulario*/
 
+
 /*#login-form .form-group label.col-sm-3{display: none;}*/
 
-
-
 #page {
-
     padding-top: 60px;
-
 }
 
-footer{
+footer {
     margin-top: 35px;
     padding: 25px 0;
     color: #999;
     background-color: #f9f9f9;
     border-top: 1px solid #e5e5e5;
 }
-footer h4{padding: 5px 0 15px;text-transform: uppercase;font-weight: 600;}
-footer .widget-content{padding: 0 10px;}
-footer .copyright{margin: 10px 0 0;}
 
+footer h4 {
+    padding: 5px 0 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
 
+footer .widget-content {
+    padding: 0 10px;
+}
+
+footer .copyright {
+    margin: 10px 0 0;
+}
 
 .text-muted {
-
     /*margin: 20px 0;*/
-
     font-size: 12px;
-
 }
 
-
-
-
-
-
-
-.sombra{
-
-
-
-	-webkit-box-shadow:0px 0px 18px 0px rgba(48,50,50,0.48);
-
-
-
-	-moz-box-shadow:0px 0px 18px 0px rgba(48,50,50,0.48);
-
-
-
-	box-shadow:0px 0px 18px 0px rgba(48,50,50,0.48);
-
-
-
+.sombra {
+    -webkit-box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
+    -moz-box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
+    box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
 }
-
-
-
-
-
-
 
 .operations.nav>li>a {
-
-
-
-	padding: 2px 15px;
-
-
-
+    padding: 2px 15px;
 }
-
-
-
-
-
 
 
 /*********/
 
 
-
 /* DATA4 */
 
-
-
-
-
-
-
 .glyphicon-refresh-animate {
-
-
-
     -animation: spin .7s infinite linear;
-
-
-
     -webkit-animation: spin2 .7s infinite linear;
-
-
-
 }
-
-
-
-
-
-
 
 @-webkit-keyframes spin2 {
-
-
-
-    from { -webkit-transform: rotate(0deg);}
-
-
-
-    to { -webkit-transform: rotate(360deg);}
-
-
-
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
-
-
-
-
-
-
 
 @keyframes spin {
-
-
-
-    from { transform: scale(1) rotate(0deg);}
-
-
-
-    to { transform: scale(1) rotate(360deg);}
-
-
-
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
 }
-
 
 
 /*==================================================
-
 =            Bootstrap 3 Media Queries             =
-
 ==================================================*/
 
 
-
-    /*==========  Mobile First Method  ==========*/
-
+/*==========  Mobile First Method  ==========*/
 
 
-    /* Custom, iPhone Retina */
+/* Custom, iPhone Retina */
 
-    @media only screen and (min-width : 320px) {
-
-
-
-    }
+@media only screen and (min-width: 320px) {}
 
 
+/* Extra Small Devices, Phones */
 
-    /* Extra Small Devices, Phones */
-
-    @media only screen and (min-width : 480px) {
-
+@media only screen and (min-width: 480px) {}
 
 
-    }
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {}
 
 
+/* Medium Devices, Desktops */
 
-    /* Small Devices, Tablets */
-
-    @media only screen and (min-width : 768px) {
-
+@media only screen and (min-width: 992px) {}
 
 
-    }
+/* Large Devices, Wide Screens */
 
+@media only screen and (min-width: 1200px) {
+    /*.container{*/
+    /*min-height: 485px;*/
+    /*}*/
+}
 
-
-    /* Medium Devices, Desktops */
-
-    @media only screen and (min-width : 992px) {
-
-
-
-    }
-
-
-
-    /* Large Devices, Wide Screens */
-
-    @media only screen and (min-width : 1200px) {
-
-			/*.container{*/
-
-				/*min-height: 485px;*/
-
-			/*}*/
-
-    }
+#descargas-grid {
+    overflow-x: auto;
+    white-space: nowrap;
+}
