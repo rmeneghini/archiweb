@@ -39,7 +39,7 @@ if($primero){
 	$row[]= CHtml::encode($data->cuit_intermediario);	
 	$row[]= CHtml::encode($data->cuit_remitente_comercial);
 	$row[]= CHtml::encode($data->producto);
-	$row[]= CHtml::encode(" ");
+	$row[]= CHtml::encode($data->cuit_destino);
 	$row[]= CHtml::encode($data->cuit_destino);
 	$row[]= CHtml::encode($data->chasis);
 	$row[]= CHtml::encode($data->cuit_corredor);
