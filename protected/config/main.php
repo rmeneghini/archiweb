@@ -41,7 +41,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-			'authTimeout' => 1200, //session de 20 minutos
+			'authTimeout' => 54000, //session de 1,5 hrs
 		),
 		// uncomment the following to enable URLs in path-format		
 		'urlManager'=>array(
