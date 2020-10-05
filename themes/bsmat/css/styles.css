@@ -183,3 +183,8 @@ footer .copyright {
     overflow-x: auto;
     white-space: nowrap;
 }
+
+.the-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
