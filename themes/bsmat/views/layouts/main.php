@@ -34,7 +34,7 @@
 							// 'type' => 'navbar',
 							'htmlOptions'=>array('class'=>'nav navbar-top-links navbar-right'),
 							'items'=>array(
-								array('label'=>'Inicio', 'url'=>array('/site/index')),
+								//array('label'=>'Inicio', 'url'=>array('/site/index')),
 								//array('label'=>'Acerca de', 'url'=>array('/site/page', 'view'=>'about')),
 								array('label'=>'Contacto', 'url'=>array('/site/contact')),
 								//array('label'=>'Seguridad', 'url'=>array('/seguridad/'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
