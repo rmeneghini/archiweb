@@ -56,6 +56,7 @@ class Descargas extends CActiveRecord
 		if ($this->isNewRecord) {
 			// set defaults
 			$this->fecha_carga	= date("Ymd");
+			$this->fecha_carta_porte = date("Ymd");
 			$this->analisis_finalizado = 0;
 			$this->porcentaje_zaranda = 0;
 			$this->merma_humedad = 0;

@@ -343,127 +343,6 @@ class SiteController extends Controller
 									Yii::log("Error actualizar persona al importar: Loc(".$linea[8].")" . var_export($persona->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
 								}
 							}
-						}else if($_POST["formulario"]=='cuenta-form'){
-							/**********************/
-							/*       CUENTAS      */
-							/**********************/
-							$tabActivo='cuentas';
-							$cuenta=Cuenta::model()->find('nro = :id AND tasa = :tasa',array(':id'=>$linea[1],':tasa'=>$linea[0]));
-							set_time_limit(2);// agrego 2 segundo al tiempo limite de ejecucion de query                
-							if($cuenta==null){                  
-								$cuenta                      = new Cuenta();
-								$cuenta->nro                 =$linea[1];
-								$cuenta->tasa                =$linea[0];
-								$cuenta->id_persona          =intval($linea[4]);
-								$cuenta->id_contribuyenteaux =intval($linea[5]);
-								$cuenta->descripcion         =$linea[1].' - '.$linea[2];
-								$cuenta->baja_logica         = ( isset($linea[6]) && trim($linea[6])=='B') ? 1 : 0;
-								// si la persona no esta en el sistema no cargo la cta pq da error
-								if(! Persona::model()->findByPk($cuenta->id_persona)){
-									$errores[]=array('cta'=>$cuenta->nro,'contribuyente'=>$cuenta->id_persona,'msj'=>'El contribuyente no esta en el sistema.');
-									continue;
-								}else{
-									if($cuenta->save()){
-										$reg++;
-									}else{
-										Yii::log("errors saving Cuenta: " . var_export($cuenta->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-									}
-								}
-							}else{
-							// actualizo datos de la cuenta
-								$cuenta->id_persona          =intval($linea[4]);
-								$cuenta->id_contribuyenteaux =intval($linea[5]);
-								$cuenta->descripcion         =$linea[1].' - '.$linea[2];
-								$cuenta->baja_logica         =(isset($linea[6]) && trim($linea[6])=='B') ? 1 : 0;
-							// si la persona no esta en el sistema no cargo la cta pq da error
-								if(! Persona::model()->findByPk($cuenta->id_persona)){
-									$errores[]=array('cta'=>$cuenta->nro,'contribuyente'=>$cuenta->id_persona,'msj'=>'El contribuyente no esta en el sistema.');
-									continue;
-								}else{
-									if($cuenta->save()){
-										$reg++;
-									}else{
-										Yii::log("errors Actualizando Cuenta: " . var_export($cuenta->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-									}
-								}
-							}
-							// Valido y creo el detalle de la cuenta
-							$detalle=DetalleCuenta::model()->find("(id_persona= :per OR id_contribuyenteaux= :per) AND id_cuenta= :nrocta AND tasa= :tasa",array(':per'=>$cuenta->id_persona,':nrocta'=>$linea[1],':tasa'=>$linea[0]));
-							if($detalle==null){
-								$detalle = new DetalleCuenta();
-								$detalle->id_persona=$cuenta->id_persona;
-								$detalle->id_contribuyenteaux = $cuenta->id_contribuyenteaux;
-								$detalle->id_cuenta=$linea[1];
-								$detalle->tasa=$linea[0];
-								$detalle->identificador=$linea[2];
-								$detalle->detalle=$linea[3];
-								if(! $detalle->save())
-									Yii::log("Error Guardando DetalleCuenta: " . var_export($detalle->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-							}else{
-									//actualizo el detalle de la cuenta
-									$detalle->identificador=$linea[2];
-									$detalle->detalle=$linea[3];
-									if(! $detalle->save())
-										Yii::log("Error Guardando DetalleCuenta: " . var_export($detalle->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-							}
-						}else if($_POST["formulario"]=='cuotas-form'){
-							$importoOk = [];
-							$actualizoOk = [];
-							/**********************/
-							/*       CUOTAS       */
-							/**********************/
-							$tabActivo ='cuotas';
-							$cuota     =Cuota::model()->find("anio= :anio AND numero = :nro AND tasa= :tasa AND id_cuenta= :cta",array(':anio'=>$linea[2],':nro'=>$linea[3],':tasa'=>$linea[0],':cta'=>$linea[1]));
-							$newDate   = date("Y-m-d", strtotime(str_replace('/','-',SiteController::formatearFecha($linea[5]))));
-							if($cuota == null){
-								// control si cuota viene anulada
-								if (isset($linea[9]) && !(trim($linea[9])=='B')) {
-									$cuota              = new Cuota();
-									$cuota->anio        =$linea[2];
-									$cuota->numero      =$linea[3];
-									$cuota->tasa        =$linea[0];
-									$cuota->id_cuenta   =$linea[1];
-									$cuota->importe     =floatval($linea[6]);
-									$cuota->estado      = ($linea[4] == '' ? 0 : $linea[4]);
-									$cuota->vencimiento =$newDate;
-									$cuota->nro_cedulon =isset($linea[7])?trim($linea[7]):'0';
-									// TODO: Cargo la cuota ya bajada, haer procedimiento que depure las cuotas en baja
-									$cuota->baja_logica =(isset($linea[9]) && trim($linea[9])=='B') ? 1 : 0;
-									set_time_limit(4);// agrego 2 segundo al tiempo limite de ejecucion de query
-									if(! Cuenta::model()->find('nro='.$cuota->id_cuenta) ){
-										// si la persona no esta en el sistema no cargo la cta pq da error
-										$errores[] = array('cuota'=>$cuota->numero,'cta'=>$cuota->id_cuenta,'msj'=>'La cuenta no esta en el sistema.');
-										continue;
-									}else{
-										if($cuota->save()){
-											$reg++;
-											array_push($actualizoOk, $cuota->id_cuenta . " >>> " . $cuota->anio . " - " . $cuota->numero . " - La cuenta fue importada.");
-										}else{
-											//Acá se pueden acumular los registros con problemas de importacion para analizar
-											Yii::log("!!! Error Importar Cuota: " . var_export($cuota->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-										}
-									}
-								}
-							}else{
-								// sentencia para realizar el update de cuotas
-								// if (isset($linea[9]) && (trim($linea[9]) == 'B' || trim($linea[9]) == 'A') && ($cuota->baja_logica == '0')) {
-								// control si cuota viene anulada y la cuota a la que impacta esta no este anulada
-								// sentencia para realizar solo las bajas de cuotas
-								if (isset($linea[9]) && (trim($linea[9]) == 'B') && ($cuota->baja_logica == '0')) {
-									//Actualizo importe, vencimiento y estado
-									$cuota->importe     =floatval($linea[6]);
-									$cuota->estado      =($linea[4]==''?0:$linea[4]);
-									$cuota->nro_cedulon = isset( $linea[7]) ? trim($linea[7]) : '0';
-									$cuota->baja_logica =(isset($linea[9]) && trim($linea[9])=='B') ? 1 : 0;
-									$cuota->vencimiento =$newDate;
-									if($cuota->save()){
-										$reg++;
-										array_push($actualizoOk, $cuota->id_cuenta . " >>> " . $cuota->anio . " - " . $cuota->numero . " - Estado = " . $cuota->baja_logica . " - La cuenta fue actualizada.");
-									}else{
-										Yii::log("!!! Error Actualiza Importar Cuota: " . var_export($cuota->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-									}
-								}
-							}
 						}
 					}
 			  }  /* end while */
@@ -531,7 +410,7 @@ class SiteController extends Controller
 		while ($current = readdir($dir)){
 			if( $current != "." && $current != "..") {
 				if(is_dir($path.$current)) {
-					showFiles($path.$current.'/');
+					SiteController::showFiles($path.$current.'/');
 				}
 				else {
 					$files[] = $path.$current;

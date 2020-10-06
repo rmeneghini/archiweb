@@ -87,3 +87,13 @@ Stack trace:
 REQUEST_URI=/archiweb/index.php/descargas/importar
 in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (343)
 in C:\xampp\htdocs\archiweb\index.php (25)
+2020/10/06 15:45:47 [error] [exception.ParseError] ParseError: syntax error, unexpected '}', expecting end of file in C:\xampp\htdocs\archiweb\protected\controllers\ProvinciaController.php:170
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(276): CWebApplication->createController('')
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('provincia')
+#2 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\archiweb\index.php(25): CApplication->run()
+#4 {main}
+REQUEST_URI=/archiweb/index.php/provincia
+HTTP_REFERER=http://localhost/archiweb/index.php/descargas/admin
+---

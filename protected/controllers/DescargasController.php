@@ -451,7 +451,7 @@ class DescargasController extends Controller
 		while ($current = readdir($dir)) {
 			if ($current != "." && $current != "..") {
 				if (is_dir($path . $current)) {
-					showFiles($path . $current . '/');
+					DescargasController::showFiles($path . $current . '/');
 				} else {
 					$files[] = $path . $current;
 				}
