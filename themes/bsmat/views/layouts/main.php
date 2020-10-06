@@ -14,6 +14,7 @@
 	<!-- tiporafias, traer a local -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto:400,500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/styles.css" />
+	<link rel="icon" type="favicon/x-icon" href="<?php echo Yii::app()->theme->baseUrl; ?>/img/logo.png" />
 	<!-- Latest compiled and minified CSS -->
 	<!--<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css">-->
 	<!-- Optional theme -->
@@ -34,13 +35,13 @@
 							// 'type' => 'navbar',
 							'htmlOptions'=>array('class'=>'nav navbar-top-links navbar-right'),
 							'items'=>array(
-								//array('label'=>'Inicio', 'url'=>array('/site/index')),
+								array('label'=>'Inicio', 'url'=>array('/site/index')),
 								//array('label'=>'Acerca de', 'url'=>array('/site/page', 'view'=>'about')),
 								array('label'=>'Contacto', 'url'=>array('/site/contact')),
 								//array('label'=>'Seguridad', 'url'=>array('/seguridad/'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 								// array('label'=>'Registrarse', 'url'=>array('/site/registro'), 'visible'=>Yii::app()->user->isGuest),
 								array('label'=>'Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),								
-								array('label'=>'Acciones', 'url'=>'#', 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id),
+								array('label'=>'Acciones', 'url'=>'#', 'visible'=>Yii::app()->authManager->checkAccess('cliente',Yii::app()->user->id),
 									'items'=>array(
 										array('label'=>'Usuarios', 'url'=>array('/usuario/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 										array('label'=>'Personal/Contribuyentes','url'=>array('/persona/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
@@ -57,7 +58,7 @@
 								array('label'=>' ', 'icon'=>'user', 'url'=>'#', 'visible'=>Yii::app()->authManager->checkAccess('cliente',Yii::app()->user->id),
 									'items'=>array(
 										array('label'=>'Cambiar Contraseña', 'icon'=>'cog','url'=>array('site/cambiarPassword'), 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)),
-										array('label'=>'Conf. Constantes', 'icon'=>'cog','url'=>array('configuracion/admin'), 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)),
+										array('label'=>'Conf. Constantes', 'icon'=>'cog','url'=>array('configuracion/admin'), 'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 												//array('label'=>'Datos Personales', 'icon'=>'list-alt','url'=>array('site/completarRegistro'), 'visible'=>Yii::app()->authManager->checkAccess('cliente',Yii::app()->user->id)),
 										)),
 										array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
