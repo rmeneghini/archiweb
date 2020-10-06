@@ -1,0 +1,35 @@
+[33mcommit a1d3eeaac8e8508745405ecb8c6aaa571c346540[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Mon Sep 28 10:54:14 2020 -0300
+
+    Listado de errores al importar
+
+[33mcommit b3806bb38cf54f3bbcd3c508f489605869005930[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Fri Sep 25 08:23:55 2020 -0300
+
+    Ajustes carga manual
+
+[33mcommit 77d749d4598f6adc7850fdb3ecec56abd09c72a2[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Wed Sep 23 15:36:15 2020 -0300
+
+    validaciones y calculos en la carga manual de descargas
+
+[33mcommit f0325637d4e667d5a89aed0b3fa2e55a01f9b881[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Wed Sep 23 07:18:15 2020 -0300
+
+    Descarga de analisis.csv, filtros por fecha en admin descarga, y filtro por razon social de los cuit, limitacion de descargas segun rol, primeras validacion en carga manual de una descarga
+
+[33mcommit 2f8aa68fb8ce25653b184b5552c9cc68b1b42f9a[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Sat Sep 19 16:10:01 2020 -0300
+
+    camobios en importacion automatica, definiciion de entidad y empresa y relacion con descargas
+
+[33mcommit 74817aad72bf4d9baeec6e9f28a0b7a6dbd13c91[m
+Author: Renato Meneghini <rmeneghini@gmail.com>
+Date:   Tue Sep 15 14:52:38 2020 -0300
+
+    Primer Commit
