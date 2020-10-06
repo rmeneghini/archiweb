@@ -66,16 +66,12 @@ class DescargasController extends Controller
 	{
 		$model = new Descargas;
 
-		
-
 		$modelEntidadTitular = new Entidad('search');
 		$modelEntidadTitular->unsetAttributes();
 		$modelEntidadCorredor = new Entidad('search');
 		$modelEntidadCorredor->unsetAttributes();
 		$modelEntidadDestino = new Entidad('search');
 		$modelEntidadDestino->unsetAttributes();
-		
-		
 		
 		if(isset($_GET['Entidad'])){
 			if($_GET['ajax']=='entidad-grid-titular'){
@@ -93,11 +89,21 @@ class DescargasController extends Controller
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
 			$model->usuario =  Yii::app()->user->id;
+			// formateo las fechas
+			$fecha = date("Y-m-d", strtotime($model->fecha_carga));
+			$model->fecha_carga=$fecha;
+			$fecha = date("Y-m-d", strtotime($model->fecha_arribo));
+			$model->fecha_arribo=$fecha;
+			$fecha = date("Y-m-d", strtotime($model->fecha_carta_porte));
+			$model->fecha_carta_porte=$fecha;
+
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 		
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
+		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
+		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 		$this->render('create', array(
 			'model' => $model,			
 			'modelEntidadTitular' => $modelEntidadTitular,
@@ -118,12 +124,20 @@ class DescargasController extends Controller
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
 			$model->usuario =  Yii::app()->user->id;
+			// formateo las fechas
+			$fecha = date("Y-m-d", strtotime($model->fecha_carga));
+			$model->fecha_carga=$fecha;
+			$fecha = date("Y-m-d", strtotime($model->fecha_arribo));
+			$model->fecha_arribo=$fecha;
+			$fecha = date("Y-m-d", strtotime($model->fecha_carta_porte));
+			$model->fecha_carta_porte=$fecha;
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
 		}
 		$modelEntidad = new Entidad('search');
 		// formateo fechas	
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
+		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
 		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 		////////////
 		$this->render('update', array(

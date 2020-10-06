@@ -159,6 +159,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
         'success' => 'js:function(data) { 
             let mer = Math.round(($("#Descargas_kg_netos_destino").val() * data)/100);            
             $("#Descargas_merma_humedad").val(mer); 
+            Descargas.calculoNetoApli();
         }',
     ),
 )))); ?>
