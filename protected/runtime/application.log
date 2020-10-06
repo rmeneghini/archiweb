@@ -68,3 +68,22 @@ REQUEST_URI=/archiweb/index.php/entidad/create
 in C:\xampp\htdocs\archiweb\protected\extensions\YiiBooster-master\src\widgets\TbActiveForm.php (361)
 in C:\xampp\htdocs\archiweb\protected\views\entidad\_form.php (9)
 in C:\xampp\htdocs\archiweb\protected\views\entidad\create.php (34)
+2020/10/06 08:46:56 [warning] [application] Error al establecer unsafe al atributo "0" de "ImportarForm".
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (266)
+in C:\xampp\htdocs\archiweb\index.php (25)
+2020/10/06 08:47:00 [error] [php] Undefined offset: 414 (C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php:343)
+Stack trace:
+#0 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(134): DescargasController->runAction()
+#1 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CInlineFilter.php(58): DescargasController->filterAccessControl()
+#4 C:\xampp\htdocs\archiweb\protected\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\archiweb\protected\framework\web\CController.php(265): DescargasController->runActionWithFilters()
+#7 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(282): DescargasController->run()
+#8 C:\xampp\htdocs\archiweb\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\archiweb\protected\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\archiweb\index.php(25): CWebApplication->run()
+REQUEST_URI=/archiweb/index.php/descargas/importar
+in C:\xampp\htdocs\archiweb\protected\controllers\DescargasController.php (343)
+in C:\xampp\htdocs\archiweb\index.php (25)

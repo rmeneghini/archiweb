@@ -484,13 +484,14 @@ class DescargasController extends Controller
 		}
 	}
 
+	//funcion que retorno un json para mostrar en la grilla de descargar cuando tienen analisis
 	public function actionAnalisis() {
 		header("Content-type: application/json"); // para que devuelva mime json, jquery lo agradece.
 		$descarga  = Descargas::model()->findByPk($_POST['descarga']);
 		$analisis =$descarga->analisis0;		
 		//echo CJSON::encode($analisis->bonifica_rebaja.' '.$analisis->valor);
-		$html = CHtml::openTag('td', $htmlOptions = array('colspan'=>'8')).CHtml::openTag('table', $htmlOptions = array('class'=>'table table-bordered'))."<thead><tr> <th>Bonifica / Rebaja</th><th>Valor</th></tr></thead><tbody>
-  <tr><td>".($analisis->bonifica_rebaja?'Bonifica':'Rebaja')."</td> <td>".$analisis->valor."</td></tr></tbody>".CHtml::closeTag('table'). CHtml::closeTag('td');
+		$html = CHtml::openTag('td', $htmlOptions = array('colspan'=>'8')).CHtml::openTag('table', $htmlOptions = array('class'=>'table table-bordered'))."<thead><tr> <th>Rubro</th><th>Valor</th></tr></thead><tbody>
+  <tr><td>".$analisis->rubro0->descripcion."</td> <td>".$analisis->valor."</td></tr></tbody>".CHtml::closeTag('table'). CHtml::closeTag('td');
 		echo CJSON::encode($html);
 	}
 
