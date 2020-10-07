@@ -30,7 +30,7 @@ class EntidadController extends Controller
 			array(
 				'allow',  // allow all users to perform 'index' and 'view' actions
 				'actions' => array('index', 'view','create'),
-				'users' => array('cliente'),
+				'roles' => array('cliente'),
 			),
 			array(
 				'allow', // allow authenticated user to perform 'create' and 'update' actions

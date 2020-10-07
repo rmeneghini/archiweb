@@ -41,7 +41,7 @@
 			)); ?>
 			</div>
 			<br>
-			<small><?php echo CHtml::link('Olvide mi contraseña',array('site/recuperarPassword')); ?></small>
+			<small><?php /*echo CHtml::link('Olvide mi contraseña',array('site/recuperarPassword')); */?></small>
 			<?php $this->endWidget(); ?>			
 	</div><!-- form -->
 </div>
