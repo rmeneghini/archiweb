@@ -193,7 +193,6 @@ class Descargas extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria = new CDbCriteria;
-
 		$criteria->with = array('ent_titular','ent_corredor','ent_destino');
 
 		$criteria->compare('id', $this->id);
@@ -257,12 +256,13 @@ class Descargas extends CActiveRecord
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
 		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1)';
+		$temp_criteria->order='fecha_carga DESC';
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	
 		$temp_criteria->limit=Yii::app()->params['limit'];
 
 		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
-		
+				
 		$criteria->limit=Yii::app()->params['limit'];
 
 		return new CActiveDataProvider($this, array(

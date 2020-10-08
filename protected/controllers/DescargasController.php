@@ -34,14 +34,14 @@ class DescargasController extends Controller
 			),
 			array(
 				'allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions' => array('create', 'update','importar','admin', 'delete'),
+				'actions' => array('create','importar','admin',),
 				'roles' => array('cliente'),
 			),
-			/*array(
-				'allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions' => array('admin', 'delete'),
-				'roles' => array('cliente'),
-			),*/			
+			array(
+				'allow', 
+				'actions' => array('update','delete'),
+				'roles' => array('super'),
+			),		
 			array(
 				'deny',  // deny all users
 				'users' => array('*'),
