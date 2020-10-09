@@ -105,11 +105,12 @@ class DescargasController extends Controller
 				$model->fecha_arribo=$fecha;
 				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carta_porte)));
 				$model->fecha_carta_porte=$fecha;
-			}
+			
 			
 
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
+			}
 		}
 		
 
@@ -131,20 +132,27 @@ class DescargasController extends Controller
 	public function actionUpdate($id)
 	{
 		$model = $this->loadModel($id);
+		// formateo fechas	
+		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
+		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
+		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
 		if (isset($_POST['Descargas'])) {
 			$model->attributes = $_POST['Descargas'];
 			$model->usuario =  Yii::app()->user->id;
 			// formateo las fechas
-			$fecha = date("Y-m-d", strtotime($model->fecha_carga));
-			$model->fecha_carga=$fecha;
-			$fecha = date("Y-m-d", strtotime($model->fecha_arribo));
-			$model->fecha_arribo=$fecha;
-			$fecha = date("Y-m-d", strtotime($model->fecha_carta_porte));
-			$model->fecha_carta_porte=$fecha;
+			if($model->validate()){
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carga)));
+				$model->fecha_carga=$fecha;
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
+				$model->fecha_arribo=$fecha;
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carta_porte)));
+				$model->fecha_carta_porte=$fecha;
+			
 			if ($model->save())
 				$this->redirect(array('view', 'id' => $model->id));
+			}
 		}
 		$modelEntidadTitular = new Entidad('search');
 		$modelEntidadTitular->unsetAttributes();
@@ -164,10 +172,7 @@ class DescargasController extends Controller
 			
 			//Yii::log(" - PASO - ".var_export($modelEntidad->tipo_entidad,true), CLogger::LEVEL_WARNING, __METHOD__);
 		}
-		// formateo fechas	
-		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
-		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
-		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
+		
 		////////////
 		$this->render('update', array(
 			'model' => $model,
@@ -509,8 +514,7 @@ class DescargasController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if (isset($_POST['ajax']) && $_POST['ajax'] === 'descargas-form') {				
-			//Yii::log(" - AJAX - ".var_export($_POST,true), CLogger::LEVEL_WARNING, __METHOD__);
+		if (isset($_POST['ajax']) && $_POST['ajax'] === 'descargas-form') {							
 			echo CActiveForm::validate($model);						
 			Yii::app()->end();
 		}
