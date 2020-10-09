@@ -188,3 +188,9 @@ footer .copyright {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.img_pie{
+    display: block;
+    width: 200px;
+    margin-bottom: 40px;
+}

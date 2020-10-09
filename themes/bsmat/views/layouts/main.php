@@ -118,7 +118,7 @@
 										&nbsp;
 									</div>
 									<div class="col-md-4">
-									<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Cerealista Moldes" class="img-responsive">
+									<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Cerealista Moldes" class="img_pie">
 									</div>
 									
 								</div>

@@ -22,8 +22,8 @@ $this->menu=array(
 	'htmlOptions' => array('class' => 'well','enctype'=>'multipart/form-data'),
 )); ?>
 
-<p class="help-block">Los campos indicados con <span class="required">*</span> son requeridos.</p>
-<p class="help-block">El orden de los campos del txt debe ser el siguiente. Pref,C. Porte,T,N.Vagon,Fecha CP,Fec Venc,C.E.E. Nro,C.T.G.,CUIT Tit., Titular,CUIT Inter.,Intermediario,CUIT Rem.C.,Remitente Comercial,Cod, Especie,Contrato ,Oncca,Procedencia,Provincia,C.Post, K.B.Pr ,K.T.Pr, K.N.Pr,Cos.,Ca,%Humed. ,CUIT Corre.,Corredor,CUIT Entreg,Entregador,CUIT Desti.,Destinatario,CUIT Dest.,Destino,Nro.Pl, Planta,CUIT Transp, Transportista,Patente,PatAcop,Km a rec,TarxTon,Cuit Chofer,Nombre Chofer,Fecha Ar,Fecha De,H.Ar,H.De,Bruto,Tara,Neto,Merma,Neto Apl,Analisis,Cupo Alfanumerico y se asumen que la primera fila son los títulos.</p>
+<!--p class="help-block">Los campos indicados con <span class="required">*</span> son requeridos.</p>
+<p class="help-block">El orden de los campos del txt debe ser el siguiente. Pref,C. Porte,T,N.Vagon,Fecha CP,Fec Venc,C.E.E. Nro,C.T.G.,CUIT Tit., Titular,CUIT Inter.,Intermediario,CUIT Rem.C.,Remitente Comercial,Cod, Especie,Contrato ,Oncca,Procedencia,Provincia,C.Post, K.B.Pr ,K.T.Pr, K.N.Pr,Cos.,Ca,%Humed. ,CUIT Corre.,Corredor,CUIT Entreg,Entregador,CUIT Desti.,Destinatario,CUIT Dest.,Destino,Nro.Pl, Planta,CUIT Transp, Transportista,Patente,PatAcop,Km a rec,TarxTon,Cuit Chofer,Nombre Chofer,Fecha Ar,Fecha De,H.Ar,H.De,Bruto,Tara,Neto,Merma,Neto Apl,Analisis,Cupo Alfanumerico y se asumen que la primera fila son los títulos.</p-->
 
 	<?php echo $form->errorSummary($model); ?>	
 

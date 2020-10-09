@@ -60,7 +60,7 @@
 
 			'items'=>array(
 
-				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Home', 'url'=>array('/site/login')),
 
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 
