@@ -58,9 +58,7 @@ class Descargas extends CActiveRecord
 			//Yii::log(" - INIT - ", CLogger::LEVEL_WARNING, __METHOD__);
 			// set defaults
 			$this->fecha_carga	= date("Y-m-d");
-			$this->fecha_carta_porte = date("Y-m-d");
-			$this->fecha_descarga = date("Y-m-d");
-			$this->fecha_arribo = date("Y-m-d");
+			$this->fecha_carta_porte = date("Y-m-d");			
 			$this->analisis_finalizado = 0;
 			$this->porcentaje_zaranda = 0;
 			$this->merma_humedad = 0;
@@ -89,7 +87,7 @@ class Descargas extends CActiveRecord
 			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
 			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda, merma_humedad', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
-			array('carta_porte', 'length', 'max' => 20,'min'=> 9),
+			array('carta_porte', 'length', 'max' => 9,'min'=> 9),
 			array('carta_porte','unique','message' => 'Carta de porta ya ingresada al sistema'),
 			array('cuit_titular, cuit_corredor, cuit_destino, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario', 'length', 'max' => 12),
 			array('cuit_titular, cuit_destino, cuit_intermediario, cuit_remitente_comercial', 'validar_cuit'),
@@ -259,7 +257,7 @@ class Descargas extends CActiveRecord
 
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
-		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1)';
+		$temp_criteria->condition = 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
 		$temp_criteria->order='fecha_carga DESC';
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	

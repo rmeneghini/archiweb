@@ -120,7 +120,7 @@ $dateRangePickerOptions = array(
 		'otras_mermas',
 		'analisis',
 		array('name'=>'cuit_corredor','value'=>'$data->cuit_corredor == "11111111111"?"":$data->cuit_corredor'),		
-		array('name'=>'ent_corredor.razonSocial','value'=>'$data->ent_corredor->razonSocial','filter'=>CHtml::searchField('Descargas[corredor]',$model->corredor,array()) ),		
+		array('name'=>'ent_corredor.razonSocial','value'=>'$data->ent_corredor?$data->ent_corredor->razonSocial:""','filter'=>CHtml::searchField('Descargas[corredor]',$model->corredor,array()) ),		
 		array('name'=>'cuit_destino','value'=>'$data->cuit_destino == "11111111111"?"":$data->cuit_destino'),		
 		array('name'=>'ent_destino.razonSocial','value'=>'$data->ent_destino->razonSocial','filter'=>CHtml::searchField('Descargas[destino]',$model->destino,array()) ),
 		/*'chasis',

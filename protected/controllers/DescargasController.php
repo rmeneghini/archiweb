@@ -68,7 +68,7 @@ class DescargasController extends Controller
 		$model = new Descargas;
 		//Yii::log(" - CREATE - ".var_export($model,true), CLogger::LEVEL_WARNING, __METHOD__);
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
-		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
+		//$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
 		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 
 
@@ -101,10 +101,12 @@ class DescargasController extends Controller
 			if($model->validate()){
 				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carga)));
 				$model->fecha_carga=$fecha;
-				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
-				$model->fecha_arribo=$fecha;
+				/*$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
+				$model->fecha_arribo=$fecha;*/
 				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carta_porte)));
 				$model->fecha_carta_porte=$fecha;
+				$model->fecha_descarga = date("Y-m-d");
+				$model->fecha_arribo = date("Y-m-d");
 			
 			
 
@@ -134,7 +136,7 @@ class DescargasController extends Controller
 		$model = $this->loadModel($id);
 		// formateo fechas	
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
-		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
+		//$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
 		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
 		// Uncomment the following line if AJAX validation is needed
 		 $this->performAjaxValidation($model);
@@ -145,8 +147,8 @@ class DescargasController extends Controller
 			if($model->validate()){
 				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carga)));
 				$model->fecha_carga=$fecha;
-				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
-				$model->fecha_arribo=$fecha;
+				/*$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
+				$model->fecha_arribo=$fecha;*/
 				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carta_porte)));
 				$model->fecha_carta_porte=$fecha;
 			
