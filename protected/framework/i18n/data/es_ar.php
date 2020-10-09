@@ -205,6 +205,7 @@ return array (
     'long' => 'd \'de\' MMMM \'de\' y',
     'medium' => 'dd/MM/y',
     'short' => 'dd/MM/yy',
+    'custom' => 'dd/MM/yyyy',
   ),
   'timeFormats' => 
   array (

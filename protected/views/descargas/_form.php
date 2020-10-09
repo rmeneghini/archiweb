@@ -1,6 +1,6 @@
 <?php $form = $this->beginWidget('booster.widgets.TbActiveForm', array(
     'id' => 'descargas-form',
-    'enableClientValidation' => true,
+    //'enableClientValidation' => true,
     'enableAjaxValidation' => true,
     'type' => 'horizontal',
     'htmlOptions' => array('class' => 'well'),
@@ -8,7 +8,7 @@
 <p class="help-block">Los campos indicados con <span class="required">*</span> son requeridos.</p>
 <?php echo $form->errorSummary($model); ?>
 <?php
-echo $form->datePickerGroup($model, 'fecha_carga', array('widgetOptions' => array('options' => array('endDate' => '-1Y', 'todayHighlight' => true), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',));
+echo $form->datePickerGroup($model, 'fecha_carga', array('widgetOptions' => array('options' => array('format'=>'dd/mm/yyyy','endDate' => '-1Y', 'todayHighlight' => true), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',));
 ?>
 <?php echo $form->textFieldGroup($model, 'carta_porte', array('widgetOptions' => array('htmlOptions' => array()))); ?>
 <?php echo $form->datePickerGroup($model, 'fecha_carta_porte', array('widgetOptions' => array('options' => array('endDate' => '-1Y', 'todayHighlight' => true), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>

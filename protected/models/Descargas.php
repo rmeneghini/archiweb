@@ -53,12 +53,14 @@ class Descargas extends CActiveRecord
 
 	function init()
 	{
-		if ($this->isNewRecord) {
+		
+		if ($this->isNewRecord && empty($_POST['Descargas'])) {			
+			//Yii::log(" - INIT - ", CLogger::LEVEL_WARNING, __METHOD__);
 			// set defaults
-			$this->fecha_carga	= date("Ymd");
-			$this->fecha_carta_porte = date("Ymd");
-			$this->fecha_descarga = date("Ymd");
-			$this->fecha_arribo = date("Ymd");
+			$this->fecha_carga	= date("Y-m-d");
+			$this->fecha_carta_porte = date("Y-m-d");
+			$this->fecha_descarga = date("Y-m-d");
+			$this->fecha_arribo = date("Y-m-d");
 			$this->analisis_finalizado = 0;
 			$this->porcentaje_zaranda = 0;
 			$this->merma_humedad = 0;
@@ -83,7 +85,7 @@ class Descargas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_carga, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
+			array('fecha_carga, fecha_carta_porte, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
 			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
 			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda, merma_humedad', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
@@ -232,6 +234,8 @@ class Descargas extends CActiveRecord
 		$criteria->compare('porcentaje_zaranda', $this->porcentaje_zaranda);
 		$criteria->compare('merma_zaranda', $this->merma_zaranda);
 		$criteria->compare('fumigado', $this->fumigado);
+
+		$criteria->order = 'fecha_carga DESC';
 
 		//busqueda por razon social titular
 		$criteria->compare('ent_titular.razonSocial', $this->titular, true);

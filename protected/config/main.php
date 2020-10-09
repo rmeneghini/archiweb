@@ -9,7 +9,7 @@ return array(
 	'name'=>'ARCHIWEB',
 	//'theme'=>'bootstrap3',
 	'theme'=>'bsmat',
-    'language'=>'es',
+	'language'=>'es',	
 	// preloading 'log' component
 	'preload'=>array('log','bootstrap','booster'),//
 	// autoloading model and component classes

@@ -29,7 +29,7 @@ class ProductoController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','calidadesPorProducto'),
-				'users'=>array('cliente'),
+				'roles'=>array('cliente'),
 			),
 			array('allow', 
 				'actions'=>array('create'),

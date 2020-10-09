@@ -9,6 +9,7 @@ $this->parametros=array(
 $this->menu=array(
 	array('label'=>'Listar Análisis', 'url'=>array('index')),
 	array('label'=>'Crear Análisis', 'url'=>array('create')),
+	//array('label'=>'Importar', 'url'=>array('importar')),
 );
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
