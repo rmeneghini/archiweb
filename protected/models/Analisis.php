@@ -10,10 +10,12 @@
  * @property integer $producto
  * @property double $bonifica_rebaja
  * @property double $valor
+ * @property integer $usuario
  *
  * The followings are the available model relations:
  * @property Producto $producto0
  * @property Rubro $rubro0
+ * @property Usuario $usuario0
  */
 class Analisis extends CActiveRecord
 {
@@ -33,13 +35,13 @@ class Analisis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rubro, carta_porte, producto, bonifica_rebaja, valor', 'required'),
-			array('rubro, producto', 'numerical', 'integerOnly'=>true),
+			array('rubro, carta_porte, producto, bonifica_rebaja, valor, usuario', 'required'),
+			array('rubro, producto, usuario', 'numerical', 'integerOnly'=>true),
 			array('valor, bonifica_rebaja', 'numerical'),
 			array('carta_porte', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, rubro, carta_porte, producto, bonifica_rebaja, valor', 'safe', 'on'=>'search'),
+			array('id, rubro, carta_porte, producto, bonifica_rebaja, valor, usuario', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,6 +55,7 @@ class Analisis extends CActiveRecord
 		return array(
 			'producto0' => array(self::BELONGS_TO, 'Producto', 'producto'),
 			'rubro0' => array(self::BELONGS_TO, 'Rubro', 'rubro'),
+			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario'),
 		);
 	}
 
@@ -68,6 +71,7 @@ class Analisis extends CActiveRecord
 			'producto' => 'Producto',
 			'bonifica_rebaja' => 'Bonifica Rebaja',
 			'valor' => 'Valor',
+			'usuario' => 'Usuario',
 		);
 	}
 
@@ -95,6 +99,7 @@ class Analisis extends CActiveRecord
 		$criteria->compare('producto',$this->producto);
 		$criteria->compare('bonifica_rebaja',$this->bonifica_rebaja);
 		$criteria->compare('valor',$this->valor);
+		$criteria->compare('usuario',$this->usuario);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -64,8 +64,9 @@ class DescargasController extends Controller
 	 */
 	public function actionCreate()
 	{
-		//Yii::log(" - CREATE - ", CLogger::LEVEL_WARNING, __METHOD__);
+		
 		$model = new Descargas;
+		//Yii::log(" - CREATE - ".var_export($model,true), CLogger::LEVEL_WARNING, __METHOD__);
 		$model->fecha_carga = date("d/m/Y", strtotime($model->fecha_carga));
 		$model->fecha_arribo = date("d/m/Y", strtotime($model->fecha_arribo));
 		$model->fecha_carta_porte = date("d/m/Y", strtotime($model->fecha_carta_porte));
@@ -89,20 +90,22 @@ class DescargasController extends Controller
 			
 			//Yii::log(" - PASO - ".var_export($modelEntidad->tipo_entidad,true), CLogger::LEVEL_WARNING, __METHOD__);
 		}
-		// Uncomment the following line if AJAX validation is needed
-		//Yii::log(" - AJAX - ", CLogger::LEVEL_WARNING, __METHOD__);		
+		// Uncomment the following line if AJAX validation is needed		
 		$this->performAjaxValidation($model);
-		//Yii::log(" - POSAJAX - ", CLogger::LEVEL_WARNING, __METHOD__);		
-		if (isset($_POST['Descargas'])) {			
+		
+		if (isset($_POST['Descargas'])) {	
+			//Yii::log(" - PASO - ", CLogger::LEVEL_WARNING, __METHOD__);		
 			$model->attributes = $_POST['Descargas'];
 			$model->usuario =  Yii::app()->user->id;
 			// formateo las fechas
-			$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carga)));
-			$model->fecha_carga=$fecha;
-			$fecha = date("Y-m-d", strtotime($model->fecha_arribo));
-			$model->fecha_arribo=$fecha;
-			$fecha = date("Y-m-d", strtotime($model->fecha_carta_porte));
-			$model->fecha_carta_porte=$fecha;
+			if($model->validate()){
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carga)));
+				$model->fecha_carga=$fecha;
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_arribo)));
+				$model->fecha_arribo=$fecha;
+				$fecha = date("Y-m-d", strtotime(str_replace('/','-',$model->fecha_carta_porte)));
+				$model->fecha_carta_porte=$fecha;
+			}
 			
 
 			if ($model->save())
@@ -507,7 +510,8 @@ class DescargasController extends Controller
 	protected function performAjaxValidation($model)
 	{
 		if (isset($_POST['ajax']) && $_POST['ajax'] === 'descargas-form') {				
-			echo CActiveForm::validate($model);			
+			//Yii::log(" - AJAX - ".var_export($_POST,true), CLogger::LEVEL_WARNING, __METHOD__);
+			echo CActiveForm::validate($model);						
 			Yii::app()->end();
 		}
 	}

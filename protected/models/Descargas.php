@@ -292,6 +292,7 @@ class Descargas extends CActiveRecord
 					$analisis->rubro = $rubro->id;
 					$analisis->carta_porte = $this->carta_porte;
 					$analisis->producto = $this->producto;
+					$analisis->usuario = $this->usuario;
 					$analisis->valor = floatval(preg_replace('/[^0-9]+/', '', $this->calidad));
 					// busco el rubro calculo valor
 					$rubroCalValor = RubroCalculoValor::model()->find('producto=' . $this->producto . ' AND rubro=' . $rubro->id . ' AND valor_desde >= ' . $analisis->valor . ' AND valor_hasta <= ' . $analisis->valor);

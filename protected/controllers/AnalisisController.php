@@ -160,14 +160,24 @@ class AnalisisController extends Controller
 				}*/	
 				$model->archivo->saveAs($model->archivo->getName());			
 				//$xmlStr = file_get_contents($model->archivo->getName());
-				$xml = simpleXML_load_file($model->archivo->getName());				
+				//$xml = simpleXML_load_file($model->archivo->getName());	
+				$texto = file_get_contents( $model->archivo->getName() );
+				$xml = new SimpleXMLElement( $texto );							
 				
 				//$xml = new SimpleXMLElement(file_get_contents($model->archivo->getName()));
 				if($xml === FALSE){
 					Yii::log("Error importar análisis - No se pudo abrir", CLogger::LEVEL_WARNING, __METHOD__);
 				}else{
-					AnalisisController::normalizeSimpleXML($xml, $result);
-					print_r(count($result));
+					/*AnalisisController::normalizeSimpleXML($xml, $result);*/
+					print_r(count($xml->children()));print_r( '<br/>');
+					foreach ( $xml->children() as $soliditud ) {
+						print_r( $soliditud->getName() );
+						print_r( '<br/>');
+						$camionVagon = $soliditud->CamionVagon;
+						$cartaP =$camionVagon->Item['NumeroDeCartaDePorte'];
+						print_r((string) $cartaP);
+						print_r( '<br/>');
+					}
 				}
 				exit();
 				$errores = array();
