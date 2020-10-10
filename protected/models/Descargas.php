@@ -245,7 +245,7 @@ class Descargas extends CActiveRecord
 		if($filtro_empresas){
 			$criteria->addInCondition('usuario',$filtro_empresas);
 		}
-		$criteria->compare('usuario', $this->usuario);
+		$criteria->compare('t.usuario', $this->usuario);
 		
 		
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
