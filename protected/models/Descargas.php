@@ -243,7 +243,7 @@ class Descargas extends CActiveRecord
 		//$criteria->compare('ent_titular.razonSocial', $this->ent_titular->razonSocial, true);
 		// si el filtro de empresas no es null, selecciono los usuarios
 		if($filtro_empresas){
-			$criteria->addInCondition('usuario',$filtro_empresas);
+			$criteria->addInCondition('t.usuario',$filtro_empresas);
 		}
 		$criteria->compare('t.usuario', $this->usuario);
 		
