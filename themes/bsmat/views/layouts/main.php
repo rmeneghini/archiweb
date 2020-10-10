@@ -52,7 +52,7 @@
 										array('label'=>'Empresas', 'url'=>array('/empresa/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 										array('label'=>'Productos', 'url'=>array('/producto/admin')),
 										array('label'=>'Rubro', 'url'=>array('/rubro/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
-										array('label'=>'Rubro-Valor', 'url'=>array('/rubrocalculovalor/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
+										array('label'=>'Rubro-Valor', 'url'=>array('/rubroCalculoValor/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 										array('label'=>'Mermas-Humedad', 'url'=>array('/mermasHumedad/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 										array('label'=>'Análisis', 'url'=>array('/analisis/admin'),'visible'=>Yii::app()->authManager->checkAccess('super',Yii::app()->user->id)),
 										)),
@@ -119,7 +119,7 @@
 										&nbsp;
 									</div>
 									<div class="col-md-4">
-									<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Cerealista Moldes" class="img_pie">
+									<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="Archiweb" class="img_pie">
 									</div>
 									
 								</div>
