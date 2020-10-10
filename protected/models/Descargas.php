@@ -255,7 +255,12 @@ class Descargas extends CActiveRecord
 
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
-		$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
+		if(empty($temp_criteria->condition)){
+			$temp_criteria->condition .= 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
+		}else{
+			$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
+		}
+		//$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
 		$temp_criteria->order='fecha_carga DESC';
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	
