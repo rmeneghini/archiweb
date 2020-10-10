@@ -4,10 +4,10 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('fecha_carga'));
 	$row[]= CHtml::encode($data->getAttributeLabel('carta_porte'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_titular'));
-	$row[]= CHtml::encode($data->getAttributeLabel('cuit_intermediario'));//consultar	
-	$row[]= CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial'));//consultar
+	$row[]= CHtml::encode($data->getAttributeLabel('cuit_intermediario'));
+	$row[]= CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial'));
 	$row[]= CHtml::encode($data->getAttributeLabel('producto'));
-	$row[]= CHtml::encode("cuit_destinatario");// ACA TIENE QUE IR EL CUIT DE DESTINATARIO, POR AHORA VACIO
+	$row[]= CHtml::encode($data->getAttributeLabel("cuit_destinatario"));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));
 	$row[]= CHtml::encode($data->getAttributeLabel('patente'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));
@@ -24,14 +24,9 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('analisis'));//observaciones
 	$row[]= CHtml::encode($data->getAttributeLabel('fecha_descarga'));
 
-	/*$row[]= CHtml::encode('Cuota');
-	$row[]= CHtml::encode('Importe Cuota');
-	$row[]= CHtml::encode('Nro Cuenta');
-	$row[]= CHtml::encode('Año');*/
 	fputcsv($fp,$row,$delimitador);	
 }
 
-//foreach ($data->cuotas as $cuota){
 	$row = array();
 	$row[]= CHtml::encode($data->fecha_carga);
 	$row[]= CHtml::encode($data->carta_porte);

@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Descargases'=>array('index'),
+	'Descargas'=>array('admin'),
 	$model->id=>array('view','id'=>$model->id),
 	'Actualizar',
 );

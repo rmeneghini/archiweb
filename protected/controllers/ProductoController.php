@@ -37,7 +37,7 @@ class ProductoController extends Controller
 			),
 			array('allow', 
 				'actions'=>array('update'),
-				'roles'=>array('admin'),
+				'roles'=>array('super'),
 			),
 			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
 			'actions'=>array('admin','delete'),

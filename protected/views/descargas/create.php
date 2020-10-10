@@ -1,13 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-	'Descargases'=>array('index'),
+	'Descargas'=>array('admin'),
 	'Crear',
 );
 $this->parametros=array(
 	'titulo'=>'Crear Descargas',
 );
 $this->menu=array(
-	array('label'=>'Listar Descargas', 'url'=>array('index')),
+	//array('label'=>'Listar Descargas', 'url'=>array('index')),
 	array('label'=>'Administrar Descargas', 'url'=>array('admin')),
 );
 ?>
