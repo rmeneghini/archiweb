@@ -43,7 +43,7 @@ class EntidadController extends Controller
 			),
 			array('allow', 
 			'actions'=>array('delete'),
-			'roles'=>array('admin'),
+			'roles'=>array('super'),
 			),
 			array('deny',  // deny all users
 			'users'=>array('*'),

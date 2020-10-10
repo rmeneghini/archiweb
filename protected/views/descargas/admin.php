@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs = array(
-	'Descargas' => array('index'),
+	'Descargas' => array('admin'),
 	'Administrar',
 );
 $this->parametros = array(
@@ -8,7 +8,7 @@ $this->parametros = array(
 );
 //Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)
 $this->menu = array(
-	array('label' => 'Listar Descargas', 'url' => array('index')),
+	//array('label' => 'Listar Descargas', 'url' => array('index')),
 	array('label' => 'Crear Descargas', 'url' => array('create')),
 	array('label' => 'Importar Descargas', 'url' => array('importar'), 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)),
 );

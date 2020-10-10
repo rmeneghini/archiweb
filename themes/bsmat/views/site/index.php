@@ -22,8 +22,6 @@ $this->pageTitle=Yii::app()->name;
 
 	<br>
 
-	<!-- <p>Invita a tus a amigos a competir con los resultados de los campeonatos.</p> -->
-
 	<br>
 
 

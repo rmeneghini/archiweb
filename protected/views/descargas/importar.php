@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Descargas'=>array('index'),
+	'Descargas'=>array('admin'),
 	'Importar',
 );
 $this->parametros=array(
