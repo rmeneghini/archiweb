@@ -7,7 +7,7 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_intermediario'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_remitente_comercial'));
 	$row[]= CHtml::encode($data->getAttributeLabel('producto'));
-	$row[]= CHtml::encode($data->getAttributeLabel("cuit_destinatario"));
+	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destinatario'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));
 	$row[]= CHtml::encode($data->getAttributeLabel('patente'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));
@@ -34,7 +34,7 @@ if($primero){
 	$row[]= CHtml::encode($data->cuit_intermediario);	
 	$row[]= CHtml::encode($data->cuit_remitente_comercial);
 	$row[]= CHtml::encode($data->producto);
-	$row[]= CHtml::encode($data->cuit_destino);
+	$row[]= CHtml::encode($data->cuit_destinatario);
 	$row[]= CHtml::encode($data->cuit_destino);
 	$row[]= CHtml::encode($data->chasis);
 	$row[]= CHtml::encode($data->cuit_corredor);
