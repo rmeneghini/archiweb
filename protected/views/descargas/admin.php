@@ -78,7 +78,7 @@ $dateRangePickerOptions = array(
 	'showDropdowns'=>true,
 	'format'=>'DD/MM/YYYY',
 	'autoclose'=> true,
-	'opens'=>'center',
+	//'opens'=>'center',
 );
 ?>
 <?php $this->widget('booster.widgets.TbGridView', array(
