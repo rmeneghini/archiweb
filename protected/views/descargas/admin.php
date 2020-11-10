@@ -8,9 +8,8 @@ $this->parametros = array(
 );
 //Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)
 $this->menu = array(
-	//array('label' => 'Listar Descargas', 'url' => array('index')),
 	array('label' => 'Crear Descargas', 'url' => array('create')),
-	array('label' => 'Importar Descargas', 'url' => array('importar'), 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)),
+	array('label' => 'Importar SSC', 'url' => array('importar'), 'visible'=>Yii::app()->authManager->checkAccess('admin',Yii::app()->user->id)),
 );
 Yii::app()->clientScript->registerScript('search', "
 	$('.search-button').click(function(){
@@ -36,7 +35,7 @@ $this->widget(
         'buttons' => array(
             //array('label' => 'Listar Todas', 'icon'=>'list-alt', 'url' =>array('index'), 'buttonType' =>'link',),
             array('label' => 'Carga Manual', 'icon'=>'plus-sign', 'url' =>array('create'), 'buttonType' =>'link',),
-            array('label' => 'Importar', 'icon'=>'import', 'url' =>array('importar'), 'buttonType' =>'link',),
+            array('label' => 'Importar SSC', 'icon'=>'import', 'url' =>array('importar'), 'buttonType' =>'link',),
 			array('label' => 'Exportar Excel', 'icon'=>'export',  'buttonType' =>'link','url'=>array('admin','export'=>'grilla')),
 			array('label' => 'Exportar Descargas CSV', 'icon'=>'export',  'buttonType' =>'link','url'=>array('admin','export'=>'csv')),
 			array('label' => 'Exportar Análisis CSV', 'icon'=>'export',  'buttonType' =>'link','url'=>array('admin','export'=>'csv-a')),
