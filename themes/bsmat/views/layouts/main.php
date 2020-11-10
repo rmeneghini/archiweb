@@ -21,8 +21,8 @@
 	<!--<link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-theme.min.css">-->
 </head>
 <body>
-	<!-- <div class="container"> -->
-		<!-- <div class="row"> -->
+	<div class="container-fluid">
+		 <div class="row"> 
 			<header>
 				<?php $this->widget('booster.widgets.TbNavbar',array(
 					//'brand' => Yii::app()->name,
@@ -134,8 +134,8 @@
 				</div>
 				<!-- </div> -->
 			</footer>
-				<!-- </div> -->
-			<!-- </div> -->
+				 </div> 
+		 </div> 
 			<!-- Latest compiled and minified JavaScript -->
 <!-- no anda porque falta importar alguna libreria de Boots -->
 <!-- 			<footer class="footer">
