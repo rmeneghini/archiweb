@@ -6,6 +6,9 @@
  * @property integer $id
  * @property string $descripcion
  * @property string $valores
+ * @property string $conf_import1
+ * @property string $conf_import2
+ * @property string $conf_import3
  *
  * The followings are the available model relations:
  * @property Analisis[] $analisises
@@ -29,10 +32,11 @@ class Rubro extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('descripcion', 'required'),
-			array('descripcion', 'length', 'max'=>110),
+			array('descripcion, valores', 'length', 'max'=>110),
+			array('conf_import1, conf_import2, conf_import3', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, descripcion, valores', 'safe', 'on'=>'search'),
+			array('id, descripcion, valores, conf_import1, conf_import2, conf_import3', 'safe', 'on'=>'search'),
 		);
 	}
 	/**
@@ -55,7 +59,10 @@ class Rubro extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'descripcion' => 'Descripción',
-			'valores' => 'Valores'
+			'valores' => 'Valores',
+			'conf_import1' => 'Conf Importación 1',
+            'conf_import2' => 'Conf Importación 2',
+            'conf_import3' => 'Conf Importación 3',
 		);
 	}
 	/**
@@ -77,6 +84,9 @@ class Rubro extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('descripcion',$this->descripcion,true);
 		$criteria->compare('valores',$this->descripcion,true);
+		$criteria->compare('conf_import1',$this->conf_import1,true);
+        $criteria->compare('conf_import2',$this->conf_import2,true);
+        $criteria->compare('conf_import3',$this->conf_import3,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

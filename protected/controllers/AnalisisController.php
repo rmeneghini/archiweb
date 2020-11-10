@@ -111,7 +111,8 @@ class AnalisisController extends Controller
 		} else
 			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
 	}
-	public  static function normalizeSimpleXML($obj, &$result) {
+	public  static function normalizeSimpleXML($obj, &$result)
+	{
 		$data = $obj;
 		if (is_object($data)) {
 			$data = get_object_vars($data);
@@ -130,7 +131,7 @@ class AnalisisController extends Controller
 			$result = $data;
 		}
 	}
-	
+
 	/* Importacion de archivos */
 	public function actionImportar()
 	{
@@ -157,27 +158,37 @@ class AnalisisController extends Controller
 					// trunco el archivo en mas chicos para agilizar la carga
 					$archivos_generados = $this->truncarArchivo($model->archivo->getName());
 					unlink($model->archivo->getName());// borro el archivo original 
-				}*/	
-				$model->archivo->saveAs($model->archivo->getName());			
+				}*/
+				$model->archivo->saveAs($model->archivo->getName());
 				//$xmlStr = file_get_contents($model->archivo->getName());
 				//$xml = simpleXML_load_file($model->archivo->getName());	
-				$texto = file_get_contents( $model->archivo->getName() );
-				$xml = new SimpleXMLElement( $texto );							
-				
+				$texto = file_get_contents($model->archivo->getName());
+				$xml = new SimpleXMLElement($texto);
+
 				//$xml = new SimpleXMLElement(file_get_contents($model->archivo->getName()));
-				if($xml === FALSE){
+				if ($xml === FALSE) {
 					Yii::log("Error importar análisis - No se pudo abrir", CLogger::LEVEL_WARNING, __METHOD__);
-				}else{
+				} else {
 					/*AnalisisController::normalizeSimpleXML($xml, $result);*/
-					print_r(count($xml->children()));print_r( '<br/>');
-					foreach ( $xml->children() as $soliditud ) {
-						print_r( $soliditud->getName() );
-						print_r( '<br/>');
-						$camionVagon = $soliditud->CamionVagon;
-						$cartaP =$camionVagon->Item['NumeroDeCartaDePorte'];
-						print_r((string) $cartaP);
-						print_r( '<br/>');
-					}
+										
+					foreach ($xml->children() as $solicitud) {
+						$contador = 0;
+						$cartaP = (string) $solicitud->CamionVagon->Item['NumeroDeCartaDePorte'];
+						$prodDesc=(string) $solicitud['MuestraDeclarada'];
+						// si no tiene EnsayoTecnica se toma, sino se ignora
+						foreach ($solicitud->EnsayoTecnica as $ensayoTec) {						
+							$contador++;							
+							$codRubro = (string) $ensayoTec->Ensayo['Codigo'];
+							$valorRubro = (string) $ensayoTec->ResultadosYComponentes->ResultadoComponente->ResultadoDelEnsayo['Alfabetico'];
+							print_r('CP:'.$cartaP.' Cod:'.$codRubro.' Valor:'.$valorRubro);
+							print_r('<br/>');
+						}
+						if($contador >0 ){
+						print_r('CP:'.$cartaP.' Nro Ensayos:'.$contador);
+						print_r('<br/>');
+						}
+						
+					}					
 				}
 				exit();
 				$errores = array();

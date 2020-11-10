@@ -269,10 +269,13 @@ class Descargas extends CActiveRecord
 		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
 				
 		$criteria->limit=Yii::app()->params['limit'];
-
-		return new CActiveDataProvider($this, array(
+		//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('pageSize'),true), CLogger::LEVEL_WARNING, __METHOD__);
+		$dataProvider =new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
+			//'pagination'=>array('pageSize'=>10)
 		));
+		Yii::log(" - PASO - ".var_export($dataProvider->getPagination(),true), CLogger::LEVEL_WARNING, __METHOD__);
+		return $dataProvider;
 	}
 
 	// En este metodo relizo los calculos desp de crear una descarga, por ej el analisis

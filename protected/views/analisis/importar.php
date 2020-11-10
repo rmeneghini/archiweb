@@ -8,7 +8,7 @@ $this->parametros=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Análisis', 'url'=>array('index')),
+	//array('label'=>'Listar Análisis', 'url'=>array('index')),
 	array('label'=>'Administrar Análisis', 'url'=>array('admin')),
 );
 ?>
@@ -28,6 +28,15 @@ $this->menu=array(
 	<?php echo $form->errorSummary($model); ?>	
 
 	<?php echo $form->fileFieldGroup($model,'archivo',array('widgetOptions'=>array('htmlOptions'=>array('name'=>'archivo[]')))); ?>
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="Importar_config">Conf. Importación</label>
+		<div class="col-sm-9">
+	<?php $configs=array(0=>'Estandar',1=>'Conf Importación 1',2=>'Conf Importación 2',3=>'Conf Importación 3');?>
+		<?php echo CHtml::dropDownList('config', 0, array(
+							'Configuraciones'=>$configs,
+							),array('class'=>'form-control'));?>
+		</div>
+	</div>
 
 <div class="form-actions">
 	<?php 

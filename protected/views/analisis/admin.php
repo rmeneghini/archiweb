@@ -44,7 +44,7 @@ También puede escribir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, 
 		array('name'=>'rubro','value'=>'$data->rubro0->descripcion','filter'=>Rubro::getRubros('id')),
 		'carta_porte',
 		array('name'=>'producto','value'=>'$data->producto0->getProducto()','filter'=>Producto::getProductos('id')),
-		array('name'=>'bonifica_rebaja','value'=>'$data->bonifica_rebaja?"Bonifica":"Rebaja"', 'filter' => array('0' => Yii::t('app', 'Rebaja'), '1' => Yii::t('app', 'Bonifica')),),
+		'bonifica_rebaja',
 		'valor',
 array(
 'class'=>'booster.widgets.TbButtonColumn',
