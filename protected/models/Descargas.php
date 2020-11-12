@@ -197,8 +197,13 @@ class Descargas extends CActiveRecord
 		if(isset($this->fecha_rango) && $this->fecha_rango != ''){
 			//Yii::log(" - PASO - ".var_export(explode(" - ", $this->fecha_rango),true), CLogger::LEVEL_WARNING, __METHOD__);
 			$rango =explode(" - ", $this->fecha_rango);
-			$criteria->addCondition('DATE_FORMAT(fecha_carga,"%d/%m/%Y") >= "'.$rango[0].'"');
-			$criteria->addCondition('DATE_FORMAT(fecha_carga,"%d/%m/%Y") <= "'.$rango[1].'"');
+			$feDesde=explode("/",$rango[0]);
+			$feHasta=explode("/",$rango[1]);
+			//$criteria->addCondition('DATE_FORMAT(t.fecha_carga,"%d/%m/%Y") >= "'.$rango[0].'"');
+			//$criteria->addCondition('DATE_FORMAT(t.fecha_carga,"%d/%m/%Y") <= "'.$rango[1].'"');
+			$criteria->addCondition('t.fecha_carga >= "'.$feDesde[2].'-'.$feDesde[1].'-'.$feDesde[0].'"');
+			$criteria->addCondition('t.fecha_carga <= "'.$feHasta[2].'-'.$feHasta[1].'-'.$feHasta[0].'"');
+			
 		}
 		//$criteria->compare('DATE_FORMAT(fecha_carga,"%d/%m/%Y")',  $this->fecha_carga, true);
 		//Yii::log(" - PASO - ".var_export($this,true), CLogger::LEVEL_WARNING, __METHOD__);
@@ -230,7 +235,7 @@ class Descargas extends CActiveRecord
 		$criteria->compare('merma_zaranda', $this->merma_zaranda);
 		$criteria->compare('fumigado', $this->fumigado);
 
-		$criteria->order = 'fecha_carga DESC';
+		$criteria->order = 't.fecha_carga DESC';
 
 		//busqueda por razon social titular
 		$criteria->compare('ent_titular.razonSocial', $this->titular, true);
@@ -252,6 +257,9 @@ class Descargas extends CActiveRecord
 		$criteria->compare('cuit_intermediario', $this->cuit_intermediario, true);
 		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
 		$criteria->compare('cuit_destinatario', $this->cuit_destinatario, true);
+		$criteria->group = 't.carta_porte';
+		//$criteria->limit=Yii::app()->params['limit'];
+		
 
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
 		$temp_criteria = clone $criteria;
@@ -261,20 +269,19 @@ class Descargas extends CActiveRecord
 			$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
 		}
 		//$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
-		$temp_criteria->order='fecha_carga DESC';
+		//$temp_criteria->order='t.fecha_carga DESC';
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	
-		$temp_criteria->limit=Yii::app()->params['limit'];
-		
-		Yii::app()->user->setState('export', new CActiveDataProvider($this, array('criteria' => $temp_criteria, 'pagination' => false,)));
+		//$temp_criteria->limit=Yii::app()->params['limit'];
+		Yii::app()->user->setState('export',null);
+		Yii::app()->user->setState('export', new CActiveDataProvider(get_class($this), array('criteria' => $temp_criteria, 'pagination' => false,)));
 				
-		$criteria->limit=Yii::app()->params['limit'];
 		//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('pageSize'),true), CLogger::LEVEL_WARNING, __METHOD__);
 		$dataProvider =new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
-			//'pagination'=>array('pageSize'=>10)
+			//'pagination'=>array('pageSize'=>20)
 		));
-		Yii::log(" - PASO - ".var_export($dataProvider->getPagination(),true), CLogger::LEVEL_WARNING, __METHOD__);
+		//Yii::log(" - PASO - ".var_export($dataProvider->getPagination(),true), CLogger::LEVEL_WARNING, __METHOD__);
 		return $dataProvider;
 	}
 

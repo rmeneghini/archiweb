@@ -255,7 +255,8 @@ class DescargasController extends Controller
 				// marco como exportado
 				$contenido= $this->renderPartial('excel',array('dataProvider'=>Yii::app()->user->getState('export'),),true);
 				Yii::app()->request->sendFile('AW_Descargas.xls',$contenido);
-    			Yii::app()->user->clearState('export');		
+				Yii::app()->user->clearState('export');
+				Yii::app()->user->setState('export',null);		
 		}else if(isset($_GET['export']) && $_GET['export']=='csv'){
 			// marco como exportado	
 			$conf =  Configuracion::singleton();
@@ -268,7 +269,7 @@ class DescargasController extends Controller
 			//Analisis
 			//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('export')->getData(),true), CLogger::LEVEL_WARNING, __METHOD__);
 			$contenido= $this->renderPartial('csv_analisis',array('dataProvider'=>Yii::app()->user->getState('export'),'delimitador'=>$delimitador),true);
-			Yii::app()->request->sendFile('AW_Analisis.csv',Yii::app()->user->getState('export_analisisCSV'));
+			//Yii::app()->request->sendFile('AW_Analisis.csv',Yii::app()->user->getState('export_analisisCSV'));
 			//Yii::app()->user->clearState('export_analisisCSV',null);	
 			//Yii::app()->user->clearStates();	
 		}else if(isset($_GET['export']) && $_GET['export']=='csv-a'){
