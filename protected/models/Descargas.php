@@ -38,6 +38,7 @@
  * @property string $cuit_intermediario
  * @property string $cuit_remitente_comercial
  * @property string $cuit_destinatario
+ * @property integer $exportado
  *
  * The followings are the available model relations:
  * @property Producto $producto0
@@ -84,7 +85,7 @@ class Descargas extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('fecha_carga, fecha_carta_porte, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
-			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado', 'numerical', 'integerOnly' => true),
+			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado, exportado', 'numerical', 'integerOnly' => true),
 			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda, merma_humedad', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
 			array('carta_porte', 'length', 'max' => 9,'min'=> 9),
@@ -97,7 +98,7 @@ class Descargas extends CActiveRecord
 			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario', 'safe', 'on' => 'search'),
+			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario, exportado', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -123,7 +124,7 @@ class Descargas extends CActiveRecord
 	{
 		return array(
 			'producto0' => array(self::BELONGS_TO, 'Producto', 'producto'),
-			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario'),
+			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario','joinType'=>'INNER JOIN'),
 			'analisis0' => array(self::HAS_ONE, 'Analisis', array('carta_porte' => 'carta_porte')),
 			'ent_titular' => array(self::BELONGS_TO, 'Entidad', array('cuit_titular' => 'cuit')),
 			'ent_corredor' => array(self::BELONGS_TO, 'Entidad', array('cuit_corredor' => 'cuit')),
@@ -170,7 +171,8 @@ class Descargas extends CActiveRecord
 			'analisis_finalizado' => 'Analisis Finalizado',
 			'cuit_intermediario' => 'Cuit Intermediario',
 			'cuit_remitente_comercial' => 'Cuit Remitente Comercial',
-			'cuit_destinatario' => 'Cuit Destinatario',			
+			'cuit_destinatario' => 'Cuit Destinatario',	
+			'exportado' => 'Exportado',		
 		);
 	}
 
@@ -191,7 +193,7 @@ class Descargas extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria = new CDbCriteria;
-		$criteria->with = array('ent_titular','ent_corredor','ent_destino');
+		$criteria->with = array('ent_titular','ent_corredor','ent_destino','usuario0');
 
 		$criteria->compare('id', $this->id);
 		if(isset($this->fecha_rango) && $this->fecha_rango != ''){
@@ -234,6 +236,8 @@ class Descargas extends CActiveRecord
 		$criteria->compare('porcentaje_zaranda', $this->porcentaje_zaranda);
 		$criteria->compare('merma_zaranda', $this->merma_zaranda);
 		$criteria->compare('fumigado', $this->fumigado);
+		$criteria->compare('exportado',$this->exportado);
+		
 
 		$criteria->order = 't.fecha_carga DESC';
 
@@ -250,7 +254,9 @@ class Descargas extends CActiveRecord
 		if($filtro_empresas){
 			$criteria->addInCondition('t.usuario',$filtro_empresas);
 		}
-		$criteria->compare('t.usuario', $this->usuario);
+		//$criteria->compare('t.usuario', $this->usuario);
+		//filtro usuario
+		$criteria->compare('usuario0.nombre', $this->usuario, true);
 		
 		
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
@@ -258,7 +264,7 @@ class Descargas extends CActiveRecord
 		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
 		$criteria->compare('cuit_destinatario', $this->cuit_destinatario, true);
 		$criteria->group = 't.carta_porte';
-		//$criteria->limit=Yii::app()->params['limit'];
+		$criteria->limit=Yii::app()->params['limit'];
 		
 
 		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
