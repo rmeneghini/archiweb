@@ -33,7 +33,7 @@ class DescargasController extends Controller
 				'users' => array('@'),
 			),
 			array(
-				'allow', // allow authenticated user to perform 'create' and 'update' actions
+				'allow', 
 				'actions' => array('create','importar','admin',),
 				'roles' => array('cliente'),
 			),

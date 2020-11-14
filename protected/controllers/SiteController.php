@@ -35,12 +35,12 @@ class SiteController extends Controller
 		return array(
 			array(
 				'allow',  // allow all users to perform 'index' and 'view' actions
-				'actions' => array('contact', 'error', 'login', 'logout', 'registro', 'page', 'captcha', 'recuperarPassword'),
+				'actions' => array('index', 'contact', 'error', 'login', 'logout', 'registro', 'page', 'captcha', 'recuperarPassword'),
 				'users' => array('*'),
 			),
 			array(
 				'allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions' => array('index', 'completarRegistro', 'cambiarPassword'),
+				'actions' => array('completarRegistro', 'cambiarPassword'),
 				'users' => array('@'),
 			),
 			array(
@@ -62,15 +62,17 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		if (Yii::app()->user->isGuest) {
+		
+		$this->render('index');
+		/*if (Yii::app()->user->isGuest) {
 			$this->actionLogin();
 		} else {
 			$this->render('index');
-		}
+		}*/
 	}
-	/**
-	 * This is the action to handle external exceptions.
-	 */
+
+
+	
 	public function actionError()
 	{
 		if ($error = Yii::app()->errorHandler->error) {

@@ -104,9 +104,9 @@
 								<h4>Enlaces</h4>
 							</div>
 							<div class="widget-content">
-								<p><a href="#">Preguntas Frecuentes</a></p>
-								<p><a href="#">Terminos y Condiciones</a></p>
-								<p><a href="#">Contacto</a></p>
+								<!--p><a href="#">Preguntas Frecuentes</a></p>
+								<p><a href="#">Terminos y Condiciones</a></p-->
+								<p><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/contact">Contacto</a></p>
 							</div>
 						</div>
 						<div class="col-md-8">							
@@ -128,7 +128,7 @@
 					</div>
 					<div class="row copyright">
 						<!-- <div class="col-md-12"> -->
-							<p class="text-muted">Copyright &copy; <?php echo date('Y'); ?> by <?php echo CHtml::link('Nosotros.','#', array('target'=>'_blank')); ?> - Todos los derechos reservados.</p>
+							<p class="text-muted">ArchiWeb &copy; <?php echo date('Y'); ?> - Todos los derechos reservados.</p>
 						<!-- </div> -->
 					</div>
 				</div>
@@ -136,13 +136,5 @@
 			</footer>
 				 </div> 
 		 </div> 
-			<!-- Latest compiled and minified JavaScript -->
-<!-- no anda porque falta importar alguna libreria de Boots -->
-<!-- 			<footer class="footer">
-			      <div class="container">
-			        <p class="text-muted">Copyright &copy; <?php echo date('Y'); ?> by <?php echo CHtml::link('Nosotros.','#', array('target'=>'_blank')); ?> - Todos los derechos reservados.</p>
-			      </div>
-			</footer> -->
-			<!--<script src="<?php //echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>-->
 		</body>
 		</html>

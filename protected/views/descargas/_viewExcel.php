@@ -19,7 +19,8 @@
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('analisis_finalizado')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('fumigado')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('analisis')); ?> </th>	
-	<th> <?php echo CHtml::encode($data->getAttributeLabel('fecha_descarga')); ?> </th>	
+	<th> <?php echo CHtml::encode($data->getAttributeLabel('fecha_descarga')); ?> </th>
+	<th> <?php echo CHtml::encode($data->getAttributeLabel('usuario')); ?> </th>	
 	
 	
 </tr>
@@ -45,5 +46,5 @@
 	<td> <?php echo CHtml::encode($data->fumigado); ?></td>	
 	<td> <?php echo CHtml::encode($data->analisis); ?></td>
 	<td> <?php echo CHtml::encode($data->fecha_descarga); ?></td>	
-			
+	<td> <?php echo CHtml::encode($data->usuario); ?></td>
 </tr>
