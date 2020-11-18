@@ -163,7 +163,7 @@ class Descargas extends CActiveRecord
 			'kg_merma_total' => 'Kg Merma Total',
 			'otras_mermas' => 'Otras Mermas',
 			'neto_aplicable' => 'Neto Aplicable',
-			'analisis' => 'Analisis',
+			'analisis' => 'Observacion Analisis',
 			'porcentaje_zaranda' => 'Porcentaje Zaranda',
 			'merma_zaranda' => 'Merma Zaranda',
 			'fumigado' => 'Fumigado',
