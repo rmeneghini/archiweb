@@ -136,15 +136,13 @@ class Producto extends CActiveRecord
 	{
 		$prodCal = array(
 			'15' => array(
-				"CO" => "Conforme",
 				"G1" => "Grado 1",
 				"G2" => "Grado 2",
 				"G3" => "Grado 3",
 				"CC" => "Condión Cámara",
 				"FE" => "Fuera de Estandar"
 			),
-			'16' => array(
-				"CO" => "Conforme",
+			'19' => array(
 				"G1" => "Grado 1",
 				"G2" => "Grado 2",
 				"G3" => "Grado 3",
@@ -152,7 +150,6 @@ class Producto extends CActiveRecord
 				"FE" => "Fuera de Estandar"
 			),
 			'22' => array(
-				"CO" => "Conforme",
 				"G1" => "Grado 1",
 				"G2" => "Grado 2",
 				"G3" => "Grado 3",
@@ -160,6 +157,11 @@ class Producto extends CActiveRecord
 				"FE" => "Fuera de Estandar"
 			),
 			'23' => array(
+				"CO" => "Conforme",
+				"CC" => "Condión Cámara",
+				"FE" => "Fuera de Estandar"
+			),
+			'414' => array(
 				"CO" => "Conforme",
 				"CC" => "Condión Cámara",
 				"FE" => "Fuera de Estandar"

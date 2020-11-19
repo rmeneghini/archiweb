@@ -207,8 +207,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 <?php //echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
 <?php //echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
 <?php //echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
-<?php //echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
-
+<?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
 
 
 <?php //echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); ?>
