@@ -173,18 +173,27 @@ class AnalisisController extends Controller
 										
 					foreach ($xml->children() as $solicitud) {
 						$contador = 0;
-						$cartaP = (string) $solicitud->CamionVagon->Item['NumeroDeCartaDePorte'];
-						$prodDesc=(string) $solicitud['MuestraDeclarada'];
+						$cartaP = (string) $solicitud->CamionVagon->Item['NumeroDeCartaDePorte'];						
+						$codProducto=(string) $solicitud->Matriz['Codigo'];
+						$prodDesc=(string)  $solicitud->Matriz['Descripcion'];
+						//<Matriz Codigo="2" Descripcion="MAÍZ" />
 						// si no tiene EnsayoTecnica se toma, sino se ignora
-						foreach ($solicitud->EnsayoTecnica as $ensayoTec) {						
+						foreach ($solicitud->EnsayoTecnica as $ensayoTec) {	
+							if($contador == 0 ){
+								print_r('<br/>');
+								print_r('Prod: '.$codProducto.' - '.$prodDesc);	
+								print_r('<br/>');
+								print_r('CP:'.$cartaP);
+								print_r('<br/>');
+								}					
 							$contador++;							
 							$codRubro = (string) $ensayoTec->Ensayo['Codigo'];
 							$valorRubro = (string) $ensayoTec->ResultadosYComponentes->ResultadoComponente->ResultadoDelEnsayo['Alfabetico'];
 							print_r('CP:'.$cartaP.' Cod:'.$codRubro.' Valor:'.$valorRubro);
 							print_r('<br/>');
 						}
-						if($contador >0 ){
-						print_r('CP:'.$cartaP.' Nro Ensayos:'.$contador);
+						if($contador >0 ){						
+						print_r('Nro Ensayos:'.$contador);
 						print_r('<br/>');
 						}
 						
