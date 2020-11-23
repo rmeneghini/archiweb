@@ -84,7 +84,7 @@ class Descargas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha_carga, fecha_carta_porte, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario', 'required'),
+			array('fecha_carga, fecha_carta_porte, carta_porte, cuit_titular, producto, calidad, porcentaje_humedad, merma_humedad, cuit_destino, kg_brutos_destino, kg_tara_destino, kg_netos_destino, otras_mermas, neto_aplicable, porcentaje_zaranda, merma_zaranda, usuario, chasis', 'required'),
 			array('carta_porte, cuit_titular, producto, fumigado, usuario, analisis_finalizado, exportado', 'numerical', 'integerOnly' => true),
 			array('kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia,kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, merma_zaranda, merma_humedad', 'numerical', 'integerOnly' => false),
 			array('porcentaje_humedad, porcentaje_zaranda', 'numerical'),
@@ -191,7 +191,6 @@ class Descargas extends CActiveRecord
 	public function search($filtro_empresas = null)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
-
 		$criteria = new CDbCriteria;
 		$criteria->with = array('ent_titular','ent_corredor','ent_destino','usuario0');
 
