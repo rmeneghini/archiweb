@@ -79,6 +79,7 @@ $dateRangePickerOptions = array(
 	'autoclose'=> true,
 	//'opens'=>'center',
 );
+
 ?>
 <?php $this->widget('booster.widgets.TbGridView', array(
 	'id' => 'descargas-grid',
