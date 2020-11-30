@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<Solicitudes>
+  <Solicitud Numero="01324850" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="0103473768" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321557" FechaTomaDeMuestraDescarga="2020-11-12" CantidadKilosDeclarados="30380" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1003473768" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-61582969-9" RazonSocial="TERMINAL 6 S.A." CodigoDeSucursal="1" />
+    <Comprador CUIT="30-50287435-3" RazonSocial="ACEITERA GRAL. DEHEZA S.A." CodigoDeSucursal="35" />
+    <Vendedor CUIT="30-70827070-5" RazonSocial="AGROCEREALES DON FERNANDO S.R.L." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-70851657-7" RazonSocial="GRANCOR S.A." CodigoDeSucursal="1" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-61582969-9" RazonSocial="TERMINAL 6 S.A." CodigoDePuerto="1" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70827070-5" RazonSocial="AGROCEREALES DON FERNANDO S.R.L." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70802457-7" RazonSocial="AGROPECUARIA LA COSECHA S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-50287435-3" RazonSocial="ACEITERA GRAL. DEHEZA S.A." CodigoDeSucursal="35" />
+    </Pagadores>
+    <Procedencia CodigoPostal="2202" SubCodigo="5" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588389218" PatenteChasis="OPC-130" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01324968" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03093834" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321675" FechaTomaDeMuestraDescarga="2020-11-14" CantidadKilosDeclarados="30620" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70827070-5" RazonSocial="AGROCEREALES DON FERNANDO S.R.L." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70827070-5" RazonSocial="AGROCEREALES DON FERNANDO S.R.L." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588388720" PatenteChasis="PCN142" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325006" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03092805" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321713" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="29940" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70813228-0" RazonSocial="RISSIO CARLOS O. Y RISSIO PABLO S.H." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588412612" PatenteChasis="FIK272" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325010" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03093287" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321717" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="30750" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-71091289-7" RazonSocial="BOVIO AGROPECUIARIA S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-71091289-7" RazonSocial="BOVIO AGROPECUIARIA S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588424281" PatenteChasis="AA326TB" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325011" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03093288" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321718" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="30243" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="20-11668456-0" RazonSocial="BOVIO JORGE ALBERTO" CodigoDeSucursal="0" />
+      <Cliente CUIT="20-11668456-0" RazonSocial="BOVIO JORGE ALBERTO" CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588270836" PatenteChasis="AA262NY" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325013" FechaDeEmision="" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03093274" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11321720" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="39620" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70813228-0" RazonSocial="RISSIO CARLOS O. Y RISSIO PABLO S.H." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588412611" PatenteChasis="AD702WW" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325502" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914453" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322209" FechaTomaDeMuestraDescarga="2020-11-16" CantidadKilosDeclarados="29940" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406787" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-52898170-0" RazonSocial="GRANAR S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588414513" PatenteChasis="PKG998" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325538" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914424" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322245" FechaTomaDeMuestraDescarga="2020-11-16" CantidadKilosDeclarados="30560" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406750" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-52898170-0" RazonSocial="GRANAR S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588414512" PatenteChasis="OWP102" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325562" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914166" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322269" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="29960" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406478" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-70360510-5" RazonSocial="FUTUROS Y OPCIONES.COM S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588342428" PatenteChasis="PKG998" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325573" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914155" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322280" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="31080" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406465" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-51282309-9" RazonSocial="Enrique R. Zeni &amp; Cía. S.A.C.I.A.F.e I." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70818594-5" RazonSocial="LOS GATOS COLORADOS SA" CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="3741" SubCodigo="28" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588468257" PatenteChasis="JFP773" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325574" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914156" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322281" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="31500" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406469" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-51282309-9" RazonSocial="Enrique R. Zeni &amp; Cía. S.A.C.I.A.F.e I." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70818594-5" RazonSocial="LOS GATOS COLORADOS SA" CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="3741" SubCodigo="28" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588468256" PatenteChasis="KMW426" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01325818" FechaDeEmision="" FechaIngreso="2020-11-17" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914425" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11322525" FechaTomaDeMuestraDescarga="2020-11-16" CantidadKilosDeclarados="29840" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406754" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-52898170-0" RazonSocial="GRANAR S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588414510" PatenteChasis="PKG996" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+  </Solicitud>
+  <Solicitud Numero="01323376" FechaDeEmision="2020-11-17" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914124" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11320083" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="28740" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406435" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="1095.00" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-70360510-5" RazonSocial="FUTUROS Y OPCIONES.COM S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588414498" PatenteChasis="IUA201" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="8" Descripcion="Granos picados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="9" Descripcion="Tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Duro">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="12" Descripcion="Color" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Colorado">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="3" Descripcion="Granos dañados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="5.1">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="4" Descripcion="Materias extrañas" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="23" Descripcion="Granos quebrados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.1">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="1" Descripcion="Peso hectolítrico" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="Kg/hl" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="78.1">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="20" Descripcion="Grado" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="3">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="76" Descripcion="Otro tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+  </Solicitud>
+  <Solicitud Numero="01323401" FechaDeEmision="2020-11-17" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631914141" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11320108" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="29680" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1406448" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="1095.00" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-70360510-5" RazonSocial="FUTUROS Y OPCIONES.COM S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-71185564-1" RazonSocial="FYO ACOPIO S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588414500" PatenteChasis="PKG997" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="8" Descripcion="Granos picados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="9" Descripcion="Tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Duro">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="12" Descripcion="Color" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Colorado">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="3" Descripcion="Granos dañados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="2.9">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="4" Descripcion="Materias extrañas" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.5">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="23" Descripcion="Granos quebrados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.9">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="1" Descripcion="Peso hectolítrico" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="Kg/hl" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="78.7">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="20" Descripcion="Grado" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="1">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="76" Descripcion="Otro tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+  </Solicitud>
+  <Solicitud Numero="01323461" FechaDeEmision="2020-11-17" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631913000" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11320168" FechaTomaDeMuestraDescarga="2020-11-04" CantidadKilosDeclarados="31700" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1405271" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="1095.00" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-70360510-5" RazonSocial="FUTUROS Y OPCIONES.COM S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-70802457-7" RazonSocial="AGROPECUARIA LA COSECHA S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="3731" SubCodigo="0" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588333552" PatenteChasis="EOA961" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="8" Descripcion="Granos picados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="9" Descripcion="Tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Duro">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="12" Descripcion="Color" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Colorado">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="3" Descripcion="Granos dañados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="3.3">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="4" Descripcion="Materias extrañas" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.3">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="23" Descripcion="Granos quebrados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.4">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="1" Descripcion="Peso hectolítrico" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="Kg/hl" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="74.6">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="20" Descripcion="Grado" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="76" Descripcion="Otro tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.7">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+  </Solicitud>
+  <Solicitud Numero="01323506" FechaDeEmision="2020-11-17" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="631913490" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11320213" FechaTomaDeMuestraDescarga="2020-11-05" CantidadKilosDeclarados="29660" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="1405790" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="1095.00" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="5" />
+    <Comprador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    <Vendedor CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    <Corredor CUIT="30-52898170-0" RazonSocial="GRANAR S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDePuerto="63" />
+    <CuentaYOrden>
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="30-62197317-3" RazonSocial="ADM AGRO S.R.L." CodigoDeSucursal="0" />
+    </Pagadores>
+    <Procedencia CodigoPostal="5847" SubCodigo="2" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588309891" PatenteChasis="PIN992" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="8" Descripcion="Granos picados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="9" Descripcion="Tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Duro">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="12" Descripcion="Color" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Colorado">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="3" Descripcion="Granos dañados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="3.2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="4" Descripcion="Materias extrañas" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.3">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="23" Descripcion="Granos quebrados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.5">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="1" Descripcion="Peso hectolítrico" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="Kg/hl" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="76.2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="20" Descripcion="Grado" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="76" Descripcion="Otro tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+  </Solicitud>
+  <Solicitud Numero="01323712" FechaDeEmision="2020-11-17" FechaIngreso="2020-11-16" FormaPago="1" MuestraDeclarada="MAÍZ" NumeroMuestra="03093158" Precinto1="" Precinto2="" Identificacion="" OtrosDatos="" MuestraLacrada="Si" NumerodeSolicitudReemplazo="" NumerodeSolicitudReconsideracion="" NumeroCondicionCamara="MAI-11320419" FechaTomaDeMuestraDescarga="2020-11-13" CantidadKilosDeclarados="29530" Buque="" Destino="" SiloCelda="" NumeroReciboCliente="000000000000" ContratoVendedor="" ContratoComprador="" NroDeRemitoContable="" NroDeRemitoLacrado="" HonorariosSolicitudRemitoContable="1095.00" HonorariosServicioDeLacrado="">
+    <Matriz Codigo="2" Descripcion="MAÍZ" />
+    <Solicitante CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="101" />
+    <Comprador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    <Vendedor CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+    <PuertoTerminalDeDescargaEmbarque CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDePuerto="3" />
+    <CuentaYOrden>
+      <Cliente CUIT="20-34052086-7" RazonSocial="BONESSI, CRISTIAN DAMIAN" CodigoDeSucursal="0" />
+      <Cliente CUIT="20-34052086-7" RazonSocial="BONESSI, CRISTIAN DAMIAN" CodigoDeSucursal="0" />
+      <Cliente CUIT="30-70546800-8" RazonSocial="AGROTECNOLOGIA Y SERVICIOS S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="30-69853863-1" RazonSocial="CEREALISTA MOLDES S.A." CodigoDeSucursal="0" />
+      <Cliente CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </CuentaYOrden>
+    <Pagadores>
+      <Pagador CUIT="33-50673744-9" RazonSocial="COFCO INTERNATIONAL ARGENTINA S.A." CodigoDeSucursal="3" />
+    </Pagadores>
+    <Procedencia CodigoPostal="" SubCodigo="" />
+    <CamionVagon>
+      <Item NumeroDeCartaDePorte="588448300" PatenteChasis="GRU622" PatenteAcoplado="" NumeroVagon="" />
+    </CamionVagon>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="8" Descripcion="Granos picados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="9" Descripcion="Tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Duro">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="12" Descripcion="Color" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="Colorado">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="3" Descripcion="Granos dañados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="4.2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="4" Descripcion="Materias extrañas" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="23" Descripcion="Granos quebrados" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="1.3">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="1" Descripcion="Peso hectolítrico" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="Kg/hl" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="77.9">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="20" Descripcion="Grado" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="2">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+    <EnsayoTecnica Tecnica="Res. ex-SAGyP 1075/94 - Norma XII ">
+      <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+      <Ensayo Tipo="F" Codigo="76" Descripcion="Otro tipo" />
+      <Variedades />
+      <ResultadosYComponentes>
+        <ResultadoComponente UnidadDeMedida="%" Veredicto="" TextoReconsideracion="">
+          <FueraDeEstandar>No</FueraDeEstandar>
+          <ResultadoDelEnsayo Alfabetico="0.0">
+            <FocoConjuntoNoAplica>No Aplica</FocoConjuntoNoAplica>
+          </ResultadoDelEnsayo>
+          <Reconsideracion></Reconsideracion>
+        </ResultadoComponente>
+      </ResultadosYComponentes>
+    </EnsayoTecnica>
+  </Solicitud>
+</Solicitudes>

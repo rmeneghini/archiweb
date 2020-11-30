@@ -169,13 +169,21 @@ class AnalisisController extends Controller
 				if ($xml === FALSE) {
 					Yii::log("Error importar análisis - No se pudo abrir", CLogger::LEVEL_WARNING, __METHOD__);
 				} else {
-					/*AnalisisController::normalizeSimpleXML($xml, $result);*/
-										
+					$errores = array();
+					/*AnalisisController::normalizeSimpleXML($xml, $result);*/					
+					$campo_conf='conf_import'.$_POST['config'];				
 					foreach ($xml->children() as $solicitud) {
 						$contador = 0;
 						$cartaP = (string) $solicitud->CamionVagon->Item['NumeroDeCartaDePorte'];						
 						$codProducto=(string) $solicitud->Matriz['Codigo'];
+						// Recupero el producto por el cod dependiendo la conf seleccionada
+						$prod = Producto::model()->find($campo_conf.'='.$codProducto);
 						$prodDesc=(string)  $solicitud->Matriz['Descripcion'];
+						if(!$prod){
+							// no se encontro el producto
+							Yii::log("Error importar análisis - No se encontro el producto ".$prodDesc, CLogger::LEVEL_WARNING, __METHOD__);
+							exit();
+						}
 						//<Matriz Codigo="2" Descripcion="MAÍZ" />
 						// si no tiene EnsayoTecnica se toma, sino se ignora
 						foreach ($solicitud->EnsayoTecnica as $ensayoTec) {	
@@ -188,130 +196,58 @@ class AnalisisController extends Controller
 								}					
 							$contador++;							
 							$codRubro = (string) $ensayoTec->Ensayo['Codigo'];
+							// Recupero el rubro por el cod dependiendo la conf seleccionada
+							$rubro = Rubro::model()->find($campo_conf.'='.$codRubro);
 							$valorRubro = (string) $ensayoTec->ResultadosYComponentes->ResultadoComponente->ResultadoDelEnsayo['Alfabetico'];
-							print_r('CP:'.$cartaP.' Cod:'.$codRubro.' Valor:'.$valorRubro);
-							print_r('<br/>');
-						}
-						if($contador >0 ){						
-						print_r('Nro Ensayos:'.$contador);
-						print_r('<br/>');
-						}
-						
-					}					
-				}
-				exit();
-				$errores = array();
-				// recupero los porcentajes min de hum por producto
-				$porc_min = MermasHumedad::getPorcentajesMin();
-				$conf =  Configuracion::singleton();
-				$configuracion = $conf->getAll();
-				$delimitador = $configuracion['delimitador-importacion'];
-				$hoy = strtotime("now");
-				foreach ($archivos_generados as  $nom_arch) {
-					$arch = fopen($nom_arch, 'r');
-					if (!feof($arch)) {
-						fgets($arch, 4096);
-					}
-					while (!feof($arch)) {
-						$linea = explode($delimitador, fgets($arch, 4096));
-						if (count($linea) >= 2) {
-							if ($_POST["formulario"] == 'descarga-form') {
-								/**********************/
-								/*   DESCARGAS    */
-								/**********************/
-								// compruebo que la carta de porte no exista en el sistema	
-								$carta_de_porte = str_pad($linea[1], 9, $configuracion['coompletar_CP'], STR_PAD_LEFT); // se completa con 5 por izq hasta 9
-								$descarga = Descargas::model()->find('carta_porte=' . $carta_de_porte);
-								if ($descarga == null) {
-									$descarga                = new Descargas();
-									//$descarga->fecha_carga	= date("Ymd"); // Fecha del día
-									$descarga->carta_porte	= $carta_de_porte;
-									$fecha = $this->validateDate($linea[4], 'Ymd');
-									$descarga->fecha_carta_porte	= $fecha ? date("Ymd", strtotime($linea[4])) : date("Ymd", $hoy);
-									$descarga->cuit_titular	= $linea[8];
-									$descarga->producto = intval($linea[14]);
-									$descarga->cod_postal = $linea[20];
-									$descarga->kg_brutos_procedencia = intval($linea[21]);
-									$descarga->kg_tara_procedencia = intval($linea[22]);
-									$descarga->kg_netos_procedencia = intval($linea[23]);
-									$descarga->calidad = $linea[25]; // CALIDAD
-									$descarga->porcentaje_humedad = floatval($linea[26]);
-									$descarga->cuit_corredor = $linea[27];
-									$descarga->cuit_destino = $linea[33];
-									$descarga->cuit_destinatario = $linea[31];
-									$descarga->chasis = $linea[39];
-									$descarga->acoplado = $linea[40];
-									$fecha = $this->validateDate($linea[45], 'Ymd');
-									$descarga->fecha_arribo	= $fecha ? date("Ymd", strtotime($linea[45])) : date("Ymd", $hoy);
-									$fecha = $this->validateDate($linea[46], 'Ymd');
-									$descarga->fecha_descarga	= $fecha ? date("Ymd", strtotime($linea[46])) : date("Ymd", $hoy);
-									$descarga->kg_brutos_destino = intval($linea[49]);
-									$descarga->kg_tara_destino = intval($linea[50]);
-									$descarga->kg_netos_destino = intval($linea[51]);
-									$descarga->kg_merma_total = intval($linea[52]);
-									$descarga->neto_aplicable = intval($linea[53]);
-									$descarga->analisis = $linea[54];
-									$descarga->usuario =  Yii::app()->user->id;
-
-									$descarga->cuit_intermediario = $linea[10];
-									$descarga->cuit_remitente_comercial = $linea[12];
-									// calculo otras mermas
-									$descarga->otras_mermas = intval($linea[52]);
-									$descarga->merma_humedad = 0;
-									if ($descarga->porcentaje_humedad == 0 || $descarga->porcentaje_humedad < $porc_min[$descarga->producto]) {
-										$descarga->porcentaje_humedad = $porc_min[$descarga->producto];
-									} else {
-										$mer_hum = MermasHumedad::model()->findByPk(array('producto' => $descarga->producto, 'porcentaje_humedad' => $descarga->porcentaje_humedad));
-										if ($mer_hum) {
-											$descarga->merma_humedad = round(($mer_hum->valor * $descarga->kg_netos_destino) / 100);
-											if ($descarga->otras_mermas > $descarga->merma_humedad) {
-												$descarga->otras_mermas = $descarga->otras_mermas - $descarga->merma_humedad;
-											} else {
-												$descarga->otras_mermas = 0;
-											}
-										} else {
-											Yii::log("Error importar descarga - No se encontro MermasHumedad Prod:" . $descarga->producto . " %: " . $descarga->porcentaje_humedad, CLogger::LEVEL_WARNING, __METHOD__);
-										}
-									}
-
-									set_time_limit(2); // agrego 2 segundo al tiempo limite de ejecucion de query
-									//Yii::log(" A DESCARG: " . var_export($descarga, true), CLogger::LEVEL_WARNING, __METHOD__);
-									if (!$descarga->save()) {
-										// guardo los errores para mostrarlos juntos
-										$errores[$carta_de_porte] = $descarga->getErrors();
-										//Yii::app()->user->setFlash('danger', "Error ".var_export($descarga->getErrors(), true));
-										//Yii::log("Error importar descarga: " . var_export($descarga->getErrors(), true), CLogger::LEVEL_WARNING, __METHOD__);
-									} else {
-										$reg++;
-										//$de = Descargas::model()->findByPk($descarga->id);
-										//Yii::log("POS INSERT: " . var_export($de, true), CLogger::LEVEL_WARNING, __METHOD__);
-									}
+							// Recupero calculo valor
+							$calc_valor = RubroCalculoValor::model()->find('producto='.$prod->id.' AND rubro='.$rubro.' AND valor_desde>='.$valorRubro.' AND '.$valorRubro.'<=valor_hasta');
+							if(!$calc_valor){
+								// VER que hacer si no se encontro el rubro_calculo_valor
+								Yii::log("Error importar análisis - No se encontro el rubro_calc_valor ".$prod->id.' - '.$rubro.' - '.$valorRubro, CLogger::LEVEL_WARNING, __METHOD__);
+							}else{
+								$diferencia = ($calc_valor->diferencia_valor_hasta == 1)? $calc_valor->valor_hasta - $valorRubro : 0; // consultar
+								$calculo =  $diferencia * $calc_valor->castiga_bonifica;
+								$adiciona = $calculo + $calc_valor->adicionar_a_castiga_bonifica;
+								$adiciona = $calc_valor->bonifica==1 ?   $adiciona : $adiciona  * -1;
+								// grabo el analisis
+								$analisis = new Analisis;
+								$analisis->rubro = $rubro;
+								$analisis->carta_porte = $cartaP;
+								$analisis->producto = $prod->id;
+								$analisis->bonifica_rebaja = $adiciona;
+								$analisis->valor = $valorRubro;
+								$analisis->usuario = Yii::app()->user->id;
+								if(!$analisis->save()){
+									$errores[$cartaP] =$analisis->getErrors();
+									Yii::log("Error importar análisis - No pudo insertar ".$analisis->getErrors(), CLogger::LEVEL_WARNING, __METHOD__);
+								}else{
+									$reg++;
 								}
 							}
+							
+							//print_r('CP:'.$cartaP.' Cod:'.$codRubro.' Valor:'.$valorRubro);
+							//print_r('<br/>');
 						}
-					}  /* end while */
-					fclose($arch);
-					unlink($nom_arch);/* borro el archivo temporal q ya fue importado */
-				}/* end foreach*/
-				// compruebo si el arreglo de errores tiene datos
-				if (count($errores) > 0) {
-					$msj = '';
-					//print_r($errores); exit();
-					foreach ($errores as $cp => $err) {
-						foreach ($err as $attr => $msj_err) {
-							$msj .= 'CP: ' . $cp . ' Campo: ' . $attr . '-' . $msj_err[0] . ' </br>';
+						if($contador >0 ){	
+							// reviso el caso especial 
+							// busco si hay un rubro "Peso Hectolitrico" para esta carta de porte de ser así recalculo el rubro Contenido proteico
+							
 						}
-					}
-					Yii::app()->user->setFlash('danger', "Error/es </br>" . $msj);
+						if (count($errores) > 0) {
+							$msj = '';
+							//print_r($errores); exit();
+							foreach ($errores as $cp => $err) {
+								foreach ($err as $attr => $msj_err) {
+									$msj .= 'CP: ' . $cp . ' Campo: ' . $attr . '-' . $msj_err[0] . ' </br>';
+								}
+							}
+							Yii::app()->user->setFlash('danger', "Error/es </br>" . $msj);
+						}
+						Yii::app()->user->setFlash('success', "Se importaron " . $reg . " registros nuevos.");	
+					}					
 				}
-				Yii::app()->user->setFlash('success', "Se importaron " . $reg . " registros nuevos.");
-				// save in runtime folder
-				if (!empty($importoOk)) {
-					Yii::log("### Ctas importadas: " . var_export($importoOk, true), CLogger::LEVEL_WARNING, __METHOD__);
-				}
-				if (!empty($actualizoOk)) {
-					Yii::log("### Ctas actualizadas: " . var_export($actualizoOk, true), CLogger::LEVEL_WARNING, __METHOD__);
-				}
+				
+				
 			}
 		}
 		$this->render('importar', array('model' => $model));

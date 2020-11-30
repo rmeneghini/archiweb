@@ -16,7 +16,7 @@ $this->menu=array(
 <h1>Importar Análisis</h1>
 
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
-	'id'=>'persona-form',
+	'id'=>'analisis-form',
 	'enableAjaxValidation'=>false,
 	'type' => 'horizontal',
 	'htmlOptions' => array('class' => 'well','enctype'=>'multipart/form-data'),
@@ -31,7 +31,7 @@ $this->menu=array(
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="Importar_config">Conf. Importación</label>
 		<div class="col-sm-9">
-	<?php $configs=array(0=>'Estandar',1=>'Conf Importación 1',2=>'Conf Importación 2',3=>'Conf Importación 3');?>
+	<?php $configs=array(1=>'Conf Importación 1',2=>'Conf Importación 2',3=>'Conf Importación 3');?>
 		<?php echo CHtml::dropDownList('config', 0, array(
 							'Configuraciones'=>$configs,
 							),array('class'=>'form-control'));?>
