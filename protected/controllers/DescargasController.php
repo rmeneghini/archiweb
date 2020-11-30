@@ -359,7 +359,7 @@ class DescargasController extends Controller
 									$descarga->cuit_corredor = $linea[27];
 									$descarga->cuit_destino = $linea[33];
 									$descarga->cuit_destinatario = $linea[31];
-									$descarga->chasis = $linea[39];
+									$descarga->chasis = trim($linea[39]);
 									$descarga->acoplado = $linea[40];
 									$fecha = $this->validateDate($linea[45],'Ymd');
 									$descarga->fecha_arribo	= $fecha? date("Ymd",strtotime($linea[45])):date("Ymd",$hoy);

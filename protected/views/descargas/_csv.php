@@ -9,7 +9,7 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('producto'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destinatario'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_destino'));
-	$row[]= CHtml::encode($data->getAttributeLabel('patente'));
+	$row[]= CHtml::encode($data->getAttributeLabel('chasis'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cuit_corredor'));
 	$row[]= CHtml::encode($data->getAttributeLabel('kg_brutos_destino'));
 	$row[]= CHtml::encode($data->getAttributeLabel('kg_tara_destino'));

@@ -189,10 +189,12 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
         )
     )
 )); ?>
+
+
 <?php //echo $form->textFieldGroup($model, 'calidad', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 3)))); ?>
 
     <?php echo $form->dropDownListGroup($model,'calidad',array('widgetOptions'=>array('data'=>Producto::getAnalisisCalidad(),'htmlOptions'=>array()))); ?>
-
+    <?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
     <?php //echo $form->textFieldGroup($model, 'kg_merma_total', array('widgetOptions' => array('htmlOptions' => array()))); ?>
 
 <?php //echo $form->textFieldGroup($model, 'cod_postal', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 6)))); ?>
@@ -207,7 +209,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 <?php //echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
 <?php //echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
 <?php //echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
-<?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
+
 
 
 <?php //echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); ?>

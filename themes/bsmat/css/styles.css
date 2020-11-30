@@ -329,7 +329,7 @@ footer .copyright {
 
 #banner{
 	width: 90%;
-	height: 100px;
+	height: auto;
 	overflow: hidden;
     margin: 80px auto; 
 }
@@ -337,7 +337,6 @@ footer .copyright {
 #banner h1{
 	display: block;
 	color: rgb(76, 76, 76);
-	font-size: 38px;
 	font-weight: normal;
 	letter-spacing: 4px;
     margin: 0px auto;
@@ -350,7 +349,6 @@ footer .copyright {
 
 @keyframes showText{
 	0%{
-		font-size: 32px;
 		transform: translateX(0%) scale(1,1);
 		text-shadow: 2px 2px 1px black;
 		color: white;
@@ -358,7 +356,6 @@ footer .copyright {
 		letter-spacing: 1px;
 	}
 	100%{
-		font-size: 38px;
 		opacity: 1;
 		letter-spacing: 4px;
 	}
@@ -367,8 +364,34 @@ footer .copyright {
 
 @media only screen and (max-width: 914px) {
 	#banner h1{
-		font-size: 28px;
-		margin: 0px auto;
+		font-size: 26px;
+	
+	}
+	@keyframes showText{
+		0%{
+			font-size: 0px;
+		}
+		100%{
+			font-size: 26px;
+		}
+		
+	}
+	
+}
+
+@media only screen and (min-width: 914px) {
+	#banner h1{
+		font-size: 38px;
+	
+	}
+	@keyframes showText{
+		0%{
+			font-size: 0px;
+		}
+		100%{
+			font-size: 38px;
+		}
+		
 	}
 	
 }

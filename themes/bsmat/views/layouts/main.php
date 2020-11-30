@@ -107,6 +107,8 @@
 								<!--p><a href="#">Preguntas Frecuentes</a></p>
 								<p><a href="#">Terminos y Condiciones</a></p-->
 								<p><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/contact">Contacto</a></p>
+								<p><a href='https://wa.me/543582435921/?text=Hola'>WhatsApp</a></p>
+								
 							</div>
 						</div>
 						<div class="col-md-8">							
