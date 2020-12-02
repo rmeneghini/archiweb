@@ -228,11 +228,16 @@ class DescargasController extends Controller
 		$model = new Descargas('search');
 		$model->unsetAttributes();  // clear any default values
 
+		if (isset($_GET['Descargas'])){
+			$model->attributes = $_GET['Descargas'];			
+		}
+
 		$filtro_empresas = null;
 		// segun el rol del usuario le permito ver datos
 		if (!Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id)) {
-			// si no tiene el rol de admin solo vera los que cargo
-			$model->usuario = Yii::app()->user->id;
+			// si no tiene el rol de admin solo vera los que cargo						
+			//$model->usuario = Yii::app()->user->id;
+			//Yii::log(" - PASO - ".var_export(explode(" - ", $model->usuario),true), CLogger::LEVEL_WARNING, __METHOD__);
 		}else if (!Yii::app()->authManager->checkAccess('super', Yii::app()->user->id)) {
 			// si es admin tenemos que filtrar por empresa
 			$usuarioLog = Usuario::model()->findByPk(Yii::app()->user->id);
@@ -247,9 +252,6 @@ class DescargasController extends Controller
 		}
 
 
-		if (isset($_GET['Descargas'])){
-			$model->attributes = $_GET['Descargas'];			
-		}
 
 		if(isset($_GET['export']) && $_GET['export']=='grilla'){
 				// marco como exportado

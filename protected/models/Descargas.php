@@ -124,7 +124,7 @@ class Descargas extends CActiveRecord
 	{
 		return array(
 			'producto0' => array(self::BELONGS_TO, 'Producto', 'producto'),
-			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario','joinType'=>'INNER JOIN'),
+			'usuario0' => array(self::BELONGS_TO, 'Usuario', 'usuario','joinType'=>'INNER JOIN'),		
 			'analisis0' => array(self::HAS_ONE, 'Analisis', array('carta_porte' => 'carta_porte')),
 			'ent_titular' => array(self::BELONGS_TO, 'Entidad', array('cuit_titular' => 'cuit')),
 			'ent_corredor' => array(self::BELONGS_TO, 'Entidad', array('cuit_corredor' => 'cuit')),
@@ -192,8 +192,8 @@ class Descargas extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 		$criteria = new CDbCriteria;
-		$criteria->with = array('ent_titular','ent_corredor','ent_destino','usuario0');
-
+		$criteria->with = array('usuario0','ent_titular','ent_corredor','ent_destino');
+		//Yii::log(" - PASO DESCARGA- ".var_export(explode(" - ", $this->usuario),true), CLogger::LEVEL_WARNING, __METHOD__);
 		$criteria->compare('id', $this->id);
 		if(isset($this->fecha_rango) && $this->fecha_rango != ''){
 			//Yii::log(" - PASO - ".var_export(explode(" - ", $this->fecha_rango),true), CLogger::LEVEL_WARNING, __METHOD__);
@@ -255,7 +255,12 @@ class Descargas extends CActiveRecord
 		}
 		//$criteria->compare('t.usuario', $this->usuario);
 		//filtro usuario
-		$criteria->compare('usuario0.nombre', $this->usuario, true);
+		if (Yii::app()->authManager->checkAccess('admin', Yii::app()->user->id) || Yii::app()->authManager->checkAccess('super', Yii::app()->user->id)){
+			$criteria->compare('usuario0.nombre', $this->usuario, true);
+		}else{
+			$criteria->compare('t.usuario', Yii::app()->user->id);
+		}
+		
 		
 		
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
