@@ -39,7 +39,7 @@
  * @property string $cuit_remitente_comercial
  * @property string $cuit_destinatario
  * @property integer $exportado
- *
+ * @property string $cupo_alfanumerico
  * The followings are the available model relations:
  * @property Producto $producto0
  * @property Usuario $usuario0
@@ -172,7 +172,8 @@ class Descargas extends CActiveRecord
 			'cuit_intermediario' => 'Cuit Intermediario',
 			'cuit_remitente_comercial' => 'Cuit Remitente Comercial',
 			'cuit_destinatario' => 'Cuit Destinatario',	
-			'exportado' => 'Exportado',		
+			'exportado' => 'Exportado',
+            'cupo_alfanumerico' => 'Cupo Alfanumerico',
 		);
 	}
 
@@ -195,7 +196,7 @@ class Descargas extends CActiveRecord
 		$criteria->with = array('usuario0','ent_titular','ent_corredor','ent_destino');
 		//Yii::log(" - PASO DESCARGA- ".var_export(explode(" - ", $this->usuario),true), CLogger::LEVEL_WARNING, __METHOD__);
 		$criteria->compare('id', $this->id);
-		if(isset($this->fecha_rango) && $this->fecha_rango != ''){
+                if(isset($this->fecha_rango) && $this->fecha_rango != ''){
 			//Yii::log(" - PASO - ".var_export(explode(" - ", $this->fecha_rango),true), CLogger::LEVEL_WARNING, __METHOD__);
 			$rango =explode(" - ", $this->fecha_rango);
 			$feDesde=explode("/",$rango[0]);
@@ -236,7 +237,7 @@ class Descargas extends CActiveRecord
 		$criteria->compare('merma_zaranda', $this->merma_zaranda);
 		$criteria->compare('fumigado', $this->fumigado);
 		$criteria->compare('exportado',$this->exportado);
-		
+		$criteria->compare('cupo_alfanumerico',$this->cupo_alfanumerico);
 
 		$criteria->order = 't.fecha_carga DESC';
 

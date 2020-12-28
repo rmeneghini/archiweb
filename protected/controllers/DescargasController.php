@@ -376,7 +376,7 @@ class DescargasController extends Controller {
                                     $descarga->neto_aplicable = intval($linea[53]);
                                     $descarga->analisis = $linea[54];
                                     $descarga->usuario = Yii::app()->user->id;
-
+                                    $descarga->cupo_alfanumerico = $linea[55];
                                     $descarga->cuit_intermediario = $linea[10];
                                     $descarga->cuit_remitente_comercial = $linea[12];
                                     // calculo otras mermas
