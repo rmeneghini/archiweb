@@ -40,6 +40,7 @@
  * @property string $cuit_destinatario
  * @property integer $exportado
  * @property string $cupo_alfanumerico
+ * @property integer $ctg
  * 
  * The followings are the available model relations:
  * @property Producto $producto0
@@ -175,7 +176,7 @@ class Descargas extends CActiveRecord
 			'cuit_destinatario' => 'Cuit Destinatario',	
 			'exportado' => 'Exportado',
 			'cupo_alfanumerico' => 'Cupo Alfanumerico',
-			
+			'ctg' => 'C.T.G',
 		);
 	}
 
@@ -265,7 +266,6 @@ class Descargas extends CActiveRecord
 		}
 		
 		
-		
 		$criteria->compare('analisis_finalizado', $this->analisis_finalizado);
 		$criteria->compare('cuit_intermediario', $this->cuit_intermediario, true);
 		$criteria->compare('cuit_remitente_comercial', $this->cuit_remitente_comercial, true);
@@ -274,21 +274,28 @@ class Descargas extends CActiveRecord
 		$criteria->limit=Yii::app()->params['limit'];
 		
 
-		// en los datos que guardo en la sesion excluyo las descargas cuyas entidades indica q no exportan
+		// Condicional para excluir Exportar="NO"
 		$temp_criteria = clone $criteria;
 		if(empty($temp_criteria->condition)){
 			$temp_criteria->condition .= 't.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
 		}else{
 			$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
 		}
-		//$temp_criteria->condition .= ' AND t.cuit_destino IN (SELECT entidad.cuit FROM entidad WHERE entidad.exportar=1 and entidad.tipo_entidad=3)';// esta hard code el tipo hay q mejorar esto
-		//$temp_criteria->order='t.fecha_carga DESC';
+		
 		$temp_criteria->with = array('analisis0');
 		$temp_criteria->together = true;	
+
 		//$temp_criteria->limit=Yii::app()->params['limit'];
 		Yii::app()->user->setState('export',null);
 		Yii::app()->user->setState('export', new CActiveDataProvider(get_class($this), array('criteria' => $temp_criteria, 'pagination' => false,)));
-				
+			
+
+		// Guardo en session todo, sin excluir Exportar="NO"
+		Yii::app()->user->setState('export_all',null);
+		Yii::app()->user->setState('export_all', new CActiveDataProvider(get_class($this), array('criteria' => $criteria, 'pagination' => false,)));
+		
+
+
 		//Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('pageSize'),true), CLogger::LEVEL_WARNING, __METHOD__);
 		$dataProvider =new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

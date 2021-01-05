@@ -26,6 +26,7 @@
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('analisis')); ?> </th>	
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('fecha_descarga')); ?> </th>
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('cupo_alfanumerico')); ?> </th>
+	<th> <?php echo CHtml::encode($data->getAttributeLabel('ctg')); ?> </th>
 	<th> <?php echo CHtml::encode($data->getAttributeLabel('usuario')); ?> </th>	
 	
 	
@@ -58,5 +59,6 @@
 	<td> <?php echo CHtml::encode($data->analisis); ?></td>
 	<td> <?php echo CHtml::encode($data->fecha_descarga); ?></td>	
 	<td> <?php echo CHtml::encode($data->cupo_alfanumerico); ?></td>
+	<td> <?php echo CHtml::encode($data->ctg); ?></td>
 	<td> <?php echo CHtml::encode($data->usuario0->nombre); ?></td>	
 </tr>

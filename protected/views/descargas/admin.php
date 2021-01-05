@@ -44,9 +44,23 @@ $this->widget(
 );
 ?>
 <?php
-$botones = array(
+
+$btn_view = array(
     'class' => 'booster.widgets.TbButtonColumn',
-    'template' => '{view}{update}{delete}{analisis}',
+    'template' => '{view}',
+    'evaluateID' => true,
+);
+
+$btn_update_delete = array(
+    'class' => 'booster.widgets.TbButtonColumn',
+    'template' => '{update}{delete}',
+    'evaluateID' => true,
+);
+
+
+$btn_analisis = array(
+    'class' => 'booster.widgets.TbButtonColumn',
+    'template' => '{analisis}',
     'evaluateID' => true,
     'buttons' => array
         (
@@ -66,6 +80,8 @@ $botones = array(
     ),
 );
 ?>
+
+
 <?php
 $dateRangePickerOptions = array(
     'locale' => array(
@@ -88,6 +104,7 @@ $this->widget('booster.widgets.TbGridView', array(
     'dataProvider' => $model->search($filtro_empresas),
     'filter' => $model,
     'columns' => array(
+        $btn_view,
         array('name' => 'fecha_rango',
             'header' => 'Fecha de Carga',
             //'type'=>'raw',
@@ -101,21 +118,15 @@ $this->widget('booster.widgets.TbGridView', array(
                 'options' => $dateRangePickerOptions,
                     ),
                     true)),
-        //'id',		
-        //array('name'=>'analisis0','htmlOptions'=>array('class'=>'plus','id'=>'$data->id'),'value'=>'...'	,),
-        //array('name'=>'fecha_carga','value'=>'date("d/m/Y",strtotime($data->fecha_carga))'),
+        array('name' => 'exportado', 'value' => '$data->exportado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         'carta_porte',
         array('name' => 'cuit_titular', 'value' => '$data->cuit_titular == "11111111111"?"":$data->cuit_titular'),
         array('name' => 'ent_titular.razonSocial', 'value' => '$data->ent_titular->razonSocial', 'filter' => CHtml::searchField('Descargas[titular]', $model->titular, array())),
         //array('name'=>'analisis0','value' =>'$data->analisis0 ? "SI": "NO"'),
         array('name' => 'producto', 'value' => '$data->producto0->getProducto()', 'filter' => Producto::getProductos('id')),
-        //'cod_postal',
-        /* 'kg_brutos_procedencia',
-          'kg_tara_procedencia',
-          'kg_netos_procedencia', */
+        //$btn_analisis,
         'calidad',
         'chasis',
-        array('name' => 'exportado', 'value' => '$data->exportado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         'kg_netos_destino',
         'porcentaje_humedad',
         'merma_humedad',
@@ -129,9 +140,7 @@ $this->widget('booster.widgets.TbGridView', array(
         array('name' => 'fumigado', 'value' => '$data->fumigado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         array('name' => 'analisis_finalizado', 'value' => '$data->analisis_finalizado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         array('name' => 'usuario', 'value' => '$data->usuario0->nombre'),
-        array('name' => 'fecha_carta_porte', 'value' => 'date("d/m/Y",strtotime($data->fecha_carta_porte))'),
-        array('name' => 'cupo_alfanumerico', 'value' => '$data->cupo_alfanumerico'),
-        $botones,
+        $btn_update_delete,
     ),
 ));
 ?>

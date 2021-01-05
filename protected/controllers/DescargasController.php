@@ -13,6 +13,7 @@ class DescargasController extends Controller {
      */
     public $parametros = array();
 
+
     /**
      * @return array action filters
      */
@@ -36,13 +37,8 @@ class DescargasController extends Controller {
             ),
             array(
                 'allow',
-                'actions' => array('create', 'importar', 'admin', 'delete'),
+                'actions' => array('create', 'importar', 'admin', 'delete', 'update'),
                 'roles' => array('cliente'),
-            ),
-            array(
-                'allow',
-                'actions' => array('update'),
-                'roles' => array('super'),
             ),
             array(
                 'deny', // deny all users
@@ -213,7 +209,7 @@ class DescargasController extends Controller {
             // si no tiene el rol de admin solo vera los que cargo
             $criteria->compare('usuario', Yii::app()->user->id, true);
         }
-        $dataProvider = new CActiveDataProvider('Descargas', array('criteria' => $criteria));
+        $dataProvider  = new CActiveDataProvider('Descargas', array('criteria' => $criteria));
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
@@ -250,17 +246,14 @@ class DescargasController extends Controller {
             foreach ($usuarioLog->empresas as $empUsu) {
                 $filtro_empresas = array_merge($filtro_empresas, array_map($getId, $empUsu->usuarios));
             }
-            //$filtro_empresas;
         }
 
 
-
         if (isset($_GET['export']) && $_GET['export'] == 'grilla') {
-            // marco como exportado
-            $contenido = $this->renderPartial('excel', array('dataProvider' => Yii::app()->user->getState('export'),), true);
+            $contenido = $this->renderPartial('excel', array('dataProvider' => Yii::app()->user->getState('export_all'),), true);
             Yii::app()->request->sendFile('AW_Descargas.xls', $contenido);
-            Yii::app()->user->clearState('export');
-            Yii::app()->user->setState('export', null);
+            Yii::app()->user->clearState('export_all');
+            Yii::app()->user->setState('export_all', null);
         } else if (isset($_GET['export']) && $_GET['export'] == 'csv') {
             // marco como exportado	
             $conf = Configuracion::singleton();
@@ -376,9 +369,10 @@ class DescargasController extends Controller {
                                     $descarga->neto_aplicable = intval($linea[53]);
                                     $descarga->analisis = $linea[54];
                                     $descarga->usuario = Yii::app()->user->id;
-                                    $descarga->cupo_alfanumerico = $linea[55];
+                                    $descarga->cupo_alfanumerico = $linea[55] == 0 ? " " : $linea[55];
                                     $descarga->cuit_intermediario = $linea[10];
                                     $descarga->cuit_remitente_comercial = $linea[12];
+                                    $descarga->ctg = $linea[7];
                                     // calculo otras mermas
                                     $descarga->otras_mermas = intval($linea[52]);
                                     $descarga->merma_humedad = 0;

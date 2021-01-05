@@ -24,6 +24,7 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('analisis'));//observaciones
 	$row[]= CHtml::encode($data->getAttributeLabel('fecha_descarga'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cupo_alfanumerico'));
+	$row[]= CHtml::encode($data->getAttributeLabel('ctg'));
 
 	fputcsv($fp,$row,$delimitador);	
 }
@@ -52,6 +53,7 @@ if($primero){
 	$row[]= CHtml::encode($data->analisis);
 	$row[]= CHtml::encode($data->fecha_descarga);
 	$row[]= CHtml::encode($data->cupo_alfanumerico);
+	$row[]= CHtml::encode($data->ctg==0 ? " " : $data->ctg);
 	
 	fputcsv($fp,$row,$delimitador,chr(0));
 //}
