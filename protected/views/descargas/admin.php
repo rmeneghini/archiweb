@@ -126,18 +126,9 @@ $this->widget('booster.widgets.TbGridView', array(
         array('name' => 'ent_corredor.razonSocial', 'value' => '$data->ent_corredor?$data->ent_corredor->razonSocial:""', 'filter' => CHtml::searchField('Descargas[corredor]', $model->corredor, array())),
         array('name' => 'cuit_destino', 'value' => '$data->cuit_destino == "11111111111"?"":$data->cuit_destino'),
         array('name' => 'ent_destino.razonSocial', 'value' => '$data->ent_destino->razonSocial', 'filter' => CHtml::searchField('Descargas[destino]', $model->destino, array())),
-        /* 'acoplado',
-          'fecha_arribo',
-          'fecha_descarga',
-          'kg_brutos_destino',
-          'kg_tara_destino', */
-        /* 'kg_merma_total',		
-          'neto_aplicable',
-          'merma_zaranda', */
         array('name' => 'fumigado', 'value' => '$data->fumigado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         array('name' => 'analisis_finalizado', 'value' => '$data->analisis_finalizado ? "SI": "NO"', 'filter' => array('0' => Yii::t('app', 'NO'), '1' => Yii::t('app', 'SI')),),
         array('name' => 'usuario', 'value' => '$data->usuario0->nombre'),
-        //array('name'=>'usuario0.nombre','header'=>'Usuario'),
         array('name' => 'fecha_carta_porte', 'value' => 'date("d/m/Y",strtotime($data->fecha_carta_porte))'),
         array('name' => 'cupo_alfanumerico', 'value' => '$data->cupo_alfanumerico'),
         $botones,

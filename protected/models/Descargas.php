@@ -40,6 +40,7 @@
  * @property string $cuit_destinatario
  * @property integer $exportado
  * @property string $cupo_alfanumerico
+ * 
  * The followings are the available model relations:
  * @property Producto $producto0
  * @property Usuario $usuario0
@@ -98,7 +99,7 @@ class Descargas extends CActiveRecord
 			array('analisis', 'length', 'max' => 120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario, exportado', 'safe', 'on' => 'search'),
+			array('fecha_rango,titular,corredor,destino,id,fecha_carga, carta_porte, fecha_carta_porte, cuit_titular, producto, cod_postal, kg_brutos_procedencia, kg_tara_procedencia, kg_netos_procedencia, calidad, porcentaje_humedad, merma_humedad, cuit_corredor, cuit_destino, chasis, acoplado, fecha_arribo, fecha_descarga, kg_brutos_destino, kg_tara_destino, kg_netos_destino, kg_merma_total, otras_mermas, neto_aplicable, analisis, porcentaje_zaranda, merma_zaranda, fumigado, usuario, analisis_finalizado, cuit_intermediario, cuit_remitente_comercial, cuit_destinatario, exportado, cupo_alfanumerico', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -173,7 +174,8 @@ class Descargas extends CActiveRecord
 			'cuit_remitente_comercial' => 'Cuit Remitente Comercial',
 			'cuit_destinatario' => 'Cuit Destinatario',	
 			'exportado' => 'Exportado',
-            'cupo_alfanumerico' => 'Cupo Alfanumerico',
+			'cupo_alfanumerico' => 'Cupo Alfanumerico',
+			
 		);
 	}
 
