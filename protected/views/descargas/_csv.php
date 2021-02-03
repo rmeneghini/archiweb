@@ -20,11 +20,11 @@ if($primero){
 	$row[]= CHtml::encode($data->getAttributeLabel('merma_zaranda'));
 	$row[]= CHtml::encode($data->getAttributeLabel('otras_mermas'));
 	$row[]= CHtml::encode($data->getAttributeLabel('analisis_finalizado'));
-	$row[]= CHtml::encode($data->getAttributeLabel('fumigado'));
+	$row[]= CHtml::encode($data->getAttributeLabel('fumigado')); 
 	$row[]= CHtml::encode($data->getAttributeLabel('analisis'));//observaciones
 	$row[]= CHtml::encode($data->getAttributeLabel('fecha_descarga'));
 	$row[]= CHtml::encode($data->getAttributeLabel('cupo_alfanumerico'));
-	$row[]= CHtml::encode($data->getAttributeLabel('ctg'));
+	$row[]= CHtml::encode($data->getAttributeLabel('ctg')); 
 
 	fputcsv($fp,$row,$delimitador);	
 }

@@ -8,10 +8,26 @@
 <p class="help-block">Los campos indicados con <span class="required">*</span> son requeridos.</p>
 <?php echo $form->errorSummary($model); ?>
 <?php
-echo $form->datePickerGroup($model, 'fecha_carga', array('widgetOptions' => array('options' => array('format'=>'dd/mm/yyyy','endDate' => '-1Y', 'todayHighlight' => true), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',));
+echo $form->datePickerGroup(
+    $model,
+    'fecha_carga',
+    array(
+        'widgetOptions' => array(
+            'options' => array(
+                'format' => 'dd/mm/yyyy', 'endDate' => '-1Y', 'todayHighlight' => true
+            ), 'htmlOptions' => array()
+        ),
+        'wrapperHtmlOptions' => array(
+            'class' => 'col-sm-5',
+        ),
+        'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',
+    )
+);
 ?>
+
 <?php echo $form->textFieldGroup($model, 'carta_porte', array('widgetOptions' => array('htmlOptions' => array()))); ?>
-<?php //echo $form->textFieldGroup($model, 'ctg', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 8)))); ?>
+<?php //echo $form->textFieldGroup($model, 'ctg', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 8)))); 
+?>
 <?php echo $form->datePickerGroup($model, 'fecha_carta_porte', array('widgetOptions' => array('options' => array('endDate' => '-1Y', 'todayHighlight' => true), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
 <?php //echo $form->textFieldGroup($model,'cuit_titular',array('widgetOptions'=>array('htmlOptions'=>array()))); 
 ?>
@@ -58,17 +74,18 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     ),
 ));
 
-$this->renderPartial('/entidad/_select', array('model' => $modelEntidadTitular, 'dataProvider' => $modelEntidadTitular->search('TITULAR'), 'filas' => 1,'grid_name'=>'entidad-grid-titular'));
+$this->renderPartial('/entidad/_select', array('model' => $modelEntidadTitular, 'dataProvider' => $modelEntidadTitular->search('TITULAR'), 'filas' => 1, 'grid_name' => 'entidad-grid-titular'));
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
-<?php $htmlOptions=array('ajax'=>array(
-                            		'url'=>$this->createUrl('producto/calidadesPorProducto'),
-                            		'type'=>'POST',
-                            		'update'=>'#Descargas_calidad',
-                        			),
-								'class'=>'form-control',
-                    );
-                ?>
+<?php $htmlOptions = array(
+    'ajax' => array(
+        'url' => $this->createUrl('producto/calidadesPorProducto'),
+        'type' => 'POST',
+        'update' => '#Descargas_calidad',
+    ),
+    'class' => 'form-control',
+);
+?>
 <?php echo $form->dropDownListGroup($model, 'producto', array('widgetOptions' => array('data' => Producto::getProductos('id'), 'htmlOptions' => $htmlOptions))); ?>
 
 <?php
@@ -103,7 +120,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     ),
 ));
 
-$this->renderPartial('/entidad/_select', array('model' => $modelEntidadCorredor, 'dataProvider' => $modelEntidadCorredor->search('CORREDOR'), 'filas' => 1,'grid_name'=>'entidad-grid-corredor'));
+$this->renderPartial('/entidad/_select', array('model' => $modelEntidadCorredor, 'dataProvider' => $modelEntidadCorredor->search('CORREDOR'), 'filas' => 1, 'grid_name' => 'entidad-grid-corredor'));
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 
@@ -139,7 +156,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     ),
 ));
 
-$this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name'=>'entidad-grid-destino'));
+$this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name' => 'entidad-grid-destino'));
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 <?php echo $form->textFieldGroup($model, 'chasis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
@@ -192,30 +209,42 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 )); ?>
 
 
-<?php //echo $form->textFieldGroup($model, 'calidad', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 3)))); ?>
+<?php //echo $form->textFieldGroup($model, 'calidad', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 3)))); 
+?>
 
-    <?php echo $form->dropDownListGroup($model,'calidad',array('widgetOptions'=>array('data'=>Producto::getAnalisisCalidad(),'htmlOptions'=>array()))); ?>
-    <?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
-    
-    <?php //echo $form->textFieldGroup($model, 'kg_merma_total', array('widgetOptions' => array('htmlOptions' => array()))); ?>
+<?php echo $form->dropDownListGroup($model, 'calidad', array('widgetOptions' => array('data' => Producto::getAnalisisCalidad(), 'htmlOptions' => array()))); ?>
+<?php echo $form->textFieldGroup($model, 'analisis', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 110)))); ?>
 
-<?php //echo $form->textFieldGroup($model, 'cod_postal', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 6)))); ?>
+<?php //echo $form->textFieldGroup($model, 'kg_merma_total', array('widgetOptions' => array('htmlOptions' => array()))); 
+?>
+
+<?php //echo $form->textFieldGroup($model, 'cod_postal', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 6)))); 
+?>
 <?php /*echo $form->textFieldGroup($model, 'kg_brutos_procedencia', array('widgetOptions' => array('htmlOptions' => array(
     'onChange' => ' jQuery("#Descargas_kg_netos_procedencia").val(jQuery("#Descargas_kg_brutos_procedencia").val()-jQuery("#Descargas_kg_tara_procedencia").val());'
 ))));  */ ?>
 <?php /* echo $form->textFieldGroup($model, 'kg_tara_procedencia', array('widgetOptions' => array('htmlOptions' => array(
     'onChange' => ' jQuery("#Descargas_kg_netos_procedencia").val(jQuery("#Descargas_kg_brutos_procedencia").val()-jQuery("#Descargas_kg_tara_procedencia").val());'
 )))); */ ?>
-<?php //echo $form->textFieldGroup($model, 'kg_netos_procedencia', array('widgetOptions' => array('htmlOptions' => array('readOnly' => true))));  ?>
+<?php //echo $form->textFieldGroup($model, 'kg_netos_procedencia', array('widgetOptions' => array('htmlOptions' => array('readOnly' => true))));  
+?>
 
-<?php //echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); ?>
-<?php //echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
-<?php //echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); ?>
+<?php //echo $form->textFieldGroup($model, 'acoplado', array('widgetOptions' => array('htmlOptions' => array('maxlength' => 7)))); 
+?>
+<?php //echo $form->datePickerGroup($model, 'fecha_arribo', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); 
+?>
+<?php //echo $form->datePickerGroup($model, 'fecha_descarga', array('widgetOptions' => array('options' => array(), 'htmlOptions' => array()), 'prepend' => '<i class="glyphicon glyphicon-calendar"></i>',)); 
+?>
 
 
 
-<?php //echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); ?>
-<?php //echo $form->textFieldGroup($model, 'cuit_remitente_comercial', array('widgetOptions' => array('htmlOptions' => array()))); ?>
+<?php //echo $form->textFieldGroup($model, 'cuit_intermediario', array('widgetOptions' => array('htmlOptions' => array()))); 
+?>
+<?php //echo $form->textFieldGroup($model, 'cuit_remitente_comercial', array('widgetOptions' => array('htmlOptions' => array()))); 
+?>
+
+<?php echo $form->fileFieldGroup($model, 'img_cartaporte', array()); 
+?>
 
 
 <div class="form-actions">

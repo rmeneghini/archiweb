@@ -367,9 +367,9 @@ class DescargasController extends Controller {
                                     $descarga->kg_netos_destino = intval($linea[51]);
                                     $descarga->kg_merma_total = intval($linea[52]);
                                     $descarga->neto_aplicable = intval($linea[53]);
-                                    $descarga->analisis = $linea[54];
+                                    $descarga->analisis = trim($linea[54]);
                                     $descarga->usuario = Yii::app()->user->id;
-                                    $descarga->cupo_alfanumerico = $linea[55] == 0 ? " " : $linea[55];
+                                    $descarga->cupo_alfanumerico = trim($linea[55]);
                                     $descarga->cuit_intermediario = $linea[10];
                                     $descarga->cuit_remitente_comercial = $linea[12];
                                     $descarga->ctg = $linea[7];
