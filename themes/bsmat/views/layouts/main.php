@@ -33,7 +33,8 @@
 					
 					//'brand' => Yii::app()->name,
 					'brand' => CHtml::image(
-						Yii::app()->getBaseUrl() . '/images/aw-favicon.png', 
+						//Yii::app()->getBaseUrl() . '/images/aw-favicon.png', 
+						Yii::app()->request->baseUrl.'/images/aw-favicon.png',
 						'logo', array(
 							'style' => 'display: inline',
 							'width' => '35px',

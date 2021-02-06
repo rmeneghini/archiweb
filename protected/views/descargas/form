@@ -1,0 +1,143 @@
+<?php
+    // muestro el input para seleccionar el titular desde entidades        
+    $onClickbuscarTitular = "jQuery('#buscarTitular').dialog('open'); return false;";
+    echo $form->textFieldGroup($model, 'cuit_titular', array('widgetOptions' => array('htmlOptions' => array('readonly' => 'readonly')), 'prepend' => '<span id="nombre_titular"></span>', 'append' => '<i style="cursor:pointer;" class="glyphicon glyphicon-search" onclick="' . $onClickbuscarTitular . '"></i>'));
+
+    Yii::app()->clientScript->registerScript('sel_titular', "
+                $('#Descargas_cuit_titular').change(function() {
+                    //console.log(this.value);                
+                    /*$.fn.yiiGridView.update('materia-grid', {
+                            data: $(this).serialize()
+                    });*/            
+                    return false;
+                });
+            ");
+
+
+    // El siguiente código es para mostrar el visual assit        
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'buscarTitular',
+        'options' => array(
+            'title' => 'Seleccionar Titular',
+            'width' => '52%',
+            'height' => '470',
+            'autoOpen' => false,
+            'resizable' => true,
+            'modal' => true,
+            'overlay' => array(
+                'backgroundColor' => '#000',
+                'opacity' => '0.5'
+            ),
+            'buttons' => array(
+                'OK' => 'js:function(){                                                       
+                                        //$("#Descargas_cuit_titular").val(jQuery.fn.yiiGridView.getChecked("entidad-grid-titular", "chk"));
+                                        $("#Descargas_cuit_titular").val(jQuery((jQuery("#entidad-grid-titular table tbody tr.selected").children()[1])).html());
+                                        $("#nombre_titular").html(jQuery((jQuery("#entidad-grid-titular table tbody tr.selected").children()[2])).html());                                                                        
+                                        //$("#Descargas_cuit_titular").change();
+                                        $(this).dialog("close");
+                                    }',
+                'Cancel' => 'js:function(){$(this).dialog("close");}',
+            ),
+        ),
+    ));
+
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadTitular, 'dataProvider' => $modelEntidadTitular->search('TITULAR'), 'filas' => 1, 'grid_name' => 'entidad-grid-titular'));
+    $this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+    $htmlOptions = array(
+        'ajax' => array(
+            'url' => $this->createUrl('producto/calidadesPorProducto'),
+            'type' => 'POST',
+            'update' => '#Descargas_calidad',
+        ),
+        'class' => 'form-control',
+    );
+?>
+
+<?php echo $form->dropDownListGroup($model, 'producto', array('widgetOptions' => array('data' => Producto::getProductos('id'), 'htmlOptions' => $htmlOptions))); ?>
+
+<?php
+    // muestro el input para seleccionar el corredor desde entidades        
+    $onClickbuscarCorredor = "jQuery('#buscarCorredor').dialog('open'); return false;";
+    echo $form->textFieldGroup($model, 'cuit_corredor', array('widgetOptions' => array('htmlOptions' => array('readonly' => 'readonly')), 'prepend' => '<span id="nombre_corredor"></span>', 'append' => '<i style="cursor:pointer;" class="glyphicon glyphicon-search" onclick="' . $onClickbuscarCorredor . '"></i>'));
+
+    // El siguiente código es para mostrar el visual assit        
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'buscarCorredor',
+        'options' => array(
+            'title' => 'Seleccionar Corredor',
+            'width' => '52%',
+            'height' => '470',
+            'autoOpen' => false,
+            'resizable' => true,
+            'modal' => true,
+            'overlay' => array(
+                'backgroundColor' => '#000',
+                'opacity' => '0.5'
+            ),
+            'buttons' => array(
+                'OK' => 'js:function(){                                                       
+                                        //$("#Descargas_cuit_corredor").val(jQuery.fn.yiiGridView.getChecked("entidad-grid-corredor", "chk"));
+                                        $("#Descargas_cuit_corredor").val(jQuery((jQuery("#entidad-grid-corredor table tbody tr.selected").children()[1])).html());
+                                        $("#nombre_corredor").html(jQuery((jQuery("#entidad-grid-corredor table tbody tr.selected").children()[2])).html());
+                                    
+                                        $(this).dialog("close");
+                                    }',
+                'Cancel' => 'js:function(){$(this).dialog("close");}',
+            ),
+        ),
+    ));
+
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadCorredor, 'dataProvider' => $modelEntidadCorredor->search('CORREDOR'), 'filas' => 1, 'grid_name' => 'entidad-grid-corredor'));
+    $this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
+
+<?php
+    // muestro el input para seleccionar el destino desde entidades        
+    $onClickbuscarDestino = "jQuery('#buscarDestino').dialog('open'); return false;";
+    echo $form->textFieldGroup($model, 'cuit_destino', array('widgetOptions' => array('htmlOptions' => array('readonly' => 'readonly')), 'prepend' => '<span id="nombre_destino"></span>', 'append' => '<i style="cursor:pointer;" class="glyphicon glyphicon-search" onclick="' . $onClickbuscarDestino . '"></i>'));
+
+    // El siguiente código es para mostrar el visual assit        
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'buscarDestino',
+        'options' => array(
+            'title' => 'Seleccionar Destino',
+            'width' => '52%',
+            'height' => '470',
+            'autoOpen' => false,
+            'resizable' => true,
+            'modal' => true,
+            'overlay' => array(
+                'backgroundColor' => '#000',
+                'opacity' => '0.5'
+            ),
+            'buttons' => array(
+                'OK' => 'js:function(){                                                       
+                                        //$("#Descargas_cuit_destino").val(jQuery.fn.yiiGridView.getChecked("entidad-grid-destino", "chk"));
+                                        $("#Descargas_cuit_destino").val(jQuery((jQuery("#entidad-grid-destino table tbody tr.selected").children()[1])).html());
+                                        $("#nombre_destino").html(jQuery((jQuery("#entidad-grid-destino table tbody tr.selected").children()[2])).html());
+                                    
+                                        $(this).dialog("close");
+                                    }',
+                'Cancel' => 'js:function(){$(this).dialog("close");}',
+            ),
+        ),
+    ));
+
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name' => 'entidad-grid-destino'));
+    $this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
