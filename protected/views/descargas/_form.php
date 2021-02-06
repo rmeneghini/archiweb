@@ -72,47 +72,9 @@ echo $form->datePickerGroup(
         ),
     ));
 
-   // $this->renderPartial('/entidad/_select', array('model' => $modelEntidadTitular, 'dataProvider' => $modelEntidadTitular->search('TITULAR'), 'filas' => 1, 'grid_name' => 'entidad-grid-titular'));
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadTitular, 'dataProvider' => $modelEntidadTitular->search('TITULAR'), 'filas' => 1, 'grid_name' => 'entidad-grid-titular'));
     $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
-
-<?php
-    // muestro el input para seleccionar el destino desde entidades        
-    $onClickbuscarDestino = "jQuery('#buscarDestino').dialog('open'); return false;";
-    echo $form->textFieldGroup($model, 'cuit_destino', array('widgetOptions' => array('htmlOptions' => array('readonly' => 'readonly')), 'prepend' => '<span id="nombre_destino"></span>', 'append' => '<i style="cursor:pointer;" class="glyphicon glyphicon-search" onclick="' . $onClickbuscarDestino . '"></i>'));
-
-    // El siguiente código es para mostrar el visual assit        
-    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-        'id' => 'buscarDestino',
-        'options' => array(
-            'title' => 'Seleccionar Destino',
-            'width' => '52%',
-            'height' => '470',
-            'autoOpen' => false,
-            'resizable' => true,
-            'modal' => true,
-            'overlay' => array(
-                'backgroundColor' => '#000',
-                'opacity' => '0.5'
-            ),
-            'buttons' => array(
-                'OK' => 'js:function(){                                                       
-                                        //$("#Descargas_cuit_destino").val(jQuery.fn.yiiGridView.getChecked("entidad-grid-destino", "chk"));
-                                        $("#Descargas_cuit_destino").val(jQuery((jQuery("#entidad-grid-destino table tbody tr.selected").children()[1])).html());
-                                        $("#nombre_destino").html(jQuery((jQuery("#entidad-grid-destino table tbody tr.selected").children()[2])).html());
-                                    
-                                        $(this).dialog("close");
-                                    }',
-                'Cancel' => 'js:function(){$(this).dialog("close");}',
-            ),
-        ),
-    ));
-
-    //$this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name' => 'entidad-grid-destino'));
-    
-    $this->endWidget('zii.widgets.jui.CJuiDialog');
-?>
-
 
 <?php
     // muestro el input para seleccionar el corredor desde entidades        
@@ -146,7 +108,7 @@ echo $form->datePickerGroup(
         ),
     ));
 
-    //$this->renderPartial('/entidad/_select', array('model' => $modelEntidadCorredor, 'dataProvider' => $modelEntidadCorredor->search('CORREDOR'), 'filas' => 1, 'grid_name' => 'entidad-grid-corredor'));
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadCorredor, 'dataProvider' => $modelEntidadCorredor->search('CORREDOR'), 'filas' => 1, 'grid_name' => 'entidad-grid-corredor'));
     $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 
@@ -182,7 +144,7 @@ echo $form->datePickerGroup(
         ),
     ));
 
-   // $this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name' => 'entidad-grid-destino'));
+    $this->renderPartial('/entidad/_select', array('model' => $modelEntidadDestino, 'dataProvider' => $modelEntidadDestino->search('DESTINO FINAL'), 'filas' => 1, 'grid_name' => 'entidad-grid-destino'));
     $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 
