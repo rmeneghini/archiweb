@@ -1,15 +1,14 @@
 <?php 
 if($primero){
 	$row = array();	
-	$row[]= CHtml::encode($data->analisis0->getAttributeLabel('carta_porte'));
-	$row[]= CHtml::encode($data->analisis0->getAttributeLabel('rubro'));
+	$row[]= CHtml::encode('Carta Porte');
+	$row[]= CHtml::encode('Rubro');
 	$row[]= CHtml::encode('Descripción');
-	$row[]= CHtml::encode($data->analisis0->getAttributeLabel('valor'));
-	$row[]= CHtml::encode($data->analisis0->getAttributeLabel('bonifica_rebaja'));
+	$row[]= CHtml::encode('Valor');
+	$row[]= CHtml::encode('Bonifica Rebaja');
 	fputcsv($fpa,$row,$delimitador);	
 }
 if($data->analisis0){
-//foreach ($data->cuotas as $cuota){
 	$row = array();
 	$row[]= CHtml::encode($data->analisis0->carta_porte);
 	$row[]= CHtml::encode($data->analisis0->rubro);
@@ -19,5 +18,4 @@ if($data->analisis0){
 	
 	fputcsv($fpa,$row,$delimitador,chr(0));
 }
-//}
 ?>

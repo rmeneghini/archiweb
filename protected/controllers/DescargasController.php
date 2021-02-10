@@ -254,6 +254,7 @@ class DescargasController extends Controller {
             Yii::app()->request->sendFile('AW_Descargas.xls', $contenido);
             Yii::app()->user->clearState('export_all');
             Yii::app()->user->setState('export_all', null);
+
         } else if (isset($_GET['export']) && $_GET['export'] == 'csv') {
             // marco como exportado	
             $conf = Configuracion::singleton();
@@ -262,24 +263,27 @@ class DescargasController extends Controller {
             $contenido = $this->renderPartial('csv', array('dataProvider' => Yii::app()->user->getState('export'), 'delimitador' => $delimitador), true);
 
             Yii::app()->request->sendFile('AW_Descargas.csv', Yii::app()->user->getState('exportCSV'), null, false);
-            //Yii::app()->user->clearState('exportCSV',null);	
-            //Analisis
-            //Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('export')->getData(),true), CLogger::LEVEL_WARNING, __METHOD__);
-            $contenido = $this->renderPartial('csv_analisis', array('dataProvider' => Yii::app()->user->getState('export'), 'delimitador' => $delimitador), true);
-            //Yii::app()->request->sendFile('AW_Analisis.csv',Yii::app()->user->getState('export_analisisCSV'));
-            //Yii::app()->user->clearState('export_analisisCSV',null);	
-            //Yii::app()->user->clearStates();	
+            
+            //Los que exporte en descargas voy a exportar en Analisis
+            Yii::app()->user->setState('exportCSVanalis',Yii::app()->user->getState('export'));
+            	
         } else if (isset($_GET['export']) && $_GET['export'] == 'csv-a') {
-            // marco como exportado	
+            
             $conf = Configuracion::singleton();
             $configuracion = $conf->getAll();
             $delimitador = $configuracion['delimitador-csv'];
-            //Analisis
-            //Yii::log(" - PASO - ".var_export(Yii::app()->user->getState('export')->getData(),true), CLogger::LEVEL_WARNING, __METHOD__);
-            $contenido = $this->renderPartial('csv_analisis', array('dataProvider' => Yii::app()->user->getState('export'), 'delimitador' => $delimitador), true);
+
+            if (is_null(Yii::app()->user->getState('exportCSVanalis'))){
+                $contenido = $this->renderPartial('csv_analisis', array('dataProvider' => Yii::app()->user->getState('export'), 'delimitador' => $delimitador), true);
+            }else{
+                $contenido = $this->renderPartial('csv_analisis', array('dataProvider' => Yii::app()->user->getState('exportCSVanalis'), 'delimitador' => $delimitador), true);
+            }
+            
+           
+            
             Yii::app()->request->sendFile('AW_Analisis.csv', Yii::app()->user->getState('export_analisisCSV'));
-            //Yii::app()->user->clearState('export_analisisCSV',null);	
-            //Yii::app()->user->clearStates();	
+
+            Yii::app()->user->setState('exportCSVanalis',null);
         }
 
 
