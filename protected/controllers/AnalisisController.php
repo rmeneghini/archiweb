@@ -171,7 +171,12 @@ class AnalisisController extends Controller
 				} else {
 					$errores = array();
 					/*AnalisisController::normalizeSimpleXML($xml, $result);*/					
-					$campo_conf='conf_import'.$_POST['config'];				
+					$campo_conf='conf_import'.$_POST['config'];	
+					// arreglos con los cod dep de la conf de corredor, a futuro pasar a otra funcion
+					$codigos_peso_hectlitrico 	= [1=>1,2=>null,3=>null];
+					$codigos_conte_proteico 	= [1=>27,2=>null,3=>null];
+
+
 					foreach ($xml->children() as $solicitud) {
 						$contador = 0;
 						$cartaP = (string) $solicitud->CamionVagon->Item['NumeroDeCartaDePorte'];						
@@ -185,6 +190,9 @@ class AnalisisController extends Controller
 							exit();
 						}
 						//<Matriz Codigo="2" Descripcion="MAÍZ" />
+						//defino dos variables logicas para indicar si el el caso especial Peso Hecto y su valor es mayor igual a 75 y otra para ver si es Conte Pro
+						$caso_peso_hect = false;
+						$cont_proteico = 0;// guardo el id para luego actualizarlo
 						// si no tiene EnsayoTecnica se toma, sino se ignora
 						foreach ($solicitud->EnsayoTecnica as $ensayoTec) {	
 							if($contador == 0 ){
@@ -200,15 +208,33 @@ class AnalisisController extends Controller
 							$rubro = Rubro::model()->find($campo_conf.'='.$codRubro);
 							$valorRubro = (string) $ensayoTec->ResultadosYComponentes->ResultadoComponente->ResultadoDelEnsayo['Alfabetico'];
 							// Recupero calculo valor
-							$calc_valor = RubroCalculoValor::model()->find('producto='.$prod->id.' AND rubro='.$rubro.' AND valor_desde>='.$valorRubro.' AND '.$valorRubro.'<=valor_hasta');
+							$calc_valor = RubroCalculoValor::model()->find('producto='.$prod->id.' AND rubro='.$rubro.' AND valor_desde>'.$valorRubro.' AND '.$valorRubro.'=<valor_hasta');
 							if(!$calc_valor){
 								// VER que hacer si no se encontro el rubro_calculo_valor
 								Yii::log("Error importar análisis - No se encontro el rubro_calc_valor ".$prod->id.' - '.$rubro.' - '.$valorRubro, CLogger::LEVEL_WARNING, __METHOD__);
 							}else{
+								// guardo en una variable el valor de castiga_bonifica si entra por el caso especial la sobreescribo con cero
+								$mult_castiga_bonifica = $calc_valor->castiga_bonifica;
+
+								if($codigos_peso_hectlitrico[$_POST['config']]==$rubro && $valorRubro >= 75){
+									// prendo el flag
+									$caso_peso_hect = true;
+								}
+								//Cond especial si el Conte. Prot es mayor a 11 y el Peso Hecto es mayor o igual a 75, toma castiga_bonifica de la tabla, si es menor a 75 castiga_bonifica es cero
+								if($codigos_conte_proteico[$_POST['config']]==$rubro  && $valorRubro > 11){
+									// Estoy analizando Contenido Proteico y el valor es mayor a 11
+									if($caso_peso_hect){
+										// es el caso especial que el peso hect es mayor o igual a 75 
+										$mult_castiga_bonifica=0; //NO BONIFICA
+									}
+								}
+
+
 								$diferencia = ($calc_valor->diferencia_valor_hasta == 1)? $calc_valor->valor_hasta - $valorRubro : 0; // consultar
-								$calculo =  $diferencia * $calc_valor->castiga_bonifica;
+								$calculo =  $diferencia * $mult_castiga_bonifica;
 								$adiciona = $calculo + $calc_valor->adicionar_a_castiga_bonifica;
-								$adiciona = $calc_valor->bonifica==1 ?   $adiciona : $adiciona  * -1;
+								$adiciona = $calc_valor->bonifica==1 ?   $adiciona : $adiciona  * -1;								
+								
 								// grabo el analisis
 								$analisis = new Analisis;
 								$analisis->rubro = $rubro;
@@ -221,6 +247,10 @@ class AnalisisController extends Controller
 									$errores[$cartaP] =$analisis->getErrors();
 									Yii::log("Error importar análisis - No pudo insertar ".$analisis->getErrors(), CLogger::LEVEL_WARNING, __METHOD__);
 								}else{
+									if($codigos_conte_proteico[$_POST['config']]==$rubro && !$caso_peso_hect){
+										// Estoy analizando Contenido Proteico y aun no analice peso hecto, por lo que guardo el ID
+										$cont_proteico = $analisis->id;
+									}
 									$reg++;
 								}
 							}
@@ -230,7 +260,15 @@ class AnalisisController extends Controller
 						}
 						if($contador >0 ){	
 							// reviso el caso especial 
-							// busco si hay un rubro "Peso Hectolitrico" para esta carta de porte de ser así recalculo el rubro Contenido proteico
+							// si llegue a esta punto y las dos variables estan en true y distinta de cero es pq analice primero Conte Proteico y luego Peso Hecto y además este último su valor es mayor o igual a 75
+							if($caso_peso_hect && $cont_proteico!=0){
+								// recalculo
+							}
+							// busco si hay un rubro "Peso Hectolitrico" para esta carta de porte de ser así recalculo el rubro Contenido proteico. Si el valor de Peso Hect es menor a 75 el campo bonifica es cero
+							// para la configuración 1 el cód también es 1
+							
+							//$_POST['config']
+							
 							
 						}
 						if (count($errores) > 0) {
